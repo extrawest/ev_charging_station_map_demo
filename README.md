@@ -9,46 +9,6 @@
 
 A new Flutter application starter bundled with BLoC library for state management.
 
-## 1. Setup Tutorial
-
-In order to use this starter in your project, do the following step-by-step:
-
-**1. Clone this repo to your folder:**
-
-`git clone https://gitlab.extrawest.com/andriy.gulak/flutter_bloc_project_starter.git`
-
-**2. Change directory to the previously cloned folder**
-
-`cd flutter_bloc_project_starter/ `
-
-**3. Remove existing .git folder**
-
-`rm -rf .git `
-
-**4. [Change the app name, package name and bundleId (Android & iOS)](https://gitlab.extrawest.com/internal/knowledge-base/-/blob/master/mobile-dev/flutter/tips_and_tricks.md)** -- Follow **Change the app name, package name and bundleId (Flutter, Android & iOS)** section
-
-**4.1  Remove this 'Setup Tutorial' section from the README.md file. Leave only what's related to 'Instructions on how to build, run and config' section below**
-
-**5. Initialize empty folder with git**
-
-`git init`
-
-**6. Set remote url to your empty repository**
-
-`git remote add origin https://gitlab.extrawest.com/user.name/your_empty_repository.git`
-
-**7. Add all files to git**
-
-`git add .`
-
-**8. Commit all the files with 'initial commit' commit message**
-
-`git commit -m "initial commit"`
-
-**9. Push to remote repository**
-
-`git push -u origin main`
-
 ## Instructions on how to build, run and config
 ## Localization
 
