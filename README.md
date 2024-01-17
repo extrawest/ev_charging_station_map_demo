@@ -115,7 +115,7 @@ flutter run --falvor=prod
 - For Web: `--dart-define FLAVOR=prod`
 
 ```shell
-flutter run --dart-define FLAVOR=prod
+fvm flutter run --dart-define FLAVOR=prod -d chrome
 ```
 
 
