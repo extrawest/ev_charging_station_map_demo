@@ -1,0 +1,32 @@
+before_script:
+  - flutter pub add --dev dart_code_metrics
+  - flutter pub get
+  - flutter clean
+  - flutter --version
+
+# List of stages for jobs, and their order of execution
+stages:
+  - test
+
+code-analysis-job:
+  stage: test
+  image: ghcr.io/cirruslabs/flutter:3.16.2
+  script:
+    - echo "Run `flutter analyze`"
+    - flutter analyze
+  only:
+    - merge_requests
+
+code_quality:
+  stage: test
+  image: ghcr.io/cirruslabs/flutter:3.16.2
+  before_script:
+    - flutter pub global activate dart_code_metrics
+    - export PATH="$PATH:$HOME/.pub-cache/bin"
+  script:
+    - metrics lib -r codeclimate  > gl-code-quality-report.json
+  artifacts:
+    reports:
+      codequality: gl-code-quality-report.json
+  only:
+    - merge_requests
