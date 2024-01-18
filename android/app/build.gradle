@@ -90,9 +90,8 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
-        manifestPlaceholders = [
+        manifestPlaceholders +=  [
                 'ANDROID_KEY'  : dartEnvironmentVariables.ANDROID_KEY,
-                applicationName: "com.extrawest.samoilenko_maps_app"
         ]
     }
 

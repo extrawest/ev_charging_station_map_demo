@@ -118,6 +118,20 @@ flutter run --falvor=prod
 fvm flutter run --dart-define FLAVOR=prod -d chrome
 ```
 
+To run app on Android device with dynamic GoogleMapKey use and in flavour Prod:
+```shell
+flutter run --dart-define ANDROID_KEY="YOUR_GOOGLE_MAP_KEY" --flavor=prod
+```
+To run app on IOS device with dynamic GoogleMapKey use and in flavour Prod:
+```shell
+flutter run --dart-define IOS_KEY="YOUR_GOOGLE_MAP_KEY" --flavor=prod
+```
+To run app in Web Browser with dynamic GoogleMapKey use and in flavour Prod:
+```shell
+flutter run  -d chrome --dart-define WEB_KEY="YOUR_WEB_MAP_KEY" --dart-define FLAVOR=prod
+```
+
+
 
 Important! To create the production build of the app you should also provider an
 additional flavor argument:

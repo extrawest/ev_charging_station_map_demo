@@ -13,7 +13,7 @@ class Application extends StatelessWidget {
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, state) {
         return MaterialApp.router(
-          title: 'Flutter BLoC Starter',
+          title: 'Samoilenko Maps App',
           routerConfig: goRouter,
           darkTheme: darkTheme,
           theme: state.themeData,

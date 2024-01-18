@@ -1,0 +1,203 @@
+drop 1acce41 integrate firebase
+pick 990678f rename config_development.json and config_production.json
+pick f0ec83b Excluded .idea from being tracked
+pick 4204126 Excluded flutter-plugins from git
+pick f56eac1 Excluded dart_tool from git
+pick 1b88caa setup dart-define for google map keys
+pick 450eb41 add google maps integration for web, add run commands to README.md, remove google maps script from index html, remove applicationName from gradle file
+pick 695274d add dart code metrics and analysis
+pick 0f980e1 fix dart analysis issues, rewrite google maps integration for web
+pick 8d9cb6f fix analysis warnings
+pick 2c8ee04 update dio library
+pick dbffa42 add geolocator
+pick f9b02e0 generate model for stations
+pick 32bb1c2 fix analysis issues, add stations cubit, add stations models, add stations route
+pick 812260a remove NSLocationTemporaryUsageDescriptionDictionary from Info.plist, add .freezed file to stations
+pick 6781a1c add bottom navigation bar, add routing, add screens, design map screen with no logic
+pick 144606b uncomment search bar code
+pick 4df2cd5 add UiKit TextInput widget, add inputDecorationTheme
+pick d8fd1a9 rename map widget
+pick dfbfa28 add google_maps_cluster_manager, move stations cubit to separate directory
+pick 7bda8e2 wip: add blocBuilder for stations
+pick d95b862 move blockBuilder to screen above, add clusters to map screen
+pick 686a59f add cluster utills
+pick 1eff20d fix comments
+pick 5094807 add spaces to comments
+pick b864f95 add map icons
+pick 9d51289 add mylocation service and cubit functionality
+pick d04c318 add utils for markers and clusters
+pick 38645e9 rename method, add remove null case, apply formatting
+pick cac0491 add myLocation icon
+pick 7eef7fa refactor location service, to handle denied permissions
+pick c79879b add cubit for denied access permission. Add logic to check permission
+pick 98d8e25 change BlocBuilder to BlocListener, show no permission popup
+pick b49e339 fix dart analysis issues
+pick 7f5b952 refactor geolocator service
+pick ddf0b8f injectgeolocator data
+pick 5e1fd0a remove dead code
+pick 26fc446 use injected datasource in cubit
+pick 087025c move blocProvider higher on tree
+pick 9e21470 format code
+pick 7fae0ef rename service file
+pick d4d8e97 add map type images
+pick 4a4c13f add button styles to theme data
+pick a10e7e9 create cubit for map type selection
+pick 8f7245f add map blocProvider
+pick f7ffbf4 change map type value
+pick 9977b88 format code
+pick d9b984d add map_cubit_state.freezed.dart file
+pick 151390c add bloc_hydrated
+pick 909e810 add bloc_hydrated package
+pick b3f3af5 add path provider
+pick 1209c0e fix analyzer issues, format code
+pick 37aeb3b remove map bloc files
+pick 4600aea refactor connector model
+pick 6a9a929 nap_pin_cubit regenerate
+pick 91a76f6 add mappinCubit
+pick 23a30f6 add colors and typography
+pick a75c447 connector regenerate
+pick 717305b add map marker pin popup
+pick bdb2755 move map cubit to separate feature
+pick eb3effb format code
+pick e242f04 move widgets to separate features
+pick 1f1a547 add Button from UiKit
+pick faa7211 add override to Hydrated bloc
+pick d5ed833 operate enums in Map hydrated bloc
+pick b57f184 change StatusVals to StatusValues, change myLocation to userLocation, remove currentContext,
+pick d1e16c1 fix analysis issue
+pick ba00d02 change from json. assign values by name
+pick 571303b add wallet service, inject data, create feature structure
+pick ca4c260 add wallet model and freezed
+pick 6e66c08 add history model and freezed
+pick 13cef95 add history model and freezed
+pick 1c6cad3 add wallet bloc state
+pick 8c5056f add blocBuilder to wallet screen
+pick ac0b7ad regenerated data
+pick 8815b32 create custom appbar for wallet screen
+pick 2774107 add wallet screen Widgets
+pick ef59ca6 add styling to theme_info.dart
+pick 3ce86f4 create dateFormat Util
+pick d96e038 show header and body in slivers
+pick 9cbd47a initialize _scrollController, remove index from WalletBalanceCard
+pick 260b99a Add mock data for charging, inject datasourcse, createfeature structure
+pick 61071ce add export files
+pick 31132eb add chargingState bloc
+pick a6f8b5d add date util
+pick 2060072 add charging Screen widgets, add charging screen with BlocBuilder
+pick 07817c1 remove comments
+pick 1cb6ef2 Add scrollcontrollers
+pick a4f4b66 add wrappers to widgets, call methods in init state, move controllers before dispose
+pick db11420 move controllers before dispose
+pick faacaa1 move fetch method to initState
+pick 8d9c8a2 add SearchStationBloc
+pick e1f35d8 add search results screen route
+pick 62669d2 refactor search Input widget
+pick 97782f9 add styling to themeData
+pick 788982f add widgets paths, modify stations_cubit_state.dart
+pick 9783272 pass controller to inputTextWidget
+pick 212a123 add navigation logic to search results
+pick 5b996e9 move StationsCubit above MaterialApp.router
+pick a263572 add transformer to SearchStationBloc, rewrite when to maybeWhen
+pick ea6acdf add EwTextField widget, use GoRouter navigator, create separate SearchResultCard widget
+pick bf22635 move search screen route to child route, add styling to themedata
+pick e5426ae change router params, change standard navigator to goRouter
+pick dec2341 add wrapper to MaterialApp, init fetchStations, add blocProvider SearchStationBloc
+pick 38aab10 create event and state for search bloc
+pick b6e84fc format code change when to maybeWhen
+pick e78222a add bloc listener handle selected location
+pick eca2689 rename to widget
+pick 64d98c9 rename bloc states, remove exessive blocBuilders
+pick 3b3c185 remove wrapper
+pick 0da4342 replace cubit to bloc, remove freezed, create events
+pick 2be1b2f fix bloc pass stationsList directly
+pick 7890d90 remove comments
+pick 211ca69 refactor ui in bloc state
+pick 638d1cc use compleeter on one screen, refactor structure
+pick df92115 rename widget, create reusable widget
+pick 156bf16 format themeData file
+pick 13c63de rename widget file
+pick 1884cd1 make stationsList not nullable
+pick 9899294 fix dart analysis issue
+pick ce1bd12 remove casts, remove empty lists
+pick ddfdade add signin plugins, inject data build repository,
+pick 6b832f3 add bloc and blocbuilder
+pick 070d54b regenerate firebase files
+pick 10fc541 regenerate firebase files
+pick a685dc7 add bloc
+pick 7bee568 regenerate firebase files
+pick 3c46495 regenerate firebase files
+pick e52e6c2 regenerate firebase services
+pick bafaee7 add firebaseOptions Constant, init Firebase for web, modify index html for flutter web
+pick b596ff7 init Firebase for web
+pick 1be6db4 modify auth bloc, add copyWith, clean up code
+pick 9d2b2f0 inject source data, cleanup auth service
+pick f9e4fbb add ui to google sign in screen
+pick 5aed9a2 add firebase files
+pick 29d4e6d remove firebase_core_platform_interface
+pick dbe1d10 get firebase options from generated file
+pick 4599d4e use EWBaseButton
+pick 4c03a7b remove repository providers
+pick c672880 get values from locator
+pick fcc6148 create connector adapters for hive favorites
+pick 297a7b5 regenerate models adapt Stations and Connector models to hive notation
+pick 359ace6 Station  model to hive notation
+pick 7e30ac2 create favorites bloc
+pick 19b40d3 register bloc and initialize hive for favorites
+pick 00a3a6d add params to MapMarker model
+pick 49d8e5f add params to MapMarker model
+pick b842469 load saved favorite items, build screen for favorites, add utils for icon selection
+pick f7443bb move myLocation to FutureBuilder
+pick c3ea615 change to firstWhere
+pick 0ed8c55 remove FutureBuilder, get value from state
+pick fa5453f change firstWhere to any, fix analysis issues
+pick 9af104b regenerate google-services.json
+pick ba3627b add firebse.json
+pick 058bfb9 regenerate firebse.json
+pick d2801e4 regenerate firebse.json
+pick b76d69b regenerate firebse.json
+pick db88932 regenerate firebse.json
+pick f8dd722 regenerate firebse.json
+pick 48e0933 regenerate firebse.json
+pick fbd23fa fix index html and profile screen
+pick 757d319 add height to auth widget
+pick 3ab54a3 google-signin-client_id change
+pick f24c86f fix index html and firebase options regenerate
+pick 8810aae remove context from params
+pick 1c6e0c5 add colors to texts and items
+pick b90fb33 fix analysis issue
+pick 27f3097 make widget stateless, dont pass context to widgets
+pick dc360ce add devicePreview package
+pick 543b16e update README.md
+pick 18bcc6b fix analysis issue
+pick 61df962 change year
+pick ece84af remove public folder
+pick 768de04 Update README.md
+pick b625756 Update google-services.json
+
+# Rebase 7abde1e..b625756 onto 7abde1e (175 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+# .       create a merge commit using the original merge commit's
+# .       message (or the oneline, if no original merge commit was
+# .       specified). Use -c <commit> to reword the commit message.
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+save & exit
+
+
