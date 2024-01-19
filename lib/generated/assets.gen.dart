@@ -36,11 +36,12 @@ class Assets {
   Assets._();
 
   static const String configDev = 'assets/config_dev.json';
+  static const String configProduction = 'assets/config_production.json';
   static const $AssetsI18nGen i18n = $AssetsI18nGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 
   /// List of all assets
-  List<String> get values => [configDev];
+  static List<String> get values => [configDev, configProduction];
 }
 
 class AssetGenImage {
@@ -101,7 +102,16 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider() => AssetImage(_assetName);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
 
   String get path => _assetName;
 

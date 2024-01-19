@@ -84,11 +84,11 @@ class _$SearchResultItemCopyWithImpl<$Res, $Val extends SearchResultItem>
 }
 
 /// @nodoc
-abstract class _$$_SearchResultItemCopyWith<$Res>
+abstract class _$$SearchResultItemImplCopyWith<$Res>
     implements $SearchResultItemCopyWith<$Res> {
-  factory _$$_SearchResultItemCopyWith(
-          _$_SearchResultItem value, $Res Function(_$_SearchResultItem) then) =
-      __$$_SearchResultItemCopyWithImpl<$Res>;
+  factory _$$SearchResultItemImplCopyWith(_$SearchResultItemImpl value,
+          $Res Function(_$SearchResultItemImpl) then) =
+      __$$SearchResultItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String fullName, String htmlUrl, GithubUser owner});
@@ -98,11 +98,11 @@ abstract class _$$_SearchResultItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SearchResultItemCopyWithImpl<$Res>
-    extends _$SearchResultItemCopyWithImpl<$Res, _$_SearchResultItem>
-    implements _$$_SearchResultItemCopyWith<$Res> {
-  __$$_SearchResultItemCopyWithImpl(
-      _$_SearchResultItem _value, $Res Function(_$_SearchResultItem) _then)
+class __$$SearchResultItemImplCopyWithImpl<$Res>
+    extends _$SearchResultItemCopyWithImpl<$Res, _$SearchResultItemImpl>
+    implements _$$SearchResultItemImplCopyWith<$Res> {
+  __$$SearchResultItemImplCopyWithImpl(_$SearchResultItemImpl _value,
+      $Res Function(_$SearchResultItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_SearchResultItemCopyWithImpl<$Res>
     Object? htmlUrl = null,
     Object? owner = null,
   }) {
-    return _then(_$_SearchResultItem(
+    return _then(_$SearchResultItemImpl(
       fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -131,12 +131,12 @@ class __$$_SearchResultItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SearchResultItem implements _SearchResultItem {
-  const _$_SearchResultItem(
+class _$SearchResultItemImpl implements _SearchResultItem {
+  const _$SearchResultItemImpl(
       {required this.fullName, required this.htmlUrl, required this.owner});
 
-  factory _$_SearchResultItem.fromJson(Map<String, dynamic> json) =>
-      _$$_SearchResultItemFromJson(json);
+  factory _$SearchResultItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SearchResultItemImplFromJson(json);
 
   @override
   final String fullName;
@@ -151,10 +151,10 @@ class _$_SearchResultItem implements _SearchResultItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SearchResultItem &&
+            other is _$SearchResultItemImpl &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.htmlUrl, htmlUrl) || other.htmlUrl == htmlUrl) &&
@@ -168,12 +168,13 @@ class _$_SearchResultItem implements _SearchResultItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchResultItemCopyWith<_$_SearchResultItem> get copyWith =>
-      __$$_SearchResultItemCopyWithImpl<_$_SearchResultItem>(this, _$identity);
+  _$$SearchResultItemImplCopyWith<_$SearchResultItemImpl> get copyWith =>
+      __$$SearchResultItemImplCopyWithImpl<_$SearchResultItemImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchResultItemToJson(
+    return _$$SearchResultItemImplToJson(
       this,
     );
   }
@@ -183,10 +184,10 @@ abstract class _SearchResultItem implements SearchResultItem {
   const factory _SearchResultItem(
       {required final String fullName,
       required final String htmlUrl,
-      required final GithubUser owner}) = _$_SearchResultItem;
+      required final GithubUser owner}) = _$SearchResultItemImpl;
 
   factory _SearchResultItem.fromJson(Map<String, dynamic> json) =
-      _$_SearchResultItem.fromJson;
+      _$SearchResultItemImpl.fromJson;
 
   @override
   String get fullName;
@@ -196,6 +197,6 @@ abstract class _SearchResultItem implements SearchResultItem {
   GithubUser get owner;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchResultItemCopyWith<_$_SearchResultItem> get copyWith =>
+  _$$SearchResultItemImplCopyWith<_$SearchResultItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

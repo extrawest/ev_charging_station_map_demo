@@ -62,22 +62,22 @@ class _$SearchResultErrorCopyWithImpl<$Res, $Val extends SearchResultError>
 }
 
 /// @nodoc
-abstract class _$$_SearchResultErrorCopyWith<$Res>
+abstract class _$$SearchResultErrorImplCopyWith<$Res>
     implements $SearchResultErrorCopyWith<$Res> {
-  factory _$$_SearchResultErrorCopyWith(_$_SearchResultError value,
-          $Res Function(_$_SearchResultError) then) =
-      __$$_SearchResultErrorCopyWithImpl<$Res>;
+  factory _$$SearchResultErrorImplCopyWith(_$SearchResultErrorImpl value,
+          $Res Function(_$SearchResultErrorImpl) then) =
+      __$$SearchResultErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_SearchResultErrorCopyWithImpl<$Res>
-    extends _$SearchResultErrorCopyWithImpl<$Res, _$_SearchResultError>
-    implements _$$_SearchResultErrorCopyWith<$Res> {
-  __$$_SearchResultErrorCopyWithImpl(
-      _$_SearchResultError _value, $Res Function(_$_SearchResultError) _then)
+class __$$SearchResultErrorImplCopyWithImpl<$Res>
+    extends _$SearchResultErrorCopyWithImpl<$Res, _$SearchResultErrorImpl>
+    implements _$$SearchResultErrorImplCopyWith<$Res> {
+  __$$SearchResultErrorImplCopyWithImpl(_$SearchResultErrorImpl _value,
+      $Res Function(_$SearchResultErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_SearchResultErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_SearchResultError(
+    return _then(_$SearchResultErrorImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_SearchResultErrorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SearchResultError implements _SearchResultError {
-  _$_SearchResultError({required this.message});
+class _$SearchResultErrorImpl implements _SearchResultError {
+  _$SearchResultErrorImpl({required this.message});
 
-  factory _$_SearchResultError.fromJson(Map<String, dynamic> json) =>
-      _$$_SearchResultErrorFromJson(json);
+  factory _$SearchResultErrorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SearchResultErrorImplFromJson(json);
 
   @override
   final String message;
@@ -111,10 +111,10 @@ class _$_SearchResultError implements _SearchResultError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SearchResultError &&
+            other is _$SearchResultErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -125,13 +125,13 @@ class _$_SearchResultError implements _SearchResultError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchResultErrorCopyWith<_$_SearchResultError> get copyWith =>
-      __$$_SearchResultErrorCopyWithImpl<_$_SearchResultError>(
+  _$$SearchResultErrorImplCopyWith<_$SearchResultErrorImpl> get copyWith =>
+      __$$SearchResultErrorImplCopyWithImpl<_$SearchResultErrorImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchResultErrorToJson(
+    return _$$SearchResultErrorImplToJson(
       this,
     );
   }
@@ -139,15 +139,15 @@ class _$_SearchResultError implements _SearchResultError {
 
 abstract class _SearchResultError implements SearchResultError {
   factory _SearchResultError({required final String message}) =
-      _$_SearchResultError;
+      _$SearchResultErrorImpl;
 
   factory _SearchResultError.fromJson(Map<String, dynamic> json) =
-      _$_SearchResultError.fromJson;
+      _$SearchResultErrorImpl.fromJson;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchResultErrorCopyWith<_$_SearchResultError> get copyWith =>
+  _$$SearchResultErrorImplCopyWith<_$SearchResultErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

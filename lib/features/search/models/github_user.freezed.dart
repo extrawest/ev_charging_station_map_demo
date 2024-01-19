@@ -68,22 +68,22 @@ class _$GithubUserCopyWithImpl<$Res, $Val extends GithubUser>
 }
 
 /// @nodoc
-abstract class _$$_GithubUserCopyWith<$Res>
+abstract class _$$GithubUserImplCopyWith<$Res>
     implements $GithubUserCopyWith<$Res> {
-  factory _$$_GithubUserCopyWith(
-          _$_GithubUser value, $Res Function(_$_GithubUser) then) =
-      __$$_GithubUserCopyWithImpl<$Res>;
+  factory _$$GithubUserImplCopyWith(
+          _$GithubUserImpl value, $Res Function(_$GithubUserImpl) then) =
+      __$$GithubUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String login, String avatarUrl});
 }
 
 /// @nodoc
-class __$$_GithubUserCopyWithImpl<$Res>
-    extends _$GithubUserCopyWithImpl<$Res, _$_GithubUser>
-    implements _$$_GithubUserCopyWith<$Res> {
-  __$$_GithubUserCopyWithImpl(
-      _$_GithubUser _value, $Res Function(_$_GithubUser) _then)
+class __$$GithubUserImplCopyWithImpl<$Res>
+    extends _$GithubUserCopyWithImpl<$Res, _$GithubUserImpl>
+    implements _$$GithubUserImplCopyWith<$Res> {
+  __$$GithubUserImplCopyWithImpl(
+      _$GithubUserImpl _value, $Res Function(_$GithubUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_GithubUserCopyWithImpl<$Res>
     Object? login = null,
     Object? avatarUrl = null,
   }) {
-    return _then(_$_GithubUser(
+    return _then(_$GithubUserImpl(
       login: null == login
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_GithubUserCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GithubUser implements _GithubUser {
-  const _$_GithubUser({required this.login, required this.avatarUrl});
+class _$GithubUserImpl implements _GithubUser {
+  const _$GithubUserImpl({required this.login, required this.avatarUrl});
 
-  factory _$_GithubUser.fromJson(Map<String, dynamic> json) =>
-      _$$_GithubUserFromJson(json);
+  factory _$GithubUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GithubUserImplFromJson(json);
 
   @override
   final String login;
@@ -124,10 +124,10 @@ class _$_GithubUser implements _GithubUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubUser &&
+            other is _$GithubUserImpl &&
             (identical(other.login, login) || other.login == login) &&
             (identical(other.avatarUrl, avatarUrl) ||
                 other.avatarUrl == avatarUrl));
@@ -140,12 +140,12 @@ class _$_GithubUser implements _GithubUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubUserCopyWith<_$_GithubUser> get copyWith =>
-      __$$_GithubUserCopyWithImpl<_$_GithubUser>(this, _$identity);
+  _$$GithubUserImplCopyWith<_$GithubUserImpl> get copyWith =>
+      __$$GithubUserImplCopyWithImpl<_$GithubUserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GithubUserToJson(
+    return _$$GithubUserImplToJson(
       this,
     );
   }
@@ -154,10 +154,10 @@ class _$_GithubUser implements _GithubUser {
 abstract class _GithubUser implements GithubUser {
   const factory _GithubUser(
       {required final String login,
-      required final String avatarUrl}) = _$_GithubUser;
+      required final String avatarUrl}) = _$GithubUserImpl;
 
   factory _GithubUser.fromJson(Map<String, dynamic> json) =
-      _$_GithubUser.fromJson;
+      _$GithubUserImpl.fromJson;
 
   @override
   String get login;
@@ -165,6 +165,6 @@ abstract class _GithubUser implements GithubUser {
   String get avatarUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_GithubUserCopyWith<_$_GithubUser> get copyWith =>
+  _$$GithubUserImplCopyWith<_$GithubUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,13 +6,13 @@ part of 'github_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GithubUser _$$_GithubUserFromJson(Map<String, dynamic> json) =>
-    _$_GithubUser(
+_$GithubUserImpl _$$GithubUserImplFromJson(Map<String, dynamic> json) =>
+    _$GithubUserImpl(
       login: json['login'] as String,
       avatarUrl: json['avatar_url'] as String,
     );
 
-Map<String, dynamic> _$$_GithubUserToJson(_$_GithubUser instance) =>
+Map<String, dynamic> _$$GithubUserImplToJson(_$GithubUserImpl instance) =>
     <String, dynamic>{
       'login': instance.login,
       'avatar_url': instance.avatarUrl,

@@ -62,22 +62,22 @@ class _$SearchResultCopyWithImpl<$Res, $Val extends SearchResult>
 }
 
 /// @nodoc
-abstract class _$$_SearchResultCopyWith<$Res>
+abstract class _$$SearchResultImplCopyWith<$Res>
     implements $SearchResultCopyWith<$Res> {
-  factory _$$_SearchResultCopyWith(
-          _$_SearchResult value, $Res Function(_$_SearchResult) then) =
-      __$$_SearchResultCopyWithImpl<$Res>;
+  factory _$$SearchResultImplCopyWith(
+          _$SearchResultImpl value, $Res Function(_$SearchResultImpl) then) =
+      __$$SearchResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<SearchResultItem> items});
 }
 
 /// @nodoc
-class __$$_SearchResultCopyWithImpl<$Res>
-    extends _$SearchResultCopyWithImpl<$Res, _$_SearchResult>
-    implements _$$_SearchResultCopyWith<$Res> {
-  __$$_SearchResultCopyWithImpl(
-      _$_SearchResult _value, $Res Function(_$_SearchResult) _then)
+class __$$SearchResultImplCopyWithImpl<$Res>
+    extends _$SearchResultCopyWithImpl<$Res, _$SearchResultImpl>
+    implements _$$SearchResultImplCopyWith<$Res> {
+  __$$SearchResultImplCopyWithImpl(
+      _$SearchResultImpl _value, $Res Function(_$SearchResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_SearchResultCopyWithImpl<$Res>
   $Res call({
     Object? items = null,
   }) {
-    return _then(_$_SearchResult(
+    return _then(_$SearchResultImpl(
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,12 @@ class __$$_SearchResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SearchResult implements _SearchResult {
-  const _$_SearchResult({required final List<SearchResultItem> items})
+class _$SearchResultImpl implements _SearchResult {
+  const _$SearchResultImpl({required final List<SearchResultItem> items})
       : _items = items;
 
-  factory _$_SearchResult.fromJson(Map<String, dynamic> json) =>
-      _$$_SearchResultFromJson(json);
+  factory _$SearchResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SearchResultImplFromJson(json);
 
   final List<SearchResultItem> _items;
   @override
@@ -117,10 +117,10 @@ class _$_SearchResult implements _SearchResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SearchResult &&
+            other is _$SearchResultImpl &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
@@ -132,12 +132,12 @@ class _$_SearchResult implements _SearchResult {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>
-      __$$_SearchResultCopyWithImpl<_$_SearchResult>(this, _$identity);
+  _$$SearchResultImplCopyWith<_$SearchResultImpl> get copyWith =>
+      __$$SearchResultImplCopyWithImpl<_$SearchResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SearchResultToJson(
+    return _$$SearchResultImplToJson(
       this,
     );
   }
@@ -145,15 +145,15 @@ class _$_SearchResult implements _SearchResult {
 
 abstract class _SearchResult implements SearchResult {
   const factory _SearchResult({required final List<SearchResultItem> items}) =
-      _$_SearchResult;
+      _$SearchResultImpl;
 
   factory _SearchResult.fromJson(Map<String, dynamic> json) =
-      _$_SearchResult.fromJson;
+      _$SearchResultImpl.fromJson;
 
   @override
   List<SearchResultItem> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchResultCopyWith<_$_SearchResult> get copyWith =>
+  _$$SearchResultImplCopyWith<_$SearchResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

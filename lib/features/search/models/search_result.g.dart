@@ -6,14 +6,14 @@ part of 'search_result.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SearchResult _$$_SearchResultFromJson(Map<String, dynamic> json) =>
-    _$_SearchResult(
+_$SearchResultImpl _$$SearchResultImplFromJson(Map<String, dynamic> json) =>
+    _$SearchResultImpl(
       items: (json['items'] as List<dynamic>)
           .map((e) => SearchResultItem.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_SearchResultToJson(_$_SearchResult instance) =>
+Map<String, dynamic> _$$SearchResultImplToJson(_$SearchResultImpl instance) =>
     <String, dynamic>{
       'items': instance.items,
     };
