@@ -40,9 +40,9 @@ class RefreshTokenInterceptor extends Interceptor with SecureStorageMixin {
   Future<void> retryFormDataRequest(DioError err, ErrorInterceptorHandler handler) async {
     final formData = FormData();
     formData.fields.addAll(err.requestOptions.data.fields);
-    for (final MapEntry mapFile in err.requestOptions.data.files) {
+    for (final MapEntry<String,dynamic> mapFile in err.requestOptions.data.files) {
       formData.files.add(MapEntry(mapFile.key,
-          MultipartFile.fromFileSync(err.requestOptions.headers['path'], filename: mapFile.value.filename)));
+          MultipartFile.fromFileSync(err.requestOptions.headers['path'], filename: mapFile.value.filename),),);
     }
     final options = RequestOptions(
         data: formData,
@@ -51,7 +51,7 @@ class RefreshTokenInterceptor extends Interceptor with SecureStorageMixin {
         receiveTimeout: const Duration(milliseconds: timeOut),
         extra: err.requestOptions.extra,
         headers: err.requestOptions.headers,
-        path: err.requestOptions.path);
+        path: err.requestOptions.path,);
 
     return handler.resolve(await requestRetrier.retryRequest(options));
   }

@@ -13,7 +13,7 @@ class RetryOnConnectionChangeInterceptor extends Interceptor {
   });
 
   @override
-  Future onError(DioError err, ErrorInterceptorHandler handler) async {
+  Future<dynamic> onError(DioError err, ErrorInterceptorHandler handler) async {
     if (_shouldRetry(err)) {
       try {
         return requestRetrier.scheduleRequestRetry(err.requestOptions);
@@ -33,7 +33,7 @@ class RetryOnConnectionChangeInterceptor extends Interceptor {
   }
 
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
     log.fine('onResponse: ${response.data}');
     return handler.next(response);
   }

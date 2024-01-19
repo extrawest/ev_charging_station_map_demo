@@ -6,7 +6,7 @@ import 'bottom_loader.dart';
 import 'post_list_item.dart';
 
 class PostsList extends StatefulWidget {
-  const PostsList({Key? key}) : super(key: key);
+  const PostsList({super.key});
 
   @override
   State<PostsList> createState() => _PostsListState();

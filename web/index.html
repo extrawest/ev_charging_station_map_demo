@@ -35,6 +35,11 @@
   <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
+
+    // To expone the dart variable to global js code
+    document.addEventListener("dart_loaded", function (){
+      console.log(`WEB_KEY: ${window.WEB_KEY}`);
+    });
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>

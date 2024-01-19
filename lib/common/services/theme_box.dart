@@ -6,6 +6,6 @@ class ThemeBox {
 
   Future<void> initialize() async {
     await Hive.initFlutter();
-    await Hive.openBox(name);
+    await Hive.openBox<dynamic>(name);
   }
 }

@@ -11,7 +11,7 @@ class _DioBootstrapper {
           connectivity: Connectivity(),
         ),
       ),
-      RefreshTokenInterceptor(requestRetrier: DioTokenRequestRetrier(dio))
+      RefreshTokenInterceptor(requestRetrier: DioTokenRequestRetrier(dio)),
     ]);
 
     return dio;

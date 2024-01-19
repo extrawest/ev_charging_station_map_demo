@@ -1,1 +1,1 @@
-export 'posts/posts.dart';
+export 'posts/posts.dart';

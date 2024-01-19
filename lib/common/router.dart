@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:samoilenko_maps_app/features/posts/posts.dart';
 import 'package:go_router/go_router.dart';
+import 'package:samoilenko_maps_app/features/posts/posts.dart';
 
 import 'screens/screens.dart';
 import 'widgets/widgets.dart';
@@ -73,13 +73,10 @@ final goRouter = GoRouter(
   ],
 );
 
-class _TransitionPage extends CustomTransitionPage {
-  _TransitionPage({LocalKey? key, required Widget child})
+class _TransitionPage extends CustomTransitionPage<dynamic> {
+  _TransitionPage({super.key, required super.child})
       : super(
-          key: key,
-          child: child,
-          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-              FadeTransition(opacity: animation, child: child),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
           // create your own or use an existing one
           // ScaleTransition(scale: animation, child: child),
         );

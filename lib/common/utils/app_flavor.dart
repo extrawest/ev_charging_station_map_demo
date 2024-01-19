@@ -9,7 +9,7 @@ enum AppFlavor {
 
   static Future<AppFlavor> fromPlatform() async {
     if (kIsWeb) {
-      const flavor = String.fromEnvironment('FLAVOR', defaultValue: '');
+      const flavor = String.fromEnvironment('FLAVOR');
       return _fromString(flavor);
     }
 

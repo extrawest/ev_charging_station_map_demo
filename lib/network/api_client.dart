@@ -10,10 +10,10 @@ const String headerAccessToken = 'Authorization';
 
 abstract class ApiClient {
   Future<dynamic> get(String url,
-      {Map<String, String>? addHeaders, Map<String, String>? params});
+      {Map<String, String>? addHeaders, Map<String, String>? params,});
 
   Future<dynamic> post(String url, String jsonBody,
-      {Map<String, String>? addHeaders, Map<String, String>? params});
+      {Map<String, String>? addHeaders, Map<String, String>? params,});
 }
 
 class ApiClientImpl extends ApiClient with SecureStorageMixin {
@@ -33,7 +33,7 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
     final updatedHeaders = await _setupHeaders(headers);
     try {
       log.fine('[HTTP GET REQUEST: $url, headers: $updatedHeaders]');
-      final Response response = await _dio.get(
+      final Response<dynamic> response = await _dio.get(
         url,
         queryParameters: params,
         options: Options(headers: updatedHeaders),
@@ -61,7 +61,7 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
 
     try {
       log.fine('[HTTP POST REQUEST: $url, headers: $updatedHeaders]');
-      final Response response = await _dio.post(
+      final Response<dynamic> response = await _dio.post(
         url,
         queryParameters: params,
         options: Options(headers: updatedHeaders),
@@ -87,14 +87,14 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
     final updatedHeaders = await _setupHeaders(headers);
     try {
       log.fine('[HTTP PUT REQUEST: $url, headers: $updatedHeaders]');
-      final response = await _dio.put(
+      final response = await _dio.put<dynamic>(
         url,
         queryParameters: params,
         options: Options(headers: updatedHeaders),
         data: jsonEncode(params),
       );
       log.fine(
-          '[HTTP PUT RESPONSE: $url, headers: $updatedHeaders, body: ${response.data}]');
+          '[HTTP PUT RESPONSE: $url, headers: $updatedHeaders, body: ${response.data}]',);
       responseJson = _response(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
@@ -103,7 +103,7 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
   }
 
   Future<Map<String, String>> _setupHeaders(
-      Map<String, String>? newHeaders) async {
+      Map<String, String>? newHeaders,) async {
     final updatedHeaders = <String, String>{};
 
     updatedHeaders.addAll(headers);
@@ -119,7 +119,7 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
     return updatedHeaders;
   }
 
-  dynamic _response(Response response) {
+  dynamic _response(Response<dynamic> response) {
     log.fine('response.statusCode ${response.statusCode}');
     switch (response.statusCode) {
       case 200:
@@ -135,7 +135,7 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
 
       default:
         throw FetchDataException(
-            'Error occurred while Communication with Server with StatusCode : ${response.statusCode}');
+            'Error occurred while Communication with Server with StatusCode : ${response.statusCode}',);
     }
   }
 }

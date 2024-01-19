@@ -1,12 +1,12 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
-import 'package:samoilenko_maps_app/common/services/theme_box.dart';
-import 'package:samoilenko_maps_app/common/utils/app_utils.dart';
-import 'package:samoilenko_maps_app/features/theme/theme.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:samoilenko_maps_app/common/services/theme_box.dart';
+import 'package:samoilenko_maps_app/common/utils/app_utils.dart';
+import 'package:samoilenko_maps_app/features/theme/theme.dart';
 
 import 'theme_bloc_test.mocks.dart';
 
@@ -14,7 +14,7 @@ import 'theme_bloc_test.mocks.dart';
   Box,
 ])
 void main() {
-  final box = MockBox();
+  final box = MockBox<dynamic>();
 
   const themeMode = ThemeMode.dark;
   const setThemeEvent = SetTheme(themeMode);
@@ -23,14 +23,16 @@ void main() {
 
   group('$ThemeBloc test', () {
     blocTest<ThemeBloc, ThemeState>(
-      '''WHEN $SetTheme is added 
+      '''
+      WHEN $SetTheme is added 
       THEN box.put is called
-      AND proper state is emmitted''',
+      AND proper state is emmitted
+      ''',
       setUp: () {
         when(
           box.put(ThemeBox.themeModeKey, themeModeString),
         ).thenAnswer(
-          (_) => Future.value(null),
+          (_) => Future.value(),
         );
       },
       build: () => ThemeBloc(box),
@@ -44,9 +46,11 @@ void main() {
     );
 
     blocTest<ThemeBloc, ThemeState>(
-      '''WHEN $InitTheme is added 
+      '''
+      WHEN $InitTheme is added 
       THEN box.get is called
-      AND proper state is emmitted''',
+      AND proper state is emmitted
+      ''',
       setUp: () {
         when(
           box.get(ThemeBox.themeModeKey),
@@ -54,7 +58,7 @@ void main() {
         when(
           box.put(ThemeBox.themeModeKey, themeModeString),
         ).thenAnswer(
-          (_) => Future.value(null),
+          (_) => Future.value(),
         );
       },
       build: () => ThemeBloc(box),

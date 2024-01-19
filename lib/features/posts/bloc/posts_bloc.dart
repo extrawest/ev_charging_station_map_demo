@@ -27,11 +27,11 @@ class PostBloc extends Bloc<PostsEvent, PostsState> {
   PostBloc({required this.postsRepository}) : super(const PostsState()) {
     // This function will run only once in 100 milliseconds, not more often
     on<PostsFetchEvent>(_onPostFetched,
-        transformer: throttleDroppable(throttleDuration));
+        transformer: throttleDroppable(throttleDuration),);
   }
 
   Future<void> _onPostFetched(
-      PostsFetchEvent event, Emitter<PostsState> emit) async {
+      PostsFetchEvent event, Emitter<PostsState> emit,) async {
     if (state.hasReachedMax) {
       return;
     }
@@ -41,7 +41,7 @@ class PostBloc extends Bloc<PostsEvent, PostsState> {
         final posts = await postsRepository.fetchPosts();
         return emit(
           state.copyWith(
-              status: PostsStatus.success, posts: posts, hasReachedMax: false),
+              status: PostsStatus.success, posts: posts, hasReachedMax: false,),
         );
       }
       final posts =

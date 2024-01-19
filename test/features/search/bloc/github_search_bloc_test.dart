@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:samoilenko_maps_app/features/search/search.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:samoilenko_maps_app/features/search/search.dart';
 
 import 'github_search_bloc_test.mocks.dart';
 
@@ -17,13 +17,16 @@ void main() {
   const emptySearchEvent = TextChanged(text: '');
   final exception = Exception('Test');
 
-  final searchResult = SearchResult(items: [
-    MockSearchResultItem(),
-  ]);
+  final searchResult = SearchResult(
+    items: [
+      MockSearchResultItem(),
+    ],
+  );
 
   group('$GithubSearchBloc test', () {
     blocTest<GithubSearchBloc, GithubSearchState>(
-      '''WHEN $TextChanged is added 
+      '''
+      WHEN $TextChanged is added 
       AND search text is not empty 
       THEN search is initiated
       AND proper state is emmitted''',
@@ -33,11 +36,10 @@ void main() {
         );
       },
       build: () => GithubSearchBloc(githubRepository: githubRepository),
-      verify: (_) =>
-          verify(githubRepository.search(searchEvent.text)).called(1),
+      verify: (_) => verify(githubRepository.search(searchEvent.text)).called(1),
       act: (bloc) async {
         bloc.add(searchEvent);
-        await Future.delayed(GithubSearchBloc.debounceDuration);
+        await Future<void>.delayed(GithubSearchBloc.debounceDuration);
       },
       expect: () => [
         SearchStateLoading(),
@@ -46,20 +48,22 @@ void main() {
     );
 
     blocTest<GithubSearchBloc, GithubSearchState>(
-      '''WHEN $TextChanged is added 
+      '''
+      WHEN $TextChanged is added 
       AND search text is empty 
       THEN initial state is emmitted''',
       build: () => GithubSearchBloc(githubRepository: githubRepository),
       act: (bloc) async {
         bloc.add(emptySearchEvent);
-        await Future.delayed(GithubSearchBloc.debounceDuration);
+        await Future<void>.delayed(GithubSearchBloc.debounceDuration);
       },
       expect: () => [InitialSearchState()],
     );
   });
 
   blocTest<GithubSearchBloc, GithubSearchState>(
-    '''WHEN $TextChanged is added 
+    '''
+    WHEN $TextChanged is added 
       AND search text is not empty 
       AND exception is thrown
       AND proper state is emmitted''',
@@ -70,7 +74,7 @@ void main() {
     verify: (_) => verify(githubRepository.search(searchEvent.text)).called(1),
     act: (bloc) async {
       bloc.add(searchEvent);
-      await Future.delayed(GithubSearchBloc.debounceDuration);
+      await Future<void>.delayed(GithubSearchBloc.debounceDuration);
     },
     expect: () => [
       SearchStateLoading(),

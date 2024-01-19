@@ -23,9 +23,7 @@ class PostsApiServiceImpl implements PostsApiService {
         postsPath,
         params: {'_start': '$startIndex'},
       );
-      return postsListResponse
-          .map<Post>((json) => Post.fromJson(json))
-          .toList();
+      return postsListResponse.map<Post>((Map<String, dynamic> json) => Post.fromJson(json)).toList();
     } catch (e) {
       log.severe('_fetchPosts error: $e');
       rethrow;

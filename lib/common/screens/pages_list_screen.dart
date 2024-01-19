@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:samoilenko_maps_app/common/router.dart';
 import 'package:go_router/go_router.dart';
+import 'package:samoilenko_maps_app/common/router.dart';
 
 class PagesListScreen extends StatelessWidget {
-  const PagesListScreen({Key? key}) : super(key: key);
+  const PagesListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,6 @@ class PagesListScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             FilledButton(
               onPressed: () {

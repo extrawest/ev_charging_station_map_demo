@@ -1,5 +1,6 @@
 import 'package:samoilenko_maps_app/utils/utils.dart';
-import 'package:universal_html/html.dart';
+import 'package:universal_html/html.dart' as html;
+import 'package:universal_html/js.dart' as js;
 
 import 'platform_selector.dart';
 
@@ -8,14 +9,11 @@ PlatformSelector createSelectorObject() => WebSystem();
 class WebSystem implements PlatformSelector {
   @override
   void createScriptElement() {
-    /// Create a new JS element
-    final ScriptElement script = ScriptElement();
+    // To expone the dart variable to global js code
 
-    /// On that script element, add the `src` and `id` properties
-    script.src =
-        'https://maps.googleapis.com/maps/api/js?key=${getDartDefineWebKey()}';
-    script.id = 'super-script';
-    document.head?.append(script);
+    js.context["WEB_KEY"] = const String.fromEnvironment("WEB_KEY");
+    //Custom DOM event to signal to js the execution of the dart code
+    html.document.dispatchEvent(html.CustomEvent("dart_loaded"));
   }
 
   String getDartDefineWebKey() {

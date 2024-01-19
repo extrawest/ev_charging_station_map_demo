@@ -12,9 +12,9 @@ class DioConnectivityRequestRetrier {
     required this.connectivity,
   });
 
-  Future<Response> scheduleRequestRetry(RequestOptions requestOptions) async {
-    StreamSubscription? streamSubscription;
-    final responseCompleter = Completer<Response>();
+  Future<Response<dynamic>> scheduleRequestRetry(RequestOptions requestOptions) async {
+    StreamSubscription<dynamic>? streamSubscription;
+    final responseCompleter = Completer<Response<dynamic>>();
 
     streamSubscription = connectivity.onConnectivityChanged.listen(
       (connectivityResult) async {

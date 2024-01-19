@@ -30,7 +30,7 @@ class ThemeState extends Equatable {
       case ThemeMode.dark:
         return darkTheme;
       case ThemeMode.system:
-        return SchedulerBinding.instance.window.platformBrightness ==
+        return SchedulerBinding.instance.platformDispatcher.platformBrightness ==
                 Brightness.dark
             ? darkTheme
             : lightTheme;

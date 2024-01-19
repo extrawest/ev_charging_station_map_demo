@@ -14,8 +14,8 @@ class DioTokenRequestRetrier with SecureStorageMixin {
 
   DioTokenRequestRetrier(this._dio);
 
-  Future<Response> retryRequest(RequestOptions requestOptions) async {
-    final responseCompleter = Completer<Response>();
+  Future<Response<dynamic>> retryRequest(RequestOptions requestOptions) async {
+    final responseCompleter = Completer<Response<dynamic>>();
 
     final options = Options(
       method: requestOptions.method,
@@ -23,7 +23,7 @@ class DioTokenRequestRetrier with SecureStorageMixin {
     );
 
     responseCompleter.complete(_dio.request<dynamic>(requestOptions.path,
-        data: requestOptions.data, queryParameters: requestOptions.queryParameters, options: options));
+        data: requestOptions.data, queryParameters: requestOptions.queryParameters, options: options,),);
 
     return responseCompleter.future;
   }
@@ -46,7 +46,7 @@ class DioTokenRequestRetrier with SecureStorageMixin {
   Future<bool> handleTokensChange() async {
     final refreshToken = await readRefreshToken();
     try {
-      final response = await _dio.post(refreshTokenPath, queryParameters: {'token': refreshToken});
+      final response = await _dio.post<dynamic>(refreshTokenPath, queryParameters: {'token': refreshToken});
       if (response.statusCode == 200) {
         ///TODO(username): uncomment strings below with real tokens
         //writeAuthToken(response[authToken]);

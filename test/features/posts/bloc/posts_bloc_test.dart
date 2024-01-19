@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:samoilenko_maps_app/features/posts/posts.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:samoilenko_maps_app/features/posts/posts.dart';
 
 import 'posts_bloc_test.mocks.dart';
 
@@ -24,7 +24,8 @@ void main() {
 
   group('$PostBloc test', () {
     blocTest<PostBloc, PostsState>(
-      '''WHEN $PostsFetchEvent is added 
+      '''
+      WHEN $PostsFetchEvent is added 
       AND status is ${PostsStatus.initial} 
       THEN posts are fetched with empty index 
       AND proper state is emmitted''',
@@ -40,7 +41,8 @@ void main() {
     );
 
     blocTest<PostBloc, PostsState>(
-      '''WHEN $PostsFetchEvent is added 
+      '''
+      WHEN $PostsFetchEvent is added 
       AND status is ${PostsStatus.success} 
       AND some posts are already loaded
       THEN posts is fetched with index equal to posts list length
@@ -52,16 +54,16 @@ void main() {
       },
       build: () => PostBloc(postsRepository: postsRepository),
       seed: () => loadedState,
-      verify: (_) =>
-          verify(postsRepository.fetchPosts(startIndex: 1)).called(1),
+      verify: (_) => verify(postsRepository.fetchPosts(startIndex: 1)).called(1),
       act: (bloc) => bloc.add(PostsFetchEvent()),
       expect: () => [
-        loadedState.copyWith(posts: [...loadedState.posts, post2])
+        loadedState.copyWith(posts: [...loadedState.posts, post2]),
       ],
     );
 
     blocTest<PostBloc, PostsState>(
-      '''WHEN $PostsFetchEvent is added 
+      '''
+      WHEN $PostsFetchEvent is added 
       AND status is ${PostsStatus.success} 
       AND fetched posts is empty
       THEN hasReachedMax is true
@@ -73,8 +75,7 @@ void main() {
       },
       build: () => PostBloc(postsRepository: postsRepository),
       seed: () => loadedState,
-      verify: (_) =>
-          verify(postsRepository.fetchPosts(startIndex: 1)).called(1),
+      verify: (_) => verify(postsRepository.fetchPosts(startIndex: 1)).called(1),
       act: (bloc) => bloc.add(PostsFetchEvent()),
       expect: () => [
         loadedState.copyWith(hasReachedMax: true),
@@ -83,7 +84,8 @@ void main() {
   });
 
   blocTest<PostBloc, PostsState>(
-    '''WHEN $PostsFetchEvent is added 
+    '''
+    WHEN $PostsFetchEvent is added 
       AND exception is thrown
       THEN proper state is emmitted''',
     setUp: () {
@@ -96,7 +98,7 @@ void main() {
       PostsState(
         errorMessage: exception.toString(),
         status: PostsStatus.failure,
-      )
+      ),
     ],
   );
 }
