@@ -43,7 +43,7 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
       log.fine('responseJson $responseJson');
     } on SocketException {
       throw FetchDataException('No Internet connection');
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       log.fine('DioError error e: $e');
     }
     return responseJson;
@@ -72,7 +72,7 @@ class ApiClientImpl extends ApiClient with SecureStorageMixin {
       responseJson = _response(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       log.fine('DioError error e: $e');
     }
     return responseJson;

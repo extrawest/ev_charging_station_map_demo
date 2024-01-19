@@ -17,7 +17,7 @@ class RefreshTokenInterceptor extends Interceptor with SecureStorageMixin {
   }
 
   @override
-  Future<void> onError(DioError err, ErrorInterceptorHandler handler) async {
+  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
     if (await _shouldRefreshToken(err)) {
       if (await requestRetrier.handleTokensChange()) {
         if (err.requestOptions.data is FormData) {
@@ -32,12 +32,12 @@ class RefreshTokenInterceptor extends Interceptor with SecureStorageMixin {
     return handler.next(err);
   }
 
-  Future<bool> _shouldRefreshToken(DioError err) async {
+  Future<bool> _shouldRefreshToken(DioException err) async {
     return err.response?.statusCode == 401 && await isStayLogged();
   }
 
   ///This method is used for retry requests that contain files (eg photos)
-  Future<void> retryFormDataRequest(DioError err, ErrorInterceptorHandler handler) async {
+  Future<void> retryFormDataRequest(DioException err, ErrorInterceptorHandler handler) async {
     final formData = FormData();
     formData.fields.addAll(err.requestOptions.data.fields);
     for (final MapEntry<String,dynamic> mapFile in err.requestOptions.data.files) {
