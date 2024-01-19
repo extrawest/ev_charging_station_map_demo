@@ -42,7 +42,7 @@ lib/generated_plugin_registrant.dart
 .fvm/fvm_config.json
 .vscode/settings.json
 .fvm/flutter_sdk
-assets/config_development.json
+assets/config_dev.json
 assets/config_production.json
 ios/Podfile.lock
 build

@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs access to location when open.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app needs access to location when in the background.</string>
+    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+    <dict>
+      <key>YourPurposeKey</key>
+      <string>The example App requires temporary access to the device&apos;s precise location.</string>
+    </dict>
     <key>DART_DEFINES</key>
     <string>$(DART_DEFINES)</string>
 	<key>Flavor</key>
@@ -56,5 +65,6 @@
 		<string>en</string>
 		<string>ua</string>
 	</array>
+
 </dict>
 </plist>

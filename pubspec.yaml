@@ -52,6 +52,7 @@ dependencies:
   universal_html: ^2.0.9
   permission_handler: ^10.2.0
   permission_handler_web: ^0.0.2
+  geolocator: ^10.1.0
 
 
 dev_dependencies:
