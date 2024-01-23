@@ -3,6 +3,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:samoilenko_maps_app/features/stations/services/services.dart';
 
 import '../../common/utils/utils.dart';
 import '../../features/posts/services/services.dart';
@@ -24,6 +25,11 @@ class InjectorModule {
     );
     locator.registerFactory<PostsApiService>(
       () => PostsApiServiceImpl(
+        locator(),
+      ),
+    );
+    locator.registerFactory<StationsApiService>(
+      () => StationsApiServiceImpl(
         locator(),
       ),
     );

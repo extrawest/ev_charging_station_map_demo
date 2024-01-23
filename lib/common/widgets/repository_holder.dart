@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../common/di/injector_module.dart';
 import '../../features/posts/posts.dart';
+import '../../features/stations/repositories/stations_repository.dart';
 
 class RepositoriesHolder extends StatelessWidget {
   final Widget child;
@@ -20,6 +21,11 @@ class RepositoriesHolder extends StatelessWidget {
         RepositoryProvider<PostsRepository>(
           create: (context) => PostsRepositoryImpl(
             postsApiService: InjectorModule.locator(),
+          ),
+        ),
+        RepositoryProvider<StationsRepository>(
+          create: (context) => StationsRepositoryImpl(
+            stationsApiService: InjectorModule.locator(),
           ),
         ),
       ],

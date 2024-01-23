@@ -20,6 +20,7 @@ Connector _$ConnectorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Connector {
+  @JsonKey(name: 'connectorId')
   int? get connectorId => throw _privateConstructorUsedError;
   bool get enabled => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
@@ -39,7 +40,7 @@ abstract class $ConnectorCopyWith<$Res> {
       _$ConnectorCopyWithImpl<$Res, Connector>;
   @useResult
   $Res call(
-      {int? connectorId,
+      {@JsonKey(name: 'connectorId') int? connectorId,
       bool enabled,
       String? id,
       double? power,
@@ -105,7 +106,7 @@ abstract class _$$ConnectorImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? connectorId,
+      {@JsonKey(name: 'connectorId') int? connectorId,
       bool enabled,
       String? id,
       double? power,
@@ -164,7 +165,7 @@ class __$$ConnectorImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ConnectorImpl implements _Connector {
   const _$ConnectorImpl(
-      {this.connectorId,
+      {@JsonKey(name: 'connectorId') this.connectorId,
       required this.enabled,
       this.id,
       this.power,
@@ -175,6 +176,7 @@ class _$ConnectorImpl implements _Connector {
       _$$ConnectorImplFromJson(json);
 
   @override
+  @JsonKey(name: 'connectorId')
   final int? connectorId;
   @override
   final bool enabled;
@@ -227,7 +229,7 @@ class _$ConnectorImpl implements _Connector {
 
 abstract class _Connector implements Connector {
   const factory _Connector(
-      {final int? connectorId,
+      {@JsonKey(name: 'connectorId') final int? connectorId,
       required final bool enabled,
       final String? id,
       final double? power,
@@ -238,6 +240,7 @@ abstract class _Connector implements Connector {
       _$ConnectorImpl.fromJson;
 
   @override
+  @JsonKey(name: 'connectorId')
   int? get connectorId;
   @override
   bool get enabled;

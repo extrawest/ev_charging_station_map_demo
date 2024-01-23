@@ -20,13 +20,19 @@ Station _$StationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Station {
+  @JsonKey(name: 'chargePointId')
   String? get chargePointId => throw _privateConstructorUsedError;
-  List<Connector>? get connector => throw _privateConstructorUsedError;
-  Map<String, List<String>> get imageUrls => throw _privateConstructorUsedError;
+  @JsonKey(name: 'connectors')
+  List<Connector>? get connectors => throw _privateConstructorUsedError;
+  @JsonKey(name: 'imageUrls')
+  Map<String, List<String>>? get imageUrls =>
+      throw _privateConstructorUsedError;
   double? get latitude => throw _privateConstructorUsedError;
   double? get longitude => throw _privateConstructorUsedError;
+  @JsonKey(name: 'stationId')
   String? get stationId => throw _privateConstructorUsedError;
   String? get status => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tenantId')
   String? get tenantId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,14 +46,14 @@ abstract class $StationCopyWith<$Res> {
       _$StationCopyWithImpl<$Res, Station>;
   @useResult
   $Res call(
-      {String? chargePointId,
-      List<Connector>? connector,
-      Map<String, List<String>> imageUrls,
+      {@JsonKey(name: 'chargePointId') String? chargePointId,
+      @JsonKey(name: 'connectors') List<Connector>? connectors,
+      @JsonKey(name: 'imageUrls') Map<String, List<String>>? imageUrls,
       double? latitude,
       double? longitude,
-      String? stationId,
+      @JsonKey(name: 'stationId') String? stationId,
       String? status,
-      String? tenantId});
+      @JsonKey(name: 'tenantId') String? tenantId});
 }
 
 /// @nodoc
@@ -64,8 +70,8 @@ class _$StationCopyWithImpl<$Res, $Val extends Station>
   @override
   $Res call({
     Object? chargePointId = freezed,
-    Object? connector = freezed,
-    Object? imageUrls = null,
+    Object? connectors = freezed,
+    Object? imageUrls = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
     Object? stationId = freezed,
@@ -77,14 +83,14 @@ class _$StationCopyWithImpl<$Res, $Val extends Station>
           ? _value.chargePointId
           : chargePointId // ignore: cast_nullable_to_non_nullable
               as String?,
-      connector: freezed == connector
-          ? _value.connector
-          : connector // ignore: cast_nullable_to_non_nullable
+      connectors: freezed == connectors
+          ? _value.connectors
+          : connectors // ignore: cast_nullable_to_non_nullable
               as List<Connector>?,
-      imageUrls: null == imageUrls
+      imageUrls: freezed == imageUrls
           ? _value.imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>,
+              as Map<String, List<String>>?,
       latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -117,14 +123,14 @@ abstract class _$$StationImplCopyWith<$Res> implements $StationCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? chargePointId,
-      List<Connector>? connector,
-      Map<String, List<String>> imageUrls,
+      {@JsonKey(name: 'chargePointId') String? chargePointId,
+      @JsonKey(name: 'connectors') List<Connector>? connectors,
+      @JsonKey(name: 'imageUrls') Map<String, List<String>>? imageUrls,
       double? latitude,
       double? longitude,
-      String? stationId,
+      @JsonKey(name: 'stationId') String? stationId,
       String? status,
-      String? tenantId});
+      @JsonKey(name: 'tenantId') String? tenantId});
 }
 
 /// @nodoc
@@ -139,8 +145,8 @@ class __$$StationImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? chargePointId = freezed,
-    Object? connector = freezed,
-    Object? imageUrls = null,
+    Object? connectors = freezed,
+    Object? imageUrls = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
     Object? stationId = freezed,
@@ -152,14 +158,14 @@ class __$$StationImplCopyWithImpl<$Res>
           ? _value.chargePointId
           : chargePointId // ignore: cast_nullable_to_non_nullable
               as String?,
-      connector: freezed == connector
-          ? _value._connector
-          : connector // ignore: cast_nullable_to_non_nullable
+      connectors: freezed == connectors
+          ? _value._connectors
+          : connectors // ignore: cast_nullable_to_non_nullable
               as List<Connector>?,
-      imageUrls: null == imageUrls
+      imageUrls: freezed == imageUrls
           ? _value._imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<String>>,
+              as Map<String, List<String>>?,
       latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -188,38 +194,43 @@ class __$$StationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$StationImpl implements _Station {
   const _$StationImpl(
-      {this.chargePointId,
-      final List<Connector>? connector,
-      required final Map<String, List<String>> imageUrls,
+      {@JsonKey(name: 'chargePointId') this.chargePointId,
+      @JsonKey(name: 'connectors') final List<Connector>? connectors,
+      @JsonKey(name: 'imageUrls') final Map<String, List<String>>? imageUrls,
       this.latitude,
       this.longitude,
-      this.stationId,
+      @JsonKey(name: 'stationId') this.stationId,
       this.status,
-      this.tenantId})
-      : _connector = connector,
+      @JsonKey(name: 'tenantId') this.tenantId})
+      : _connectors = connectors,
         _imageUrls = imageUrls;
 
   factory _$StationImpl.fromJson(Map<String, dynamic> json) =>
       _$$StationImplFromJson(json);
 
   @override
+  @JsonKey(name: 'chargePointId')
   final String? chargePointId;
-  final List<Connector>? _connector;
+  final List<Connector>? _connectors;
   @override
-  List<Connector>? get connector {
-    final value = _connector;
+  @JsonKey(name: 'connectors')
+  List<Connector>? get connectors {
+    final value = _connectors;
     if (value == null) return null;
-    if (_connector is EqualUnmodifiableListView) return _connector;
+    if (_connectors is EqualUnmodifiableListView) return _connectors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final Map<String, List<String>> _imageUrls;
+  final Map<String, List<String>>? _imageUrls;
   @override
-  Map<String, List<String>> get imageUrls {
+  @JsonKey(name: 'imageUrls')
+  Map<String, List<String>>? get imageUrls {
+    final value = _imageUrls;
+    if (value == null) return null;
     if (_imageUrls is EqualUnmodifiableMapView) return _imageUrls;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_imageUrls);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -227,15 +238,17 @@ class _$StationImpl implements _Station {
   @override
   final double? longitude;
   @override
+  @JsonKey(name: 'stationId')
   final String? stationId;
   @override
   final String? status;
   @override
+  @JsonKey(name: 'tenantId')
   final String? tenantId;
 
   @override
   String toString() {
-    return 'Station(chargePointId: $chargePointId, connector: $connector, imageUrls: $imageUrls, latitude: $latitude, longitude: $longitude, stationId: $stationId, status: $status, tenantId: $tenantId)';
+    return 'Station(chargePointId: $chargePointId, connectors: $connectors, imageUrls: $imageUrls, latitude: $latitude, longitude: $longitude, stationId: $stationId, status: $status, tenantId: $tenantId)';
   }
 
   @override
@@ -246,7 +259,7 @@ class _$StationImpl implements _Station {
             (identical(other.chargePointId, chargePointId) ||
                 other.chargePointId == chargePointId) &&
             const DeepCollectionEquality()
-                .equals(other._connector, _connector) &&
+                .equals(other._connectors, _connectors) &&
             const DeepCollectionEquality()
                 .equals(other._imageUrls, _imageUrls) &&
             (identical(other.latitude, latitude) ||
@@ -265,7 +278,7 @@ class _$StationImpl implements _Station {
   int get hashCode => Object.hash(
       runtimeType,
       chargePointId,
-      const DeepCollectionEquality().hash(_connector),
+      const DeepCollectionEquality().hash(_connectors),
       const DeepCollectionEquality().hash(_imageUrls),
       latitude,
       longitude,
@@ -289,32 +302,37 @@ class _$StationImpl implements _Station {
 
 abstract class _Station implements Station {
   const factory _Station(
-      {final String? chargePointId,
-      final List<Connector>? connector,
-      required final Map<String, List<String>> imageUrls,
+      {@JsonKey(name: 'chargePointId') final String? chargePointId,
+      @JsonKey(name: 'connectors') final List<Connector>? connectors,
+      @JsonKey(name: 'imageUrls') final Map<String, List<String>>? imageUrls,
       final double? latitude,
       final double? longitude,
-      final String? stationId,
+      @JsonKey(name: 'stationId') final String? stationId,
       final String? status,
-      final String? tenantId}) = _$StationImpl;
+      @JsonKey(name: 'tenantId') final String? tenantId}) = _$StationImpl;
 
   factory _Station.fromJson(Map<String, dynamic> json) = _$StationImpl.fromJson;
 
   @override
+  @JsonKey(name: 'chargePointId')
   String? get chargePointId;
   @override
-  List<Connector>? get connector;
+  @JsonKey(name: 'connectors')
+  List<Connector>? get connectors;
   @override
-  Map<String, List<String>> get imageUrls;
+  @JsonKey(name: 'imageUrls')
+  Map<String, List<String>>? get imageUrls;
   @override
   double? get latitude;
   @override
   double? get longitude;
   @override
+  @JsonKey(name: 'stationId')
   String? get stationId;
   @override
   String? get status;
   @override
+  @JsonKey(name: 'tenantId')
   String? get tenantId;
   @override
   @JsonKey(ignore: true)

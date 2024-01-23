@@ -6,6 +6,7 @@ part 'connector.freezed.dart';
 @freezed
 class Connector with _$Connector{
   const factory Connector({
+    @JsonKey(name: 'connectorId')
     int? connectorId,
     required bool enabled,
     String? id,

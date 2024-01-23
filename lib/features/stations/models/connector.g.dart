@@ -8,7 +8,7 @@ part of 'connector.dart';
 
 _$ConnectorImpl _$$ConnectorImplFromJson(Map<String, dynamic> json) =>
     _$ConnectorImpl(
-      connectorId: json['connector_id'] as int?,
+      connectorId: json['connectorId'] as int?,
       enabled: json['enabled'] as bool,
       id: json['id'] as String?,
       power: (json['power'] as num?)?.toDouble(),
@@ -18,7 +18,7 @@ _$ConnectorImpl _$$ConnectorImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$ConnectorImplToJson(_$ConnectorImpl instance) =>
     <String, dynamic>{
-      'connector_id': instance.connectorId,
+      'connectorId': instance.connectorId,
       'enabled': instance.enabled,
       'id': instance.id,
       'power': instance.power,

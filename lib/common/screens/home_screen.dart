@@ -38,6 +38,12 @@ class HomeScreen extends StatelessWidget {
                   },
                   child: const Text('Posts'),
                 ),
+                FilledButton(
+                  onPressed: () {
+                    context.go(stationsPageRoute);
+                  },
+                  child: const Text('Stations'),
+                ),
               ],
             ),
           ),

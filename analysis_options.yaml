@@ -1,6 +1,8 @@
 include: package:lint/strict.yaml # For production apps
 
 analyzer:
+  errors:
+    invalid_annotation_target: ignore
   plugins:
     - dart_code_metrics
 

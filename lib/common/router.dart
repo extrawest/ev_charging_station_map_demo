@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:samoilenko_maps_app/features/posts/posts.dart';
 
+import '../features/stations/screens/stations_screen.dart';
 import 'screens/screens.dart';
 import 'widgets/widgets.dart';
 
@@ -20,6 +21,7 @@ const String pagesRoute = '/pages';
 const String postsRoute = '/posts';
 const String pagesDynamicRoute = ':id';
 const String firstPageRoute = '/pages/1';
+const String stationsPageRoute = '/stations';
 
 final goRouter = GoRouter(
   initialLocation: homeRoute,
@@ -63,6 +65,22 @@ final goRouter = GoRouter(
           // builder: (BuildContext context, GoRouterState state) {
           //   return const PageWidget();
           // },
+          pageBuilder: (context, state) => _TransitionPage(
+            key: state.pageKey,
+            child: const PageWidget(),
+          ),
+        ),
+      ],
+    ),
+    GoRoute(
+      path: stationsPageRoute,
+      pageBuilder: (context, state) => _TransitionPage(
+        key: state.pageKey,
+        child: const StationsScreen(),
+      ),
+      routes: <RouteBase>[
+        GoRoute(
+          path: pagesDynamicRoute,
           pageBuilder: (context, state) => _TransitionPage(
             key: state.pageKey,
             child: const PageWidget(),

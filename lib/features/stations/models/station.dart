@@ -6,18 +6,19 @@ part 'station.freezed.dart';
 
 part 'station.g.dart';
 
+
 @freezed
 class Station with _$Station {
   const factory Station({
-    String? chargePointId,
-    List<Connector>? connector,
-    required Map<String, List<String>> imageUrls,
+    @JsonKey(name: 'chargePointId') String? chargePointId,
+    @JsonKey(name: 'connectors') List<Connector>? connectors,
+    @JsonKey(name: 'imageUrls') Map<String, List<String>>? imageUrls,
     double? latitude,
     double? longitude,
-    String? stationId,
+    @JsonKey(name: 'stationId') String? stationId,
     String? status,
-    String? tenantId,
+    @JsonKey(name: 'tenantId') String? tenantId,
   }) = _Station;
 
-  factory Station.fromJson(Map<String, dynamic> json) => _$StationFromJson(json);
+  factory Station.fromJson(Map<String, Object?> json) => _$StationFromJson(json);
 }
