@@ -9,6 +9,7 @@ const Color greyLight = Color(0x0c000000);
 const Color white = Color(0xffffffff);
 const Color greenAccent = Color(0xffC0D758);
 const Color greyIcon = Color(0xff89919A);
+const Color inputTextColor = Color(0xffB5BDC8);
 
 class TextStyles {
   static const notifierTextLabel = TextStyle(
@@ -26,10 +27,18 @@ ThemeData darkTheme = ThemeData(
     primary: Colors.grey.shade200,
     background: blackShade,
   ),
-  floatingActionButtonTheme:
-      const FloatingActionButtonThemeData(foregroundColor: Colors.black),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.black),
   dividerColor: Colors.black12,
   fontFamily: GoogleFonts.roboto().fontFamily,
+  inputDecorationTheme: const InputDecorationTheme(
+    border: InputBorder.none,
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+      gapPadding: 2,
+      borderSide: BorderSide(color: greenAccent, width: 2),
+    ),
+    labelStyle: TextStyle(color: inputTextColor),
+  ),
   textTheme: const TextTheme(
     displayMedium: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
     titleMedium: TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
@@ -45,10 +54,18 @@ ThemeData lightTheme = ThemeData(
     primary: Colors.black54,
     background: greyShadeLight,
   ),
-  floatingActionButtonTheme:
-      const FloatingActionButtonThemeData(foregroundColor: Colors.white),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.white),
   dividerColor: Colors.white54,
   fontFamily: GoogleFonts.roboto().fontFamily,
+  inputDecorationTheme: const InputDecorationTheme(
+    border: InputBorder.none,
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+      gapPadding: 2,
+      borderSide: BorderSide(color: greenAccent, width: 2),
+    ),
+    labelStyle: TextStyle(color: inputTextColor),
+  ),
   textTheme: const TextTheme(
     displayMedium: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
     titleMedium: TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
