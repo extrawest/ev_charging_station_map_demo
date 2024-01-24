@@ -8,7 +8,7 @@ class PageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child:
-      Center(child: Text('Current location in navigation is ${GoRouter.of(context).location}')),
+      Center(child: Text('Current location in navigation is ${GoRouterState.of(context).matchedLocation}')),
     );
   }
 }

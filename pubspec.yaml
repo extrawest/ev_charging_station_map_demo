@@ -35,7 +35,7 @@ dependencies:
   flutter_secure_storage: ^8.0.0
   equatable: ^2.0.5
   stream_transform: ^2.1.0
-  go_router: ^6.2.0
+  go_router: ^13.0.1
   cupertino_icons: ^1.0.5
   easy_localization: ^3.0.1
   url_strategy: ^0.2.0
@@ -53,6 +53,7 @@ dependencies:
   permission_handler: ^10.2.0
   permission_handler_web: ^0.0.2
   geolocator: ^10.1.0
+  extrawest_ui_kit: ^1.0.0
 
 
 dev_dependencies:

@@ -25,11 +25,31 @@ class $AssetsI18nGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/ic_account.png
+  AssetGenImage get icAccount =>
+      const AssetGenImage('assets/images/ic_account.png');
+
+  /// File path: assets/images/ic_fav.png
+  AssetGenImage get icFav => const AssetGenImage('assets/images/ic_fav.png');
+
+  /// File path: assets/images/ic_lightning.png
+  AssetGenImage get icLightning =>
+      const AssetGenImage('assets/images/ic_lightning.png');
+
   /// File path: assets/images/ic_map.png
   AssetGenImage get icMap => const AssetGenImage('assets/images/ic_map.png');
 
+  /// File path: assets/images/ic_map_pin.png
+  AssetGenImage get icMapPin =>
+      const AssetGenImage('assets/images/ic_map_pin.png');
+
+  /// File path: assets/images/ic_wallet.png
+  AssetGenImage get icWallet =>
+      const AssetGenImage('assets/images/ic_wallet.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [icMap];
+  List<AssetGenImage> get values =>
+      [icAccount, icFav, icLightning, icMap, icMapPin, icWallet];
 }
 
 class Assets {
