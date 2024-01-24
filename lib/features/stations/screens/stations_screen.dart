@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../theme/theme_info.dart';
-import '../widgets/g_map_widget.dart';
+import '../widgets/main_map_widget.dart';
 import '../widgets/search_bar.dart';
 
 class StationsScreen extends StatelessWidget {
@@ -19,10 +19,10 @@ class StationsScreen extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Expanded(child: GMapWidget()),
+                      Expanded(child: MainMapWidget()),
                     ],
                   ),
-                  const EwSearchBar(),
+                  const AppSearchBar(),
                 ],
               ),
             ),
