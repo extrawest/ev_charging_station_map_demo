@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:samoilenko_maps_app/features/stations/bloc/stations_cubit.dart';
-import 'package:samoilenko_maps_app/features/stations/bloc/stations_cubit_state.dart';
+import 'package:samoilenko_maps_app/features/stations/bloc/stations_bloc/stations_cubit.dart';
+import 'package:samoilenko_maps_app/features/stations/bloc/stations_bloc/stations_cubit_state.dart';
 
 import '../../../common/router.dart';
 import '../models/station.dart';

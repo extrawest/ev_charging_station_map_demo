@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../theme/theme_info.dart';
+import '../bloc/stations_bloc/stations_cubit.dart';
 import '../widgets/main_map_widget.dart';
 import '../widgets/search_bar.dart';
 
@@ -9,26 +11,34 @@ class StationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ///call bloc before scaffold
     return Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Column(
-                    children: [
-                      Expanded(child: MainMapWidget()),
-                    ],
-                  ),
-                  const AppSearchBar(),
-                ],
-              ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Column(
+                  children: [
+                    Expanded(
+                      child: BlocProvider<StationsCubit>(
+                        create: (_) => StationsCubit(
+                          stationsRepository: RepositoryProvider.of(context),
+                        )..fetchStations(),
+                        child: const MainMapWidget(),
+                      ),
+                    ),
+                  ],
+                ),
+                const AppSearchBar(),
+              ],
             ),
-          ],
-        ),
-        floatingActionButton: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          ),
+        ],
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
           SizedBox(
             width: 46,
             height: 46,
@@ -52,6 +62,8 @@ class StationsScreen extends StatelessWidget {
               child: const Icon(Icons.settings_outlined, color: greyIcon),
             ),
           ),
-        ],),);
+        ],
+      ),
+    );
   }
 }

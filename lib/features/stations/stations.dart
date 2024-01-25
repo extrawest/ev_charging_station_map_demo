@@ -1,4 +1,4 @@
-export 'bloc/stations_cubit.dart';
+export 'bloc/stations_bloc/stations_cubit.dart';
 export 'models/models.dart';
 export 'repositories/repositories.dart';
 export 'screens/screens.dart';
