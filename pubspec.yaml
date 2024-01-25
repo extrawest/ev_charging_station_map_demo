@@ -54,6 +54,7 @@ dependencies:
   permission_handler_web: ^0.0.2
   geolocator: ^10.1.0
   extrawest_ui_kit: ^1.0.0
+  google_maps_cluster_manager: ^3.1.0
 
 
 dev_dependencies:
