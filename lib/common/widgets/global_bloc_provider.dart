@@ -19,8 +19,7 @@ class GlobalBlocProvider extends StatelessWidget {
       providers: [
         // Add here your BLoC/Cubits you are about to use through multiple screens
         BlocProvider(
-          create: (context) =>
-              ThemeBloc(Hive.box(ThemeBox.name))..add(const InitTheme()),
+          create: (context) => ThemeBloc(Hive.box(ThemeBox.name))..add(const InitTheme()),
         ),
       ],
       child: child,

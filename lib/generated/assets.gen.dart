@@ -32,12 +32,24 @@ class $AssetsImagesGen {
   /// File path: assets/images/ic_fav.png
   AssetGenImage get icFav => const AssetGenImage('assets/images/ic_fav.png');
 
+  /// File path: assets/images/ic_fav_active.png
+  AssetGenImage get icFavActive =>
+      const AssetGenImage('assets/images/ic_fav_active.png');
+
   /// File path: assets/images/ic_lightning.png
   AssetGenImage get icLightning =>
       const AssetGenImage('assets/images/ic_lightning.png');
 
+  /// File path: assets/images/ic_lightning_active.png
+  AssetGenImage get icLightningActive =>
+      const AssetGenImage('assets/images/ic_lightning_active.png');
+
   /// File path: assets/images/ic_map.png
   AssetGenImage get icMap => const AssetGenImage('assets/images/ic_map.png');
+
+  /// File path: assets/images/ic_map_active.png
+  AssetGenImage get icMapActive =>
+      const AssetGenImage('assets/images/ic_map_active.png');
 
   /// File path: assets/images/ic_map_pin.png
   AssetGenImage get icMapPin =>
@@ -48,8 +60,17 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/ic_wallet.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [icAccount, icFav, icLightning, icMap, icMapPin, icWallet];
+  List<AssetGenImage> get values => [
+        icAccount,
+        icFav,
+        icFavActive,
+        icLightning,
+        icLightningActive,
+        icMap,
+        icMapActive,
+        icMapPin,
+        icWallet
+      ];
 }
 
 class Assets {
