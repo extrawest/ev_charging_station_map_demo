@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../utils/cluster_utils.dart';
 import 'connector.dart';
 
 part 'station.freezed.dart';
@@ -16,7 +17,7 @@ class Station with _$Station {
     double? latitude,
     double? longitude,
     @JsonKey(name: 'stationId') String? stationId,
-    String? status,
+    StatusVals? status,
     @JsonKey(name: 'tenantId') String? tenantId,
   }) = _Station;
 

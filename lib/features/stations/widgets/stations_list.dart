@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:samoilenko_maps_app/features/stations/bloc/stations_bloc/stations_cubit.dart';
 import 'package:samoilenko_maps_app/features/stations/bloc/stations_bloc/stations_cubit_state.dart';
-
-import '../../../common/router.dart';
-import '../models/station.dart';
 
 class StationsList extends StatefulWidget {
   const StationsList({super.key});
@@ -40,35 +36,29 @@ class _StationsListState extends State<StationsList> {
                 error: (String message) => Center(
                   child: Text(message),
                 ),
-                loaded: (List<Station> station) {
+                loaded: (station, myLocation) {
                   final items = station;
-                  return Column(children: [
-                    FilledButton(
-                      onPressed: () {
-                        context.go(homeRoute);
-                      },
-                      child: const Text('Go to Home'),
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemBuilder: (BuildContext context, int index) {
-                          return Row(
-                            children: [
-                              const SizedBox(
-                                width: 80,
-                                height: 80,
-                                // child: Image.network(items[index].stationId ?? ''),
-                              ),
-                              Text(items[index].connectors?[0].type.toString() ?? ''),
-                              // Text(items[index].chargePointId.toString()  ?? ''),
-                            ],
-                          );
-                        },
-                        itemCount: items.length,
-                        controller: _scrollController,
+                  return Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          itemBuilder: (BuildContext context, int index) {
+                            return Row(
+                              children: [
+                                const SizedBox(
+                                  width: 80,
+                                  height: 80,
+                                ),
+                                Text(items[index].connectors?[0].type.toString() ?? ''),
+                              ],
+                            );
+                          },
+                          itemCount: items.length,
+                          controller: _scrollController,
+                        ),
                       ),
-                    ),
-                  ],);
+                    ],
+                  );
                 },
               );
             },

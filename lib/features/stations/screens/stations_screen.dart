@@ -1,14 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../../common/services/location_service.dart';
 import '../../theme/theme_info.dart';
 import '../bloc/stations_bloc/stations_cubit.dart';
 import '../bloc/stations_bloc/stations_cubit_state.dart';
 import '../widgets/main_map_widget.dart';
 import '../widgets/search_bar.dart';
 
-class StationsScreen extends StatelessWidget {
+class StationsScreen extends StatefulWidget {
   const StationsScreen({super.key});
+
+  @override
+  State<StationsScreen> createState() => _StationsScreenState();
+}
+
+class _StationsScreenState extends State<StationsScreen> {
+  final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +49,11 @@ class StationsScreen extends StatelessWidget {
                               error: (String message) => Center(
                                 child: Text(message),
                               ),
-                              loaded: (stationsInfo) {
+                              loaded: (stationsInfo, myLocation) {
                                 return MainMapWidget(
                                   stationsInfo: stationsInfo,
+                                  mapController: _controller,
+                                  myLocation: myLocation,
                                 );
                               },
                             );
@@ -63,7 +76,18 @@ class StationsScreen extends StatelessWidget {
             width: 46,
             height: 46,
             child: FloatingActionButton(
-              onPressed: () => {},
+              onPressed: () async {
+                final GoogleMapController controller = await _controller.future;
+                final myLocation = await loadCurrentLocation();
+                controller.animateCamera(
+                  CameraUpdate.newCameraPosition(
+                    CameraPosition(
+                      target: LatLng(myLocation.latitude, myLocation.longitude),
+                      zoom: 17.0,
+                    ),
+                  ),
+                );
+              },
               backgroundColor: white,
               elevation: 0,
               child: const Icon(
