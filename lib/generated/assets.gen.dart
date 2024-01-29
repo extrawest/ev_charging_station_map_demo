@@ -59,6 +59,21 @@ class $AssetsImagesGen {
   AssetGenImage get icWallet =>
       const AssetGenImage('assets/images/ic_wallet.png');
 
+  /// File path: assets/images/pin_black.png
+  AssetGenImage get pinBlack =>
+      const AssetGenImage('assets/images/pin_black.png');
+
+  /// File path: assets/images/pin_green.png
+  AssetGenImage get pinGreen =>
+      const AssetGenImage('assets/images/pin_green.png');
+
+  /// File path: assets/images/pin_red.png
+  AssetGenImage get pinRed => const AssetGenImage('assets/images/pin_red.png');
+
+  /// File path: assets/images/pin_yellow.png
+  AssetGenImage get pinYellow =>
+      const AssetGenImage('assets/images/pin_yellow.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         icAccount,
@@ -69,7 +84,11 @@ class $AssetsImagesGen {
         icMap,
         icMapActive,
         icMapPin,
-        icWallet
+        icWallet,
+        pinBlack,
+        pinGreen,
+        pinRed,
+        pinYellow
       ];
 }
 
