@@ -21,7 +21,8 @@ mixin _$StationsCubitState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Station> stationsInfo) loaded,
+    required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
+        loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +30,7 @@ mixin _$StationsCubitState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<Station> stationsInfo)? loaded,
+    TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +38,7 @@ mixin _$StationsCubitState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Station> stationsInfo)? loaded,
+    TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,7 +128,8 @@ class _$InitialImpl implements Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Station> stationsInfo) loaded,
+    required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
+        loaded,
   }) {
     return initial();
   }
@@ -138,7 +140,7 @@ class _$InitialImpl implements Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<Station> stationsInfo)? loaded,
+    TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
     return initial?.call();
   }
@@ -149,7 +151,7 @@ class _$InitialImpl implements Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Station> stationsInfo)? loaded,
+    TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -241,7 +243,8 @@ class _$LoadinngImpl implements Loadinng {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Station> stationsInfo) loaded,
+    required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
+        loaded,
   }) {
     return loading();
   }
@@ -252,7 +255,7 @@ class _$LoadinngImpl implements Loadinng {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<Station> stationsInfo)? loaded,
+    TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
     return loading?.call();
   }
@@ -263,7 +266,7 @@ class _$LoadinngImpl implements Loadinng {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Station> stationsInfo)? loaded,
+    TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -381,7 +384,8 @@ class _$ErrorImpl implements Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Station> stationsInfo) loaded,
+    required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
+        loaded,
   }) {
     return error(message);
   }
@@ -392,7 +396,7 @@ class _$ErrorImpl implements Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<Station> stationsInfo)? loaded,
+    TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
     return error?.call(message);
   }
@@ -403,7 +407,7 @@ class _$ErrorImpl implements Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Station> stationsInfo)? loaded,
+    TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -465,7 +469,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Station> stationsInfo});
+  $Res call({List<Station> stationsInfo, LatLng? myLocation});
 }
 
 /// @nodoc
@@ -480,12 +484,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? stationsInfo = null,
+    Object? myLocation = freezed,
   }) {
     return _then(_$LoadedImpl(
       stationsInfo: null == stationsInfo
           ? _value._stationsInfo
           : stationsInfo // ignore: cast_nullable_to_non_nullable
               as List<Station>,
+      myLocation: freezed == myLocation
+          ? _value.myLocation
+          : myLocation // ignore: cast_nullable_to_non_nullable
+              as LatLng?,
     ));
   }
 }
@@ -493,7 +502,8 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl({required final List<Station> stationsInfo})
+  const _$LoadedImpl(
+      {required final List<Station> stationsInfo, required this.myLocation})
       : _stationsInfo = stationsInfo;
 
   final List<Station> _stationsInfo;
@@ -505,8 +515,11 @@ class _$LoadedImpl implements Loaded {
   }
 
   @override
+  final LatLng? myLocation;
+
+  @override
   String toString() {
-    return 'StationsCubitState.loaded(stationsInfo: $stationsInfo)';
+    return 'StationsCubitState.loaded(stationsInfo: $stationsInfo, myLocation: $myLocation)';
   }
 
   @override
@@ -515,12 +528,14 @@ class _$LoadedImpl implements Loaded {
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
             const DeepCollectionEquality()
-                .equals(other._stationsInfo, _stationsInfo));
+                .equals(other._stationsInfo, _stationsInfo) &&
+            (identical(other.myLocation, myLocation) ||
+                other.myLocation == myLocation));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_stationsInfo));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_stationsInfo), myLocation);
 
   @JsonKey(ignore: true)
   @override
@@ -534,9 +549,10 @@ class _$LoadedImpl implements Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Station> stationsInfo) loaded,
+    required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
+        loaded,
   }) {
-    return loaded(stationsInfo);
+    return loaded(stationsInfo, myLocation);
   }
 
   @override
@@ -545,9 +561,9 @@ class _$LoadedImpl implements Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<Station> stationsInfo)? loaded,
+    TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
-    return loaded?.call(stationsInfo);
+    return loaded?.call(stationsInfo, myLocation);
   }
 
   @override
@@ -556,11 +572,11 @@ class _$LoadedImpl implements Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Station> stationsInfo)? loaded,
+    TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(stationsInfo);
+      return loaded(stationsInfo, myLocation);
     }
     return orElse();
   }
@@ -604,10 +620,12 @@ class _$LoadedImpl implements Loaded {
 }
 
 abstract class Loaded implements StationsCubitState {
-  const factory Loaded({required final List<Station> stationsInfo}) =
-      _$LoadedImpl;
+  const factory Loaded(
+      {required final List<Station> stationsInfo,
+      required final LatLng? myLocation}) = _$LoadedImpl;
 
   List<Station> get stationsInfo;
+  LatLng? get myLocation;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;

@@ -31,7 +31,7 @@ mixin _$Station {
   double? get longitude => throw _privateConstructorUsedError;
   @JsonKey(name: 'stationId')
   String? get stationId => throw _privateConstructorUsedError;
-  String? get status => throw _privateConstructorUsedError;
+  StatusVals? get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'tenantId')
   String? get tenantId => throw _privateConstructorUsedError;
 
@@ -52,7 +52,7 @@ abstract class $StationCopyWith<$Res> {
       double? latitude,
       double? longitude,
       @JsonKey(name: 'stationId') String? stationId,
-      String? status,
+      StatusVals? status,
       @JsonKey(name: 'tenantId') String? tenantId});
 }
 
@@ -106,7 +106,7 @@ class _$StationCopyWithImpl<$Res, $Val extends Station>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as StatusVals?,
       tenantId: freezed == tenantId
           ? _value.tenantId
           : tenantId // ignore: cast_nullable_to_non_nullable
@@ -129,7 +129,7 @@ abstract class _$$StationImplCopyWith<$Res> implements $StationCopyWith<$Res> {
       double? latitude,
       double? longitude,
       @JsonKey(name: 'stationId') String? stationId,
-      String? status,
+      StatusVals? status,
       @JsonKey(name: 'tenantId') String? tenantId});
 }
 
@@ -181,7 +181,7 @@ class __$$StationImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as StatusVals?,
       tenantId: freezed == tenantId
           ? _value.tenantId
           : tenantId // ignore: cast_nullable_to_non_nullable
@@ -241,7 +241,7 @@ class _$StationImpl implements _Station {
   @JsonKey(name: 'stationId')
   final String? stationId;
   @override
-  final String? status;
+  final StatusVals? status;
   @override
   @JsonKey(name: 'tenantId')
   final String? tenantId;
@@ -308,7 +308,7 @@ abstract class _Station implements Station {
       final double? latitude,
       final double? longitude,
       @JsonKey(name: 'stationId') final String? stationId,
-      final String? status,
+      final StatusVals? status,
       @JsonKey(name: 'tenantId') final String? tenantId}) = _$StationImpl;
 
   factory _Station.fromJson(Map<String, dynamic> json) = _$StationImpl.fromJson;
@@ -330,7 +330,7 @@ abstract class _Station implements Station {
   @JsonKey(name: 'stationId')
   String? get stationId;
   @override
-  String? get status;
+  StatusVals? get status;
   @override
   @JsonKey(name: 'tenantId')
   String? get tenantId;
