@@ -20,6 +20,7 @@ mixin _$StationsCubitState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() permissionDenied,
     required TResult Function(String message) error,
     required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
         loaded,
@@ -29,6 +30,7 @@ mixin _$StationsCubitState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? permissionDenied,
     TResult? Function(String message)? error,
     TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) =>
@@ -37,6 +39,7 @@ mixin _$StationsCubitState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? permissionDenied,
     TResult Function(String message)? error,
     TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
@@ -46,6 +49,7 @@ mixin _$StationsCubitState {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loadinng value) loading,
+    required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
   }) =>
@@ -54,6 +58,7 @@ mixin _$StationsCubitState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loadinng value)? loading,
+    TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Error value)? error,
     TResult? Function(Loaded value)? loaded,
   }) =>
@@ -62,6 +67,7 @@ mixin _$StationsCubitState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loadinng value)? loading,
+    TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
@@ -127,6 +133,7 @@ class _$InitialImpl implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() permissionDenied,
     required TResult Function(String message) error,
     required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
         loaded,
@@ -139,6 +146,7 @@ class _$InitialImpl implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? permissionDenied,
     TResult? Function(String message)? error,
     TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
@@ -150,6 +158,7 @@ class _$InitialImpl implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? permissionDenied,
     TResult Function(String message)? error,
     TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
@@ -165,6 +174,7 @@ class _$InitialImpl implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loadinng value) loading,
+    required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
   }) {
@@ -176,6 +186,7 @@ class _$InitialImpl implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loadinng value)? loading,
+    TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Error value)? error,
     TResult? Function(Loaded value)? loaded,
   }) {
@@ -187,6 +198,7 @@ class _$InitialImpl implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loadinng value)? loading,
+    TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
@@ -242,6 +254,7 @@ class _$LoadinngImpl implements Loadinng {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() permissionDenied,
     required TResult Function(String message) error,
     required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
         loaded,
@@ -254,6 +267,7 @@ class _$LoadinngImpl implements Loadinng {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? permissionDenied,
     TResult? Function(String message)? error,
     TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
@@ -265,6 +279,7 @@ class _$LoadinngImpl implements Loadinng {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? permissionDenied,
     TResult Function(String message)? error,
     TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
@@ -280,6 +295,7 @@ class _$LoadinngImpl implements Loadinng {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loadinng value) loading,
+    required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
   }) {
@@ -291,6 +307,7 @@ class _$LoadinngImpl implements Loadinng {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loadinng value)? loading,
+    TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Error value)? error,
     TResult? Function(Loaded value)? loaded,
   }) {
@@ -302,6 +319,7 @@ class _$LoadinngImpl implements Loadinng {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loadinng value)? loading,
+    TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
@@ -315,6 +333,127 @@ class _$LoadinngImpl implements Loadinng {
 
 abstract class Loadinng implements StationsCubitState {
   const factory Loadinng() = _$LoadinngImpl;
+}
+
+/// @nodoc
+abstract class _$$PermissionDeniedImplCopyWith<$Res> {
+  factory _$$PermissionDeniedImplCopyWith(_$PermissionDeniedImpl value,
+          $Res Function(_$PermissionDeniedImpl) then) =
+      __$$PermissionDeniedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PermissionDeniedImplCopyWithImpl<$Res>
+    extends _$StationsCubitStateCopyWithImpl<$Res, _$PermissionDeniedImpl>
+    implements _$$PermissionDeniedImplCopyWith<$Res> {
+  __$$PermissionDeniedImplCopyWithImpl(_$PermissionDeniedImpl _value,
+      $Res Function(_$PermissionDeniedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PermissionDeniedImpl implements PermissionDenied {
+  const _$PermissionDeniedImpl();
+
+  @override
+  String toString() {
+    return 'StationsCubitState.permissionDenied()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PermissionDeniedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() permissionDenied,
+    required TResult Function(String message) error,
+    required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
+        loaded,
+  }) {
+    return permissionDenied();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? permissionDenied,
+    TResult? Function(String message)? error,
+    TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
+  }) {
+    return permissionDenied?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? permissionDenied,
+    TResult Function(String message)? error,
+    TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
+    required TResult orElse(),
+  }) {
+    if (permissionDenied != null) {
+      return permissionDenied();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loadinng value) loading,
+    required TResult Function(PermissionDenied value) permissionDenied,
+    required TResult Function(Error value) error,
+    required TResult Function(Loaded value) loaded,
+  }) {
+    return permissionDenied(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loadinng value)? loading,
+    TResult? Function(PermissionDenied value)? permissionDenied,
+    TResult? Function(Error value)? error,
+    TResult? Function(Loaded value)? loaded,
+  }) {
+    return permissionDenied?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loadinng value)? loading,
+    TResult Function(PermissionDenied value)? permissionDenied,
+    TResult Function(Error value)? error,
+    TResult Function(Loaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (permissionDenied != null) {
+      return permissionDenied(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PermissionDenied implements StationsCubitState {
+  const factory PermissionDenied() = _$PermissionDeniedImpl;
 }
 
 /// @nodoc
@@ -383,6 +522,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() permissionDenied,
     required TResult Function(String message) error,
     required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
         loaded,
@@ -395,6 +535,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? permissionDenied,
     TResult? Function(String message)? error,
     TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
@@ -406,6 +547,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? permissionDenied,
     TResult Function(String message)? error,
     TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
@@ -421,6 +563,7 @@ class _$ErrorImpl implements Error {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loadinng value) loading,
+    required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
   }) {
@@ -432,6 +575,7 @@ class _$ErrorImpl implements Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loadinng value)? loading,
+    TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Error value)? error,
     TResult? Function(Loaded value)? loaded,
   }) {
@@ -443,6 +587,7 @@ class _$ErrorImpl implements Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loadinng value)? loading,
+    TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
@@ -503,7 +648,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
 
 class _$LoadedImpl implements Loaded {
   const _$LoadedImpl(
-      {required final List<Station> stationsInfo, required this.myLocation})
+      {required final List<Station> stationsInfo, this.myLocation})
       : _stationsInfo = stationsInfo;
 
   final List<Station> _stationsInfo;
@@ -548,6 +693,7 @@ class _$LoadedImpl implements Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() permissionDenied,
     required TResult Function(String message) error,
     required TResult Function(List<Station> stationsInfo, LatLng? myLocation)
         loaded,
@@ -560,6 +706,7 @@ class _$LoadedImpl implements Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? permissionDenied,
     TResult? Function(String message)? error,
     TResult? Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
   }) {
@@ -571,6 +718,7 @@ class _$LoadedImpl implements Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? permissionDenied,
     TResult Function(String message)? error,
     TResult Function(List<Station> stationsInfo, LatLng? myLocation)? loaded,
     required TResult orElse(),
@@ -586,6 +734,7 @@ class _$LoadedImpl implements Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loadinng value) loading,
+    required TResult Function(PermissionDenied value) permissionDenied,
     required TResult Function(Error value) error,
     required TResult Function(Loaded value) loaded,
   }) {
@@ -597,6 +746,7 @@ class _$LoadedImpl implements Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loadinng value)? loading,
+    TResult? Function(PermissionDenied value)? permissionDenied,
     TResult? Function(Error value)? error,
     TResult? Function(Loaded value)? loaded,
   }) {
@@ -608,6 +758,7 @@ class _$LoadedImpl implements Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loadinng value)? loading,
+    TResult Function(PermissionDenied value)? permissionDenied,
     TResult Function(Error value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
@@ -622,7 +773,7 @@ class _$LoadedImpl implements Loaded {
 abstract class Loaded implements StationsCubitState {
   const factory Loaded(
       {required final List<Station> stationsInfo,
-      required final LatLng? myLocation}) = _$LoadedImpl;
+      final LatLng? myLocation}) = _$LoadedImpl;
 
   List<Station> get stationsInfo;
   LatLng? get myLocation;
