@@ -30,7 +30,7 @@ class _StationsListState extends State<StationsList> {
                 initial: () => const Center(
                   child: CircularProgressIndicator(),
                 ),
-                permissionDenied: ()=>Center(
+                permissionDenied: () => const Center(
                   child: CircularProgressIndicator(),
                 ),
                 loading: () => const Center(

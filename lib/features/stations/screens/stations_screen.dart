@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../common/services/location_service.dart';
-import '../../../common/services/logger.dart';
 import '../../../common/widgets/dialogs/map_alert_dialog.dart';
 import '../../theme/theme_info.dart';
 import '../bloc/stations_bloc/stations_cubit.dart';
@@ -102,8 +101,8 @@ class _StationsScreenState extends State<StationsScreen> {
 
                 await geoService.loadCurrentLocation();
                 final GoogleMapController controller = await _controller.future;
-                final myLocation  = geoService.currentLocation;
-                if(myLocation != null){
+                final myLocation = geoService.currentLocation;
+                if (myLocation != null) {
                   controller.animateCamera(
                     CameraUpdate.newCameraPosition(
                       CameraPosition(
@@ -113,7 +112,6 @@ class _StationsScreenState extends State<StationsScreen> {
                     ),
                   );
                 }
-
               },
               backgroundColor: white,
               elevation: 0,
