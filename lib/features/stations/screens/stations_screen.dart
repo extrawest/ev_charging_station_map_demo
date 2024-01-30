@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../common/services/location_service.dart';
+import '../../../common/services/logger.dart';
+import '../../../common/widgets/dialogs/map_alert_dialog.dart';
 import '../../theme/theme_info.dart';
 import '../bloc/stations_bloc/stations_cubit.dart';
 import '../bloc/stations_bloc/stations_cubit_state.dart';
@@ -37,27 +39,46 @@ class _StationsScreenState extends State<StationsScreen> {
                         create: (_) => StationsCubit(
                           stationsRepository: RepositoryProvider.of(context),
                         )..fetchStations(),
-                        child: BlocBuilder<StationsCubit, StationsCubitState>(
-                          builder: (context, state) {
-                            return state.when(
-                              initial: () => const Center(
-                                child: CircularProgressIndicator(),
-                              ),
-                              loading: () => const Center(
-                                child: CircularProgressIndicator(),
-                              ),
-                              error: (String message) => Center(
-                                child: Text(message),
-                              ),
-                              loaded: (stationsInfo, myLocation) {
-                                return MainMapWidget(
-                                  stationsInfo: stationsInfo,
-                                  mapController: _controller,
-                                  myLocation: myLocation,
+                        child: BlocListener<StationsCubit, StationsCubitState>(
+                          listener: (context, state) {
+                            state.maybeWhen(
+                              permissionDenied: () {
+                                showDialog<void>(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return const MapAlertDialog();
+                                  },
                                 );
                               },
+                              orElse: () {},
                             );
                           },
+                          child: BlocBuilder<StationsCubit, StationsCubitState>(
+                            builder: (context, state) {
+                              return state.when(
+                                initial: () => const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                                loading: () => const Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                                permissionDenied: () {
+                                  // The AlertDialog is shown inside the BlocListener
+                                  return const SizedBox(); // Return an empty container here since the AlertDialog is handled separately.
+                                },
+                                error: (String message) => Center(
+                                  child: Text(message),
+                                ),
+                                loaded: (stationsInfo, myLocation) {
+                                  return MainMapWidget(
+                                    stationsInfo: stationsInfo,
+                                    mapController: _controller,
+                                    myLocation: myLocation,
+                                  );
+                                },
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -77,16 +98,22 @@ class _StationsScreenState extends State<StationsScreen> {
             height: 46,
             child: FloatingActionButton(
               onPressed: () async {
+                final GeolocationService geoService = GeolocationService();
+
+                await geoService.loadCurrentLocation();
                 final GoogleMapController controller = await _controller.future;
-                final myLocation = await loadCurrentLocation();
-                controller.animateCamera(
-                  CameraUpdate.newCameraPosition(
-                    CameraPosition(
-                      target: LatLng(myLocation.latitude, myLocation.longitude),
-                      zoom: 17.0,
+                final myLocation  = geoService.currentLocation;
+                if(myLocation != null){
+                  controller.animateCamera(
+                    CameraUpdate.newCameraPosition(
+                      CameraPosition(
+                        target: LatLng(myLocation.x, myLocation.y),
+                        zoom: 6.0,
+                      ),
                     ),
-                  ),
-                );
+                  );
+                }
+
               },
               backgroundColor: white,
               elevation: 0,
