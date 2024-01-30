@@ -59,6 +59,10 @@ class $AssetsImagesGen {
   AssetGenImage get icWallet =>
       const AssetGenImage('assets/images/ic_wallet.png');
 
+  /// File path: assets/images/my_location.png
+  AssetGenImage get myLocation =>
+      const AssetGenImage('assets/images/my_location.png');
+
   /// File path: assets/images/pin_black.png
   AssetGenImage get pinBlack =>
       const AssetGenImage('assets/images/pin_black.png');
@@ -85,6 +89,7 @@ class $AssetsImagesGen {
         icMapActive,
         icMapPin,
         icWallet,
+        myLocation,
         pinBlack,
         pinGreen,
         pinRed,
