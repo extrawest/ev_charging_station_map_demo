@@ -7,6 +7,7 @@ import 'package:samoilenko_maps_app/features/stations/services/services.dart';
 
 import '../../common/utils/utils.dart';
 import '../../features/posts/services/services.dart';
+import '../../features/stations/services/location_service.dart';
 import '../../network/network.dart';
 import '../../network/refresh_token/dio_token_request_retrier.dart';
 
@@ -32,6 +33,9 @@ class InjectorModule {
       () => StationsApiServiceImpl(
         locator(),
       ),
+    );
+    locator.registerFactory<GeolocationService>(
+      () => GeolocationService(),
     );
   }
 }

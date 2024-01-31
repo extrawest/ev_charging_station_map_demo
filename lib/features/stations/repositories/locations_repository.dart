@@ -1,0 +1,1 @@
+import '../services/location_service.dart';abstract class LocationsRepository {  final GeolocationService locationsService;  LocationsRepository(this.locationsService);}class LocationsRepositoryImpl implements LocationsRepository {  @override  final GeolocationService locationsService;  LocationsRepositoryImpl({required this.locationsService});}

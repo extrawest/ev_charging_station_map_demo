@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../common/di/injector_module.dart';
 import '../../features/posts/posts.dart';
 import '../../features/stations/repositories/stations_repository.dart';
+import '../../features/stations/services/location_service.dart';
 
 class RepositoriesHolder extends StatelessWidget {
   final Widget child;
@@ -27,6 +28,9 @@ class RepositoriesHolder extends StatelessWidget {
           create: (context) => StationsRepositoryImpl(
             stationsApiService: InjectorModule.locator(),
           ),
+        ),
+        RepositoryProvider<GeolocationService>(
+          create: (context) => GeolocationService(),
         ),
       ],
       child: child,
