@@ -7,7 +7,7 @@ abstract class StationsRepository {
 
   StationsRepository(this.stationsApiService);
 
-  Future<List<Station>> fetchStations({int startIndex});
+  Future<List<Station>> fetchStations();
 }
 
 class StationsRepositoryImpl implements StationsRepository {
@@ -17,7 +17,7 @@ class StationsRepositoryImpl implements StationsRepository {
   StationsRepositoryImpl({required this.stationsApiService});
 
   @override
-  Future<List<Station>> fetchStations({int startIndex = 0}) async {
+  Future<List<Station>> fetchStations() async {
     return await stationsApiService.fetchStations();
   }
 }
