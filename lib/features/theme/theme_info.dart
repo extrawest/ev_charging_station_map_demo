@@ -27,6 +27,24 @@ ThemeData darkTheme = ThemeData(
     primary: Colors.grey.shade200,
     background: blackShade,
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(greenAccent),
+      minimumSize: MaterialStateProperty.all(const Size.fromHeight(50)),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(
+          fontSize: 16,
+          color: white,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    ),
+  ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.black),
   dividerColor: Colors.black12,
   fontFamily: GoogleFonts.roboto().fontFamily,
@@ -42,6 +60,7 @@ ThemeData darkTheme = ThemeData(
   textTheme: const TextTheme(
     displayMedium: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
     titleMedium: TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
+    titleSmall: TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
     bodySmall: TextStyle(fontSize: 14.0),
   ),
 );
@@ -53,6 +72,25 @@ ThemeData lightTheme = ThemeData(
   colorScheme: const ColorScheme.light(
     primary: Colors.black54,
     background: greyShadeLight,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(greenAccent),
+      minimumSize: MaterialStateProperty.all(const Size.fromHeight(50)),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(
+          fontSize: 16,
+          color: white,
+          fontWeight: FontWeight.w600,
+
+        ),
+      ),
+    ),
   ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.white),
   dividerColor: Colors.white54,
@@ -69,6 +107,7 @@ ThemeData lightTheme = ThemeData(
   textTheme: const TextTheme(
     displayMedium: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
     titleMedium: TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
+    titleSmall: TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
     bodySmall: TextStyle(fontSize: 14.0),
   ),
 );
