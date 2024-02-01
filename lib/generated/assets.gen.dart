@@ -59,6 +59,14 @@ class $AssetsImagesGen {
   AssetGenImage get icWallet =>
       const AssetGenImage('assets/images/ic_wallet.png');
 
+  /// File path: assets/images/map_type_default.png
+  AssetGenImage get mapTypeDefault =>
+      const AssetGenImage('assets/images/map_type_default.png');
+
+  /// File path: assets/images/map_type_satelite.png
+  AssetGenImage get mapTypeSatelite =>
+      const AssetGenImage('assets/images/map_type_satelite.png');
+
   /// File path: assets/images/my_location.png
   AssetGenImage get myLocation =>
       const AssetGenImage('assets/images/my_location.png');
@@ -89,6 +97,8 @@ class $AssetsImagesGen {
         icMapActive,
         icMapPin,
         icWallet,
+        mapTypeDefault,
+        mapTypeSatelite,
         myLocation,
         pinBlack,
         pinGreen,
