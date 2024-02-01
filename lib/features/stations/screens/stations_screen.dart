@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../common/widgets/dialogs/map_alert_dialog.dart';
-import '../../theme/theme_info.dart';
 import '../bloc/stations_bloc/stations_cubit.dart';
 import '../bloc/stations_bloc/stations_cubit_state.dart';
 import '../services/location_service.dart';
 import '../widgets/main_map_widget.dart';
+import '../widgets/map_utility_btn.dart';
 import '../widgets/search_bar.dart';
 
 class StationsScreen extends StatefulWidget {
@@ -87,47 +87,8 @@ class _StationsScreenState extends State<StationsScreen> {
                 ),
               ],
             ),
-            floatingActionButton: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                SizedBox(
-                  width: 46,
-                  height: 46,
-                  child: FloatingActionButton(
-                    onPressed: () async {
-                      final myLocation = await context.read<StationsCubit>().getMyLocation();
-                      final GoogleMapController controller = await _controller.future;
-
-                      if (myLocation != null) {
-                        controller.animateCamera(
-                          CameraUpdate.newCameraPosition(
-                            CameraPosition(
-                              target: LatLng(myLocation.x, myLocation.y),
-                              zoom: 6.0,
-                            ),
-                          ),
-                        );
-                      }
-                    },
-                    backgroundColor: white,
-                    elevation: 0,
-                    child: const Icon(
-                      Icons.send_sharp,
-                      color: greyIcon,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 46,
-                  height: 46,
-                  child: FloatingActionButton(
-                    onPressed: () => {},
-                    backgroundColor: white,
-                    elevation: 0,
-                    child: const Icon(Icons.settings_outlined, color: greyIcon),
-                  ),
-                ),
-              ],
+            floatingActionButton: MapUtilityBtns(
+              mapController: _controller,
             ),
           );
         },
