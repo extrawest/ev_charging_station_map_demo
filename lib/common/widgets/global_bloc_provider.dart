@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import '../../features/stations/bloc/stations_bloc/map_bloc/map_cubit.dart';
+import '../../features/google_map/map_bloc/map_cubit.dart';
 import '../../features/theme/theme.dart';
 import '../services/theme_box.dart';
 
