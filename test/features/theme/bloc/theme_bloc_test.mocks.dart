@@ -151,7 +151,6 @@ class MockBox<E> extends _i1.Mock implements _i2.Box<E> {
             key,
             value,
           ],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
@@ -160,9 +159,8 @@ class MockBox<E> extends _i1.Mock implements _i2.Box<E> {
   @override
   _i4.Future<void> putAt(
     int? index,
-    E? value, {
-    bool? notify = true,
-  }) =>
+    E? value,
+  ) =>
       (super.noSuchMethod(
         Invocation.method(
           #putAt,
@@ -170,95 +168,64 @@ class MockBox<E> extends _i1.Mock implements _i2.Box<E> {
             index,
             value,
           ],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<void> putAll(
-    Map<dynamic, E>? entries, {
-    bool? notify = true,
-  }) =>
-      (super.noSuchMethod(
+  _i4.Future<void> putAll(Map<dynamic, E>? entries) => (super.noSuchMethod(
         Invocation.method(
           #putAll,
           [entries],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<int> add(
-    E? value, {
-    bool? notify = true,
-  }) =>
-      (super.noSuchMethod(
+  _i4.Future<int> add(E? value) => (super.noSuchMethod(
         Invocation.method(
           #add,
           [value],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<int>.value(0),
       ) as _i4.Future<int>);
 
   @override
-  _i4.Future<Iterable<int>> addAll(
-    Iterable<E>? values, {
-    bool? notify = true,
-  }) =>
-      (super.noSuchMethod(
+  _i4.Future<Iterable<int>> addAll(Iterable<E>? values) => (super.noSuchMethod(
         Invocation.method(
           #addAll,
           [values],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<Iterable<int>>.value(<int>[]),
       ) as _i4.Future<Iterable<int>>);
 
   @override
-  _i4.Future<void> delete(
-    dynamic key, {
-    bool? notify = true,
-  }) =>
-      (super.noSuchMethod(
+  _i4.Future<void> delete(dynamic key) => (super.noSuchMethod(
         Invocation.method(
           #delete,
           [key],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<void> deleteAt(
-    int? index, {
-    bool? notify = true,
-  }) =>
-      (super.noSuchMethod(
+  _i4.Future<void> deleteAt(int? index) => (super.noSuchMethod(
         Invocation.method(
           #deleteAt,
           [index],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<void> deleteAll(
-    Iterable<dynamic>? keys, {
-    bool? notify = true,
-  }) =>
-      (super.noSuchMethod(
+  _i4.Future<void> deleteAll(Iterable<dynamic>? keys) => (super.noSuchMethod(
         Invocation.method(
           #deleteAll,
           [keys],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
@@ -275,11 +242,10 @@ class MockBox<E> extends _i1.Mock implements _i2.Box<E> {
       ) as _i4.Future<void>);
 
   @override
-  _i4.Future<int> clear({bool? notify = true}) => (super.noSuchMethod(
+  _i4.Future<int> clear() => (super.noSuchMethod(
         Invocation.method(
           #clear,
           [],
-          {#notify: notify},
         ),
         returnValue: _i4.Future<int>.value(0),
       ) as _i4.Future<int>);
