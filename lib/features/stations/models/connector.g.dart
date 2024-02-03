@@ -13,7 +13,7 @@ _$ConnectorImpl _$$ConnectorImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
       power: (json['power'] as num?)?.toDouble(),
       tariff: (json['tariff'] as num?)?.toDouble(),
-      type: $enumDecodeNullable(_$ConnectorTypeEnumMap, json['type']),
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$ConnectorImplToJson(_$ConnectorImpl instance) =>
@@ -23,11 +23,5 @@ Map<String, dynamic> _$$ConnectorImplToJson(_$ConnectorImpl instance) =>
       'id': instance.id,
       'power': instance.power,
       'tariff': instance.tariff,
-      'type': _$ConnectorTypeEnumMap[instance.type],
+      'type': instance.type,
     };
-
-const _$ConnectorTypeEnumMap = {
-  ConnectorType.TYPE_2_PLUG: 'TYPE_2_PLUG',
-  ConnectorType.CCS_COMBO_1_2: 'CCS_COMBO_1_2',
-  ConnectorType.TYPE_1: 'TYPE_1',
-};

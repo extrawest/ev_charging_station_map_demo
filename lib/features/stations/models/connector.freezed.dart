@@ -26,7 +26,7 @@ mixin _$Connector {
   String? get id => throw _privateConstructorUsedError;
   double? get power => throw _privateConstructorUsedError;
   double? get tariff => throw _privateConstructorUsedError;
-  ConnectorType? get type => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +45,7 @@ abstract class $ConnectorCopyWith<$Res> {
       String? id,
       double? power,
       double? tariff,
-      ConnectorType? type});
+      String? type});
 }
 
 /// @nodoc
@@ -92,7 +92,7 @@ class _$ConnectorCopyWithImpl<$Res, $Val extends Connector>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as ConnectorType?,
+              as String?,
     ) as $Val);
   }
 }
@@ -111,7 +111,7 @@ abstract class _$$ConnectorImplCopyWith<$Res>
       String? id,
       double? power,
       double? tariff,
-      ConnectorType? type});
+      String? type});
 }
 
 /// @nodoc
@@ -156,7 +156,7 @@ class __$$ConnectorImplCopyWithImpl<$Res>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as ConnectorType?,
+              as String?,
     ));
   }
 }
@@ -187,7 +187,7 @@ class _$ConnectorImpl implements _Connector {
   @override
   final double? tariff;
   @override
-  final ConnectorType? type;
+  final String? type;
 
   @override
   String toString() {
@@ -234,7 +234,7 @@ abstract class _Connector implements Connector {
       final String? id,
       final double? power,
       final double? tariff,
-      final ConnectorType? type}) = _$ConnectorImpl;
+      final String? type}) = _$ConnectorImpl;
 
   factory _Connector.fromJson(Map<String, dynamic> json) =
       _$ConnectorImpl.fromJson;
@@ -251,7 +251,7 @@ abstract class _Connector implements Connector {
   @override
   double? get tariff;
   @override
-  ConnectorType? get type;
+  String? get type;
   @override
   @JsonKey(ignore: true)
   _$$ConnectorImplCopyWith<_$ConnectorImpl> get copyWith =>

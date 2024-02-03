@@ -4,9 +4,7 @@ part 'connector.g.dart';
 part 'connector.freezed.dart';
 
 
-enum ConnectorType {
-  TYPE_2_PLUG, CCS_COMBO_1_2, TYPE_1,
-}
+
 @freezed
 class Connector with _$Connector{
   const factory Connector({
@@ -16,7 +14,7 @@ class Connector with _$Connector{
     String? id,
     double? power,
     double? tariff,
-    ConnectorType? type,
+    String? type,
   }) = _Connector;
 
   factory Connector.fromJson(Map<String, dynamic> json) => _$ConnectorFromJson(json);
