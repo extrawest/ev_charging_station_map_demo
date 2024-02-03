@@ -10,6 +10,11 @@ const Color white = Color(0xffffffff);
 const Color greenAccent = Color(0xffC0D758);
 const Color greyIcon = Color(0xff89919A);
 const Color inputTextColor = Color(0xffB5BDC8);
+const Color greyLabelColor = Color(0xff696E6F);
+const Color redColor = Color(0xffED5C3C);
+const Color yellowColor = Color(0xffFFD540);
+const Color greyBorderColor = Color(0xffC8D1DD);
+const Color labelTextColor = Color(0xff383936);
 
 class TextStyles {
   static const notifierTextLabel = TextStyle(
@@ -57,11 +62,19 @@ ThemeData darkTheme = ThemeData(
     ),
     labelStyle: TextStyle(color: inputTextColor),
   ),
-  textTheme: const TextTheme(
-    displayMedium: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-    titleMedium: TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
-    titleSmall: TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
-    bodySmall: TextStyle(fontSize: 14.0),
+  textTheme: TextTheme(
+    displayMedium: const TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+    titleMedium: const TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
+    titleSmall: const TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
+    headlineSmall: TextStyle(
+      fontSize: 16.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.bold,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    labelMedium: const TextStyle(fontSize: 12.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: greyLabelColor),
+    labelSmall: const TextStyle(fontSize: 11.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: labelTextColor),
+    bodySmall: const TextStyle(fontSize: 14.0),
   ),
 );
 
@@ -87,7 +100,6 @@ ThemeData lightTheme = ThemeData(
           fontSize: 16,
           color: white,
           fontWeight: FontWeight.w600,
-
         ),
       ),
     ),
@@ -104,10 +116,18 @@ ThemeData lightTheme = ThemeData(
     ),
     labelStyle: TextStyle(color: inputTextColor),
   ),
-  textTheme: const TextTheme(
-    displayMedium: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-    titleMedium: TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
-    titleSmall: TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
-    bodySmall: TextStyle(fontSize: 14.0),
+  textTheme: TextTheme(
+    displayMedium: const TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+    titleMedium: const TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
+    titleSmall: const TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
+    headlineSmall: TextStyle(
+      fontSize: 16.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.bold,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    labelMedium: const TextStyle(fontSize: 12.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: greyLabelColor),
+    labelSmall: const TextStyle(fontSize: 11.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: labelTextColor),
+    bodySmall: const TextStyle(fontSize: 14.0),
   ),
 );
