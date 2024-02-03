@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../utils/cluster_utils.dart';
+import '../../google_map/utils/cluster_utils.dart';
 import 'connector.dart';
 
 part 'station.freezed.dart';
