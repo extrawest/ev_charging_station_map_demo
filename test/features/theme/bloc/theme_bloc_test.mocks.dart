@@ -141,9 +141,8 @@ class MockBox<E> extends _i1.Mock implements _i2.Box<E> {
   @override
   _i4.Future<void> put(
     dynamic key,
-    E? value, {
-    bool? notify = true,
-  }) =>
+    E? value,
+  ) =>
       (super.noSuchMethod(
         Invocation.method(
           #put,
