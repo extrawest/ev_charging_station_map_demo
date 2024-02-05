@@ -17,7 +17,7 @@ class Station with _$Station {
     double? latitude,
     double? longitude,
     @JsonKey(name: 'stationId') String? stationId,
-    StatusVals? status,
+    StatusValues? status,
     @JsonKey(name: 'tenantId') String? tenantId,
   }) = _Station;
 

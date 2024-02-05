@@ -19,7 +19,7 @@ _$StationImpl _$$StationImplFromJson(Map<String, dynamic> json) =>
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
       stationId: json['stationId'] as String?,
-      status: $enumDecodeNullable(_$StatusValsEnumMap, json['status']),
+      status: $enumDecodeNullable(_$StatusValuesEnumMap, json['status']),
       tenantId: json['tenantId'] as String?,
     );
 
@@ -31,13 +31,13 @@ Map<String, dynamic> _$$StationImplToJson(_$StationImpl instance) =>
       'latitude': instance.latitude,
       'longitude': instance.longitude,
       'stationId': instance.stationId,
-      'status': _$StatusValsEnumMap[instance.status],
+      'status': _$StatusValuesEnumMap[instance.status],
       'tenantId': instance.tenantId,
     };
 
-const _$StatusValsEnumMap = {
-  StatusVals.busy: 'busy',
-  StatusVals.available: 'available',
-  StatusVals.offline: 'offline',
-  StatusVals.myLocation: 'myLocation',
+const _$StatusValuesEnumMap = {
+  StatusValues.busy: 'busy',
+  StatusValues.available: 'available',
+  StatusValues.offline: 'offline',
+  StatusValues.userLocation: 'userLocation',
 };
