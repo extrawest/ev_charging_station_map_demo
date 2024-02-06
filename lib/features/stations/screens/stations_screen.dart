@@ -20,7 +20,8 @@ class StationsScreen extends StatefulWidget {
 }
 
 class _StationsScreenState extends State<StationsScreen> {
-  final Completer<GoogleMapController> _controller = Completer<GoogleMapController>();
+  final Completer<GoogleMapController> _controller =
+      Completer<GoogleMapController>();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,8 @@ class _StationsScreenState extends State<StationsScreen> {
                       Column(
                         children: [
                           Expanded(
-                            child: BlocListener<StationsCubit, StationsCubitState>(
+                            child:
+                                BlocListener<StationsCubit, StationsCubitState>(
                               listener: (context, state) async {
                                 state.maybeWhen(
                                   permissionDenied: () {
