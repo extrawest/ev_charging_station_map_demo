@@ -8,6 +8,8 @@ const Color greyShadeLight = Color(0xFFE5E5E5);
 const Color greyLight = Color(0x0c000000);
 const Color white = Color(0xffffffff);
 const Color greenAccent = Color(0xffC0D758);
+const Color greenDark = Color(0xff5F5D17);
+const Color greenTagColor = Color(0xff739629);
 const Color greyIcon = Color(0xff89919A);
 const Color inputTextColor = Color(0xffB5BDC8);
 const Color greyLabelColor = Color(0xff696E6F);
@@ -32,6 +34,26 @@ ThemeData darkTheme = ThemeData(
     primary: Colors.grey.shade200,
     background: blackShade,
   ),
+  filledButtonTheme: FilledButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(greenAccent),
+      padding: MaterialStateProperty.all(
+        const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+      ),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(
+          fontSize: 16,
+          color: white,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ),
+  ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(greenAccent),
@@ -50,7 +72,8 @@ ThemeData darkTheme = ThemeData(
       ),
     ),
   ),
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.black),
+  floatingActionButtonTheme:
+      const FloatingActionButtonThemeData(foregroundColor: Colors.black),
   dividerColor: Colors.black12,
   fontFamily: GoogleFonts.roboto().fontFamily,
   inputDecorationTheme: const InputDecorationTheme(
@@ -63,18 +86,52 @@ ThemeData darkTheme = ThemeData(
     labelStyle: TextStyle(color: inputTextColor),
   ),
   textTheme: TextTheme(
-    displayMedium: const TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+    displayLarge: TextStyle(
+      fontSize: 36.0,
+      fontWeight: FontWeight.bold,
+      color: greenDark,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    displayMedium: const TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
     titleMedium: const TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
-    titleSmall: const TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
+    titleSmall: const TextStyle(
+      fontSize: 18.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.bold,
+    ),
     headlineSmall: TextStyle(
       fontSize: 16.0,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.bold,
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
-    labelMedium: const TextStyle(fontSize: 12.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: greyLabelColor),
-    labelSmall: const TextStyle(fontSize: 11.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: labelTextColor),
-    bodySmall: const TextStyle(fontSize: 14.0),
+    labelMedium: const TextStyle(
+      fontSize: 12.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.w300,
+      color: greyLabelColor,
+    ),
+    labelSmall: const TextStyle(
+      fontSize: 11.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.w300,
+      color: labelTextColor,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 16.0,
+      fontFamily: GoogleFonts.inter().fontFamily,
+      fontWeight: FontWeight.w600,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 14.0,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    bodySmall: TextStyle(
+      fontSize: 12.0,
+      fontWeight: FontWeight.w400,
+      fontFamily: GoogleFonts.inter().fontFamily,
+      color: greyLabelColor,
+    ),
   ),
 );
 
@@ -85,6 +142,27 @@ ThemeData lightTheme = ThemeData(
   colorScheme: const ColorScheme.light(
     primary: Colors.black54,
     background: greyShadeLight,
+  ),
+  // buttonTheme: ButtonThemeData(),
+  filledButtonTheme: FilledButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(greenAccent),
+      padding: MaterialStateProperty.all(
+        const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+      ),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(
+          fontSize: 16,
+          color: white,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -104,7 +182,8 @@ ThemeData lightTheme = ThemeData(
       ),
     ),
   ),
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.white),
+  floatingActionButtonTheme:
+      const FloatingActionButtonThemeData(foregroundColor: Colors.white),
   dividerColor: Colors.white54,
   fontFamily: GoogleFonts.roboto().fontFamily,
   inputDecorationTheme: const InputDecorationTheme(
@@ -117,17 +196,49 @@ ThemeData lightTheme = ThemeData(
     labelStyle: TextStyle(color: inputTextColor),
   ),
   textTheme: TextTheme(
-    displayMedium: const TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+    displayLarge: TextStyle(
+      fontSize: 36.0,
+      fontWeight: FontWeight.bold,
+      color: greenDark,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    displayMedium: const TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
     titleMedium: const TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
-    titleSmall: const TextStyle(fontSize: 18.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold),
+    titleSmall: const TextStyle(
+        fontSize: 18.0,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.bold,),
     headlineSmall: TextStyle(
       fontSize: 16.0,
       fontStyle: FontStyle.normal,
       fontWeight: FontWeight.bold,
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
-    labelMedium: const TextStyle(fontSize: 12.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: greyLabelColor),
-    labelSmall: const TextStyle(fontSize: 11.0, fontStyle: FontStyle.normal, fontWeight: FontWeight.w300, color: labelTextColor),
-    bodySmall: const TextStyle(fontSize: 14.0),
+    labelMedium: const TextStyle(
+        fontSize: 12.0,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.w300,
+        color: greyLabelColor,),
+    labelSmall: const TextStyle(
+      fontSize: 11.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.w300,
+      color: labelTextColor,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 16.0,
+      fontFamily: GoogleFonts.inter().fontFamily,
+      fontWeight: FontWeight.w600,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 14.0,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    bodySmall: TextStyle(
+      fontSize: 12.0,
+      fontWeight: FontWeight.w400,
+      fontFamily: GoogleFonts.inter().fontFamily,
+      color: greyLabelColor,
+    ),
   ),
 );
