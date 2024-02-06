@@ -7,6 +7,7 @@ import 'package:samoilenko_maps_app/features/stations/services/services.dart';
 
 import '../../common/utils/utils.dart';
 import '../../features/posts/services/services.dart';
+import '../../features/wallet/services/wallet_api_service.dart';
 import '../../network/network.dart';
 import '../../network/refresh_token/dio_token_request_retrier.dart';
 
@@ -30,6 +31,11 @@ class InjectorModule {
     );
     locator.registerFactory<StationsApiService>(
       () => StationsApiServiceImpl(
+        locator(),
+      ),
+    );
+    locator.registerFactory<WalletApiService>(
+      () => WalletApiServiceImpl(
         locator(),
       ),
     );
