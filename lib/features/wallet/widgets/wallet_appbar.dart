@@ -5,10 +5,12 @@ import '../../theme/utils/styling_utils.dart';
 
 class WalletAppBar extends SliverPersistentHeaderDelegate {
   WalletAppBar({
+    required this.ballance,
     required this.minHeight,
     required this.maxHeight,
   });
 
+  final double ballance;
   final double minHeight;
   final double maxHeight;
 
@@ -20,7 +22,10 @@ class WalletAppBar extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -29,8 +34,9 @@ class WalletAppBar extends SliverPersistentHeaderDelegate {
           colors: [white, greenAccent],
         ),
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(60),
-            bottomRight: Radius.circular(60)), // Adjust the radius as needed
+          bottomLeft: Radius.circular(60),
+          bottomRight: Radius.circular(60),
+        ), // Adjust the radius as needed
       ),
       child: Center(
         child: Column(
@@ -50,7 +56,7 @@ class WalletAppBar extends SliverPersistentHeaderDelegate {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              '\$ 100.23',
+              '\$ $ballance',
               style: Theme.of(context).textTheme.displayLarge,
             ),
             const SizedBox(
@@ -63,9 +69,11 @@ class WalletAppBar extends SliverPersistentHeaderDelegate {
                     onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith(
-                          getInvertFilledBtnColor),
+                        getInvertFilledBtnColor,
+                      ),
                       foregroundColor: MaterialStateProperty.resolveWith(
-                          getInvertFilledBtnTextColor),
+                        getInvertFilledBtnTextColor,
+                      ),
                     ),
                     child: const Text('Refill'),
                   ),
