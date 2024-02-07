@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:samoilenko_maps_app/features/wallet/models/history.dart';
 
 import '../../../common/utils/date_format_utils.dart';
 import '../../theme/theme_info.dart';
-import '../models/wallet.dart';
 
 class WalletBalanceCard extends StatelessWidget {
-  final Wallet walletInfo;
-  final int itemIndex;
+  final History walletInfo;
 
   const WalletBalanceCard({
     super.key,
     required this.walletInfo,
-    required this.itemIndex,
   });
 
   @override
@@ -33,8 +31,7 @@ class WalletBalanceCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        walletInfo.history?[itemIndex].stationName.toString() ??
-                            '',
+                        walletInfo.stationName.toString(),
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.w600,
                               color: labelTextColor,
@@ -49,8 +46,7 @@ class WalletBalanceCard extends StatelessWidget {
                   children: [
                     Text(
                       convertStringToDMYH(
-                        walletInfo.history![itemIndex].datetimeFinished
-                            .toString(),
+                        walletInfo.datetimeFinished.toString(),
                       ),
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
@@ -64,7 +60,7 @@ class WalletBalanceCard extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      '${walletInfo.history?[itemIndex].consumedKwh}|2h 16m',
+                      '${walletInfo.consumedKwh}|2h 16m',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
@@ -72,7 +68,7 @@ class WalletBalanceCard extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      '\$${walletInfo.history?[itemIndex].bill?.toStringAsFixed(2)}',
+                      '\$${walletInfo.bill?.toStringAsFixed(2)}',
                       style: Theme.of(context)
                           .textTheme
                           .bodyLarge
