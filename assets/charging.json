@@ -1,0 +1,82 @@
+{
+  "charging_percent": 24,
+  "starting_time": "2021-09-24T04:02:00.000",
+  "kwh": 6.07,
+  "cost": 34.24,
+  "speed": "50kWh",
+  "voltage": "150 A",
+  "amperage": "16 A",
+  "tariff": "3.00 per kWh",
+  "history": [
+    {
+      "bill": 3.2247600000000003,
+      "consumed_kwh": 9.772,
+      "datetime_finished": "2021-08-26T01:42:00.000",
+      "datetime_started": "2021-08-26T00:00:00.000",
+      "station_name": "b763e412-b980-44e5-994d-b6f4ccdd34d3"
+    },
+    {
+      "bill": 12.899040000000001,
+      "consumed_kwh": 39.088,
+      "datetime_finished": "2021-09-24T04:02:00.000",
+      "datetime_started": "2021-09-24T00:00:00.000",
+      "station_name": "0eaa0668-9038-469a-899b-5c606f7799bc"
+    },
+    {
+      "bill": 3.2247600000000003,
+      "consumed_kwh": 9.772,
+      "datetime_finished": "2021-10-05T01:02:00.000",
+      "datetime_started": "2021-10-05T00:00:00.000",
+      "station_name": "ed9535af-1150-408c-967d-2169967243e3"
+    },
+    {
+      "bill": 3.2247600000000003,
+      "consumed_kwh": 9.772,
+      "datetime_finished": "2021-01-17T01:21:00.000",
+      "datetime_started": "2021-01-17T00:00:00.000",
+      "station_name": "8ca6e80e-07d0-4fa2-aa2d-0e7b6443b621"
+    },
+    {
+      "bill": 12.899040000000001,
+      "consumed_kwh": 39.088,
+      "datetime_finished": "2021-07-23T04:02:00.000",
+      "datetime_started": "2021-07-23T00:00:00.000",
+      "station_name": "2f931963-44b2-4588-bfd9-560a25a3b33f"
+    },
+    {
+      "bill": 3.2247600000000003,
+      "consumed_kwh": 9.772,
+      "datetime_finished": "2021-06-24T01:12:00.000",
+      "datetime_started": "2021-06-24T00:00:00.000",
+      "station_name": "7e448404-b474-4e2c-8eb4-80fa5320b2bb"
+    },
+    {
+      "bill": 12.899040000000001,
+      "consumed_kwh": 39.088,
+      "datetime_finished": "2021-12-15T04:02:00.000",
+      "datetime_started": "2021-12-15T00:00:00.000",
+      "station_name": "2baf86db-d125-4d05-a752-131fb4b12f7f"
+    },
+    {
+      "bill": 9.674280000000001,
+      "consumed_kwh": 29.316000000000003,
+      "datetime_finished": "2021-02-22T03:12:00.000",
+      "datetime_started": "2021-02-22T00:00:00.000",
+      "station_name": "117d8dfb-66fe-42c2-a1d8-d8b96da4293a"
+    },
+    {
+      "bill": 12.899040000000001,
+      "consumed_kwh": 39.088,
+      "datetime_finished": "2021-05-03T04:12:00.000",
+      "datetime_started": "2021-05-03T00:00:00.000",
+      "station_name": "0731413a-731f-4af7-93f9-adb99ea62bb2"
+    },
+    {
+      "bill": 9.674280000000001,
+      "consumed_kwh": 29.316000000000003,
+      "datetime_finished": "2021-11-25T03:21:00.000",
+      "datetime_started": "2021-11-25T00:00:00.000",
+      "station_name": "6d61b5bb-6577-4e98-980c-b6fe922cf55a"
+    }
+  ]
+}

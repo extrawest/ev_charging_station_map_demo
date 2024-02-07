@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:samoilenko_maps_app/features/wallet/repositories/repositories.dart';
 
 import '../../common/di/injector_module.dart';
+import '../../features/charging/repositories/charging_repository.dart';
 import '../../features/posts/posts.dart';
 import '../../features/stations/repositories/stations_repository.dart';
 import '../../features/stations/services/location_service.dart';
@@ -31,9 +32,15 @@ class RepositoriesHolder extends StatelessWidget {
           ),
         ),
         RepositoryProvider<WalletRepository>(
-            create: (context) => WalletRepositoryImpl(
-                  walletApiService: InjectorModule.locator(),
-                ),),
+          create: (context) => WalletRepositoryImpl(
+            walletApiService: InjectorModule.locator(),
+          ),
+        ),
+        RepositoryProvider<ChargingRepository>(
+          create: (context) => ChargingRepositoryImpl(
+            chargingApiService: InjectorModule.locator(),
+          ),
+        ),
         RepositoryProvider<GeolocationService>(
           create: (context) => GeolocationService(),
         ),
