@@ -17,6 +17,8 @@ const Color redColor = Color(0xffED5C3C);
 const Color yellowColor = Color(0xffFFD540);
 const Color greyBorderColor = Color(0xffC8D1DD);
 const Color labelTextColor = Color(0xff383936);
+const Color whiteColor1 = Color(0xffFFFFFD);
+const Color whiteColor2 = Color(0xffFBFFE9);
 
 class TextStyles {
   static const notifierTextLabel = TextStyle(
@@ -92,7 +94,8 @@ ThemeData darkTheme = ThemeData(
       color: greenDark,
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
-    displayMedium: const TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
+    displayMedium: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+    displaySmall:  TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.inter().fontFamily,),
     titleMedium: const TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
     titleSmall: const TextStyle(
       fontSize: 18.0,
@@ -202,8 +205,9 @@ ThemeData lightTheme = ThemeData(
       color: greenDark,
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
-    displayMedium: const TextStyle(fontSize: 21.0, fontWeight: FontWeight.bold),
-    titleMedium: const TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
+    displayMedium: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+    displaySmall:  TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.inter().fontFamily,),
+    titleMedium: const TextStyle(fontSize: 22.0,  ),
     titleSmall: const TextStyle(
         fontSize: 18.0,
         fontStyle: FontStyle.normal,

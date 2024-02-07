@@ -110,13 +110,14 @@ class $AssetsImagesGen {
 class Assets {
   Assets._();
 
+  static const String charging = 'assets/charging.json';
   static const String configDev = 'assets/config_dev.json';
   static const String configProduction = 'assets/config_production.json';
   static const $AssetsI18nGen i18n = $AssetsI18nGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 
   /// List of all assets
-  static List<String> get values => [configDev, configProduction];
+  static List<String> get values => [charging, configDev, configProduction];
 }
 
 class AssetGenImage {
