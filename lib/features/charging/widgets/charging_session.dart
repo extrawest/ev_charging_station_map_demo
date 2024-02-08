@@ -15,16 +15,16 @@ class ChargingSession extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 195.75,
-      height: 204.08,
+      width: 1956,
+      height: 204,
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
           Transform.rotate(
             angle: pi / 2,
             child: Container(
-              width: 195.75,
-              height: 195.75,
+              width: 196,
+              height: 196,
               decoration: BoxDecoration(
                 gradient: const SweepGradient(
                   center:
@@ -37,7 +37,7 @@ class ChargingSession extends StatelessWidget {
                 ),
                 borderRadius:
                 BorderRadius.circular(
-                  195.75,
+                  196,
                 ),
               ),
             ),
@@ -45,19 +45,19 @@ class ChargingSession extends StatelessWidget {
           Positioned(
             top: 2,
             child: Container(
-              width: 191.75,
-              height: 191.75,
+              width: 192,
+              height: 192,
               decoration: BoxDecoration(
                 borderRadius:
                 BorderRadius.circular(
-                  191.75,
+                  192,
                 ),
                 color: white,
               ),
             ),
           ),
           Positioned(
-            top: 7.875,
+            top: 8,
             child: Container(
               width: 180,
               height: 180,
@@ -79,7 +79,6 @@ class ChargingSession extends StatelessWidget {
                           .withOpacity(0.1),
                       blurRadius: 7,
                       spreadRadius: 15,
-                      // offset: const Offset(-2, -2),
                     ),
                   ],
                   color: white,),
@@ -137,10 +136,10 @@ class ChargingSession extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 191.585,
+            top: 192,
             child: Container(
-              width: 8.33,
-              height: 8.33,
+              width: 9,
+              height: 9,
               decoration: BoxDecoration(
                 borderRadius:
                 BorderRadius.circular(8),

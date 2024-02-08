@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import '../../../common/services/services.dart';
 import '../models/charging_info.dart';
 
-const String walletPath = '/wallet-info.json';
+const String chargingPath = 'assets/charging.json';
 
 abstract class ChargingApiService {
   ChargingApiService();
@@ -19,12 +19,12 @@ class ChargingApiServiceImpl implements ChargingApiService {
   @override
   Future<ChargingInfo> fetchChargingInfo() async {
     try {
-      final String jsonString = await rootBundle.loadString('assets/charging.json');
+      final String jsonString = await rootBundle.loadString(chargingPath);
       final data = await json.decode(jsonString);
 
       return ChargingInfo.fromJson(data);
     } catch (e) {
-      log.severe('_fetchWallet error: $e');
+      log.severe('_fetch Charging error: $e');
       rethrow;
     }
   }
