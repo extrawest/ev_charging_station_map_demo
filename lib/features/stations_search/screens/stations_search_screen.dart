@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../common/widgets/inputs/input_text_widget.dart';
 import '../../stations/models/station.dart';
@@ -8,8 +11,9 @@ import '../bloc/search_station_bloc.dart';
 
 class StationsSearchScreen extends StatefulWidget {
   final List<Station>? stations;
+  final Completer<GoogleMapController>? mapController;
 
-  const StationsSearchScreen({super.key, this.stations});
+  const StationsSearchScreen({super.key, this.stations,  this.mapController});
 
   @override
   State<StationsSearchScreen> createState() => _StationsSearchScreenState();
@@ -137,7 +141,23 @@ class _StationsSearchScreenState extends State<StationsSearchScreen> {
           ),
         ),
         trailing: InkWell(
-          onTap: () {},
+          onTap: () async {
+            Navigator.of(context).pop();
+
+            final GoogleMapController controller = await widget.mapController!.future;
+
+            if(searchResultStation.latitude != null && searchResultStation.longitude != null){
+              controller.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    target: LatLng(searchResultStation.latitude!, searchResultStation.longitude!),
+                    zoom: 20.0,
+                  ),
+                ),
+              );
+            }
+
+          },
           child: Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
