@@ -20,6 +20,7 @@ class _WalletPresenterWidgetState extends State<WalletPresenterWidget> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
+    context.read<WalletCubit>().fetchWallet();
   }
 
   @override
