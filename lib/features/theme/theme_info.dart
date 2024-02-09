@@ -32,6 +32,8 @@ ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   primaryColor: Colors.black,
   primarySwatch: Colors.deepPurple,
+
+  scaffoldBackgroundColor: white,
   colorScheme: ColorScheme.dark(
     primary: Colors.grey.shade200,
     background: blackShade,
@@ -78,14 +80,25 @@ ThemeData darkTheme = ThemeData(
       const FloatingActionButtonThemeData(foregroundColor: Colors.black),
   dividerColor: Colors.black12,
   fontFamily: GoogleFonts.roboto().fontFamily,
-  inputDecorationTheme: const InputDecorationTheme(
-    border: InputBorder.none,
-    focusedBorder: OutlineInputBorder(
+  inputDecorationTheme: InputDecorationTheme(
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(
+        color: greyBorderColor, // Change the border color as needed
+      ),
+    ),
+    focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
       gapPadding: 2,
       borderSide: BorderSide(color: greenAccent, width: 2),
     ),
-    labelStyle: TextStyle(color: inputTextColor),
+    hintStyle: TextStyle(
+      color: inputTextColor,
+      height: 1.2,
+      fontSize: 14,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    labelStyle: const TextStyle(color: inputTextColor),
   ),
   textTheme: TextTheme(
     displayLarge: TextStyle(
@@ -95,7 +108,11 @@ ThemeData darkTheme = ThemeData(
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
     displayMedium: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-    displaySmall:  TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.inter().fontFamily,),
+    displaySmall: TextStyle(
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
     titleMedium: const TextStyle(fontSize: 22.0, fontStyle: FontStyle.italic),
     titleSmall: const TextStyle(
       fontSize: 18.0,
@@ -142,6 +159,7 @@ ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   primaryColor: Colors.white,
   primarySwatch: Colors.blue,
+  scaffoldBackgroundColor: white,
   colorScheme: const ColorScheme.light(
     primary: Colors.black54,
     background: greyShadeLight,
@@ -189,14 +207,25 @@ ThemeData lightTheme = ThemeData(
       const FloatingActionButtonThemeData(foregroundColor: Colors.white),
   dividerColor: Colors.white54,
   fontFamily: GoogleFonts.roboto().fontFamily,
-  inputDecorationTheme: const InputDecorationTheme(
-    border: InputBorder.none,
-    focusedBorder: OutlineInputBorder(
+  inputDecorationTheme: InputDecorationTheme(
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(
+        color: greyBorderColor, // Change the border color as needed
+      ),
+    ),
+    focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
       gapPadding: 2,
       borderSide: BorderSide(color: greenAccent, width: 2),
     ),
-    labelStyle: TextStyle(color: inputTextColor),
+    hintStyle: TextStyle(
+      color: inputTextColor,
+      height: 1.2,
+      fontSize: 14,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    labelStyle: const TextStyle(color: inputTextColor),
   ),
   textTheme: TextTheme(
     displayLarge: TextStyle(
@@ -206,12 +235,19 @@ ThemeData lightTheme = ThemeData(
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
     displayMedium: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-    displaySmall:  TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.inter().fontFamily,),
-    titleMedium: const TextStyle(fontSize: 22.0,  ),
+    displaySmall: TextStyle(
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    ),
+    titleMedium: const TextStyle(
+      fontSize: 22.0,
+    ),
     titleSmall: const TextStyle(
-        fontSize: 18.0,
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.bold,),
+      fontSize: 18.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.bold,
+    ),
     headlineSmall: TextStyle(
       fontSize: 16.0,
       fontStyle: FontStyle.normal,
@@ -219,10 +255,11 @@ ThemeData lightTheme = ThemeData(
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
     labelMedium: const TextStyle(
-        fontSize: 12.0,
-        fontStyle: FontStyle.normal,
-        fontWeight: FontWeight.w300,
-        color: greyLabelColor,),
+      fontSize: 12.0,
+      fontStyle: FontStyle.normal,
+      fontWeight: FontWeight.w300,
+      color: greyLabelColor,
+    ),
     labelSmall: const TextStyle(
       fontSize: 11.0,
       fontStyle: FontStyle.normal,
