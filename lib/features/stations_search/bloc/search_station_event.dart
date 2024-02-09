@@ -6,10 +6,8 @@ abstract class SearchStationEvent extends Equatable {
 
 class SearchStationItemFound extends SearchStationEvent {
   final String searchTerm;
-  final List<Station> stations;
 
   const SearchStationItemFound({
-    required this.stations,
     required this.searchTerm,
   });
 
