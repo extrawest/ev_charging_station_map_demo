@@ -25,9 +25,9 @@ class _ChargingStationsPresenterWidgetState
 
   @override
   void initState() {
+    super.initState();
     _scrollController = ScrollController();
     context.read<ChargingCubit>().fetchChargingInfo();
-    super.initState();
   }
 
   @override

@@ -18,8 +18,8 @@ class _WalletPresenterWidgetState extends State<WalletPresenterWidget> {
 
   @override
   void initState() {
-    _scrollController = ScrollController();
     super.initState();
+    _scrollController = ScrollController();
   }
 
   @override
