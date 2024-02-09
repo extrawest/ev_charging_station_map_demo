@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:samoilenko_maps_app/features/charging/screens/charging_screen.dart';
 import 'package:samoilenko_maps_app/features/favorite/screens/favorite_screen.dart';
 import 'package:samoilenko_maps_app/features/profile/screens/profile_screen.dart';
@@ -30,7 +33,7 @@ const String favoritePageRoute = '/favorite';
 const String chargingPageRoute = '/charging';
 const String walletPageRoute = '/wallet';
 const String profilePageRoute = '/profile';
-const String stationSearchPageRoute = '/stations_search';
+const String stationSearchPageRoute = 'stations_search';
 
 const double _iconHeight = 28.0;
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -71,39 +74,70 @@ final goRouter = GoRouter(
               routes: [
                 // child route
                 GoRoute(
-                  path: 'pages',
-                  builder: (context, state) => const PageWidget(),
+                  path: stationSearchPageRoute,
+                  pageBuilder: (context, state) {
+                    final Map<String, Object?> extraData =
+                        state.extra! as Map<String, Object?>;
+                    final Completer<GoogleMapController>? mapController =
+                        extraData['mapController']
+                            as Completer<GoogleMapController>?;
+
+                    return _TransitionPage(
+                      key: state.pageKey,
+                      child: StationsSearchScreen(
+                        mapController: mapController,
+                      ),
+                    );
+                  },
+                  routes: [
+                    // child route
+                    GoRoute(
+                      path: 'pages',
+                      builder: (context, state) => const PageWidget(),
+                    ),
+                  ],
                 ),
               ],
             ),
           ],
         ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: stationSearchPageRoute,
-              pageBuilder: (context, state) {
-                return _TransitionPage(
-                  key: state.pageKey,
-                  child: const StationsSearchScreen(),
-                );
-              },
-              routes: [
-                // child route
-                GoRoute(
-                  path: 'pages',
-                  builder: (context, state) => const PageWidget(),
-                ),
-              ],
-            ),
-          ],
-        ),
+        // StatefulShellBranch(
+        //   routes: [
+        //     GoRoute(
+        //       path: stationSearchPageRoute,
+        //       pageBuilder: (context, state) {
+        //         final Map<String, Object?> extraData =
+        //             state.extra! as Map<String, Object?>;
+        //         final Completer<GoogleMapController>? mapController =
+        //             extraData['mapController']
+        //                 as Completer<GoogleMapController>?;
+        //         final List<Station>? stations =
+        //             extraData['stations'] as List<Station>?;
+        //
+        //         return _TransitionPage(
+        //           key: state.pageKey,
+        //           child: StationsSearchScreen(
+        //             mapController: mapController,
+        //             stations: stations,
+        //           ),
+        //         );
+        //       },
+        //       routes: [
+        //         // child route
+        //         GoRoute(
+        //           path: 'pages',
+        //           builder: (context, state) => const PageWidget(),
+        //         ),
+        //       ],
+        //     ),
+        //   ],
+        // ),
         StatefulShellBranch(
           navigatorKey: _shellNavigatorFavoriteKey,
           routes: [
             // top route inside branch
             GoRoute(
-              path: stationsPageRoute,
+              path: favoritePageRoute,
               pageBuilder: (context, state) => _TransitionPage(
                 key: state.pageKey,
                 child: const FavoriteScreen(),
@@ -260,6 +294,7 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
 class _TransitionPage extends CustomTransitionPage<dynamic> {
   _TransitionPage({super.key, required super.child})
       : super(
+          transitionDuration: const Duration(milliseconds: 400),
           transitionsBuilder: (context, animation, secondaryAnimation, child) =>
               FadeTransition(opacity: animation, child: child),
           // create your own or use an existing one

@@ -81,6 +81,7 @@ ThemeData darkTheme = ThemeData(
   dividerColor: Colors.black12,
   fontFamily: GoogleFonts.roboto().fontFamily,
   inputDecorationTheme: InputDecorationTheme(
+    prefixIconColor: greyIcon,
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
       borderSide: const BorderSide(
@@ -208,12 +209,15 @@ ThemeData lightTheme = ThemeData(
   dividerColor: Colors.white54,
   fontFamily: GoogleFonts.roboto().fontFamily,
   inputDecorationTheme: InputDecorationTheme(
+
+    prefixIconColor: greyIcon,
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
       borderSide: const BorderSide(
         color: greyBorderColor, // Change the border color as needed
       ),
     ),
+
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
       gapPadding: 2,
