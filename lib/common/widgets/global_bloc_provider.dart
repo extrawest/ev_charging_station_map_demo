@@ -4,7 +4,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../features/google_map/map_bloc/map_pin_bloc/map_pin_cubit.dart';
 import '../../features/google_map/map_bloc/map_type_bloc/map_cubit.dart';
-import '../../features/stations_search/bloc/search_station_bloc.dart';
 import '../../features/theme/theme.dart';
 import '../services/theme_box.dart';
 
@@ -31,9 +30,7 @@ class GlobalBlocProvider extends StatelessWidget {
         BlocProvider<MapPinCubit>(
           create: (context) => MapPinCubit(),
         ),
-        BlocProvider<SearchStationBloc>(
-          create: (context) => SearchStationBloc(),
-        ),
+
       ],
       child: child,
     );
