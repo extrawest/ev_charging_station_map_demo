@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:samoilenko_maps_app/features/charging/screens/charging_screen.dart';
 import 'package:samoilenko_maps_app/features/favorite/screens/favorite_screen.dart';
 import 'package:samoilenko_maps_app/features/profile/screens/profile_screen.dart';
+import 'package:samoilenko_maps_app/features/stations_search/screens/stations_search_screen.dart';
 
 import '../features/stations/screens/stations_screen.dart';
 import '../features/theme/theme_info.dart';
@@ -29,14 +30,20 @@ const String favoritePageRoute = '/favorite';
 const String chargingPageRoute = '/charging';
 const String walletPageRoute = '/wallet';
 const String profilePageRoute = '/profile';
+const String stationSearchPageRoute = '/stations_search';
 
 const double _iconHeight = 28.0;
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _shellNavigatorStationsKey = GlobalKey<NavigatorState>(debugLabel: 'stations');
-final _shellNavigatorFavoriteKey = GlobalKey<NavigatorState>(debugLabel: 'favorite');
-final _shellNavigatorChargingKey = GlobalKey<NavigatorState>(debugLabel: 'charging');
-final _shellNavigatorWalletKey = GlobalKey<NavigatorState>(debugLabel: 'wallet');
-final _shellNavigatorProfileKey = GlobalKey<NavigatorState>(debugLabel: 'profile');
+final _shellNavigatorStationsKey =
+    GlobalKey<NavigatorState>(debugLabel: 'stations');
+final _shellNavigatorFavoriteKey =
+    GlobalKey<NavigatorState>(debugLabel: 'favorite');
+final _shellNavigatorChargingKey =
+    GlobalKey<NavigatorState>(debugLabel: 'charging');
+final _shellNavigatorWalletKey =
+    GlobalKey<NavigatorState>(debugLabel: 'wallet');
+final _shellNavigatorProfileKey =
+    GlobalKey<NavigatorState>(debugLabel: 'profile');
 
 // the one and only GoRouter instance
 final goRouter = GoRouter(
@@ -61,6 +68,26 @@ final goRouter = GoRouter(
                 key: state.pageKey,
                 child: const StationsScreen(),
               ),
+              routes: [
+                // child route
+                GoRoute(
+                  path: 'pages',
+                  builder: (context, state) => const PageWidget(),
+                ),
+              ],
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: stationSearchPageRoute,
+              pageBuilder: (context, state) {
+                return _TransitionPage(
+                  key: state.pageKey,
+                  child: const StationsSearchScreen(),
+                );
+              },
               routes: [
                 // child route
                 GoRoute(
@@ -233,7 +260,8 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
 class _TransitionPage extends CustomTransitionPage<dynamic> {
   _TransitionPage({super.key, required super.child})
       : super(
-          transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(opacity: animation, child: child),
           // create your own or use an existing one
           // ScaleTransition(scale: animation, child: child),
         );
@@ -254,7 +282,8 @@ class CustomShapeBorder extends ShapeBorder {
 
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    return Path()..addRRect(RRect.fromRectAndRadius(rect, Radius.circular(borderRadius)));
+    return Path()
+      ..addRRect(RRect.fromRectAndRadius(rect, Radius.circular(borderRadius)));
   }
 
   @override
