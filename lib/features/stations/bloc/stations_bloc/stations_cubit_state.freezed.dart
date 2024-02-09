@@ -111,8 +111,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements Initial {
-  const _$InitialImpl();
+class _$InitialImpl extends Initial {
+  const _$InitialImpl() : super._();
 
   @override
   String toString() {
@@ -210,8 +210,9 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements StationsCubitState {
+abstract class Initial extends StationsCubitState {
   const factory Initial() = _$InitialImpl;
+  const Initial._() : super._();
 }
 
 /// @nodoc
@@ -232,8 +233,8 @@ class __$$LoadinngImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadinngImpl implements Loadinng {
-  const _$LoadinngImpl();
+class _$LoadinngImpl extends Loadinng {
+  const _$LoadinngImpl() : super._();
 
   @override
   String toString() {
@@ -331,8 +332,9 @@ class _$LoadinngImpl implements Loadinng {
   }
 }
 
-abstract class Loadinng implements StationsCubitState {
+abstract class Loadinng extends StationsCubitState {
   const factory Loadinng() = _$LoadinngImpl;
+  const Loadinng._() : super._();
 }
 
 /// @nodoc
@@ -353,8 +355,8 @@ class __$$PermissionDeniedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PermissionDeniedImpl implements PermissionDenied {
-  const _$PermissionDeniedImpl();
+class _$PermissionDeniedImpl extends PermissionDenied {
+  const _$PermissionDeniedImpl() : super._();
 
   @override
   String toString() {
@@ -452,8 +454,9 @@ class _$PermissionDeniedImpl implements PermissionDenied {
   }
 }
 
-abstract class PermissionDenied implements StationsCubitState {
+abstract class PermissionDenied extends StationsCubitState {
   const factory PermissionDenied() = _$PermissionDeniedImpl;
+  const PermissionDenied._() : super._();
 }
 
 /// @nodoc
@@ -489,8 +492,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements Error {
-  const _$ErrorImpl({required this.message});
+class _$ErrorImpl extends Error {
+  const _$ErrorImpl({required this.message}) : super._();
 
   @override
   final String message;
@@ -599,8 +602,9 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements StationsCubitState {
+abstract class Error extends StationsCubitState {
   const factory Error({required final String message}) = _$ErrorImpl;
+  const Error._() : super._();
 
   String get message;
   @JsonKey(ignore: true)
@@ -646,10 +650,11 @@ class __$$LoadedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadedImpl implements Loaded {
+class _$LoadedImpl extends Loaded {
   const _$LoadedImpl(
       {required final List<Station> stationsInfo, this.myLocation})
-      : _stationsInfo = stationsInfo;
+      : _stationsInfo = stationsInfo,
+        super._();
 
   final List<Station> _stationsInfo;
   @override
@@ -770,10 +775,11 @@ class _$LoadedImpl implements Loaded {
   }
 }
 
-abstract class Loaded implements StationsCubitState {
+abstract class Loaded extends StationsCubitState {
   const factory Loaded(
       {required final List<Station> stationsInfo,
       final LatLng? myLocation}) = _$LoadedImpl;
+  const Loaded._() : super._();
 
   List<Station> get stationsInfo;
   LatLng? get myLocation;
