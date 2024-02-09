@@ -83,7 +83,7 @@ class _StationsScreenState extends State<StationsScreen> {
                           ),
                         ],
                       ),
-                      const AppSearchBar(),
+                       AppSearchBar(mapController:_controller, ),
                     ],
                   ),
                 ),
