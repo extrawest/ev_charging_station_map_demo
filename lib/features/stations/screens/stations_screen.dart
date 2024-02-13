@@ -25,7 +25,6 @@ class _StationsScreenState extends State<StationsScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<StationsCubit>().fetchStations();
   }
 
   @override
@@ -54,10 +53,11 @@ class _StationsScreenState extends State<StationsScreen> {
                                     },
                                   );
                                 },
-                                orElse: () {},
+                                orElse:
+                                    () {}, // Handle other cases or do nothing if the state does not match searchedItemTapped or permissionDenied
                               );
                             },
-                            child: state.when(
+                            child: state.maybeWhen(
                               initial: () => const Center(
                                 child: CircularProgressIndicator(),
                               ),
@@ -78,15 +78,16 @@ class _StationsScreenState extends State<StationsScreen> {
                                   myLocation: myLocation,
                                 );
                               },
+                              orElse: () {
+                                return const SizedBox();
+                              },
                             ),
                           ),
                         ),
                       ],
                     ),
-                    AppSearchBar(
-                      mapController: _controller,
+                    const AppSearchBar(
                     ),
-
                   ],
                 ),
               ),
