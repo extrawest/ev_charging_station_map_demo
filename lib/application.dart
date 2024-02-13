@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'common/router.dart';
+import 'common/widgets/material_app_wrapper.dart';
 import 'features/stations/bloc/stations_bloc/stations_cubit.dart';
 import 'features/stations/services/location_service.dart';
 import 'features/theme/theme.dart';
@@ -20,7 +21,7 @@ class Application extends StatelessWidget {
             locationsService:
                 RepositoryProvider.of<GeolocationService>(context),
           ),
-          child: MaterialApp.router(
+          child: MaterialAppWrapper(
             title: 'Samoilenko Maps App',
             routerConfig: goRouter,
             darkTheme: darkTheme,
