@@ -19,6 +19,14 @@ class SearchStationLoaded extends SearchStationState {
   @override
   List<Object> get props => [searchResultStations];
 }
+class SearchStationTapped extends SearchStationState {
+  final LatLng coordinates;
+
+  const SearchStationTapped({required this.coordinates});
+
+  @override
+  List<Object> get props => [coordinates];
+}
 
 class SearchStationError extends SearchStationState {
   final String error;

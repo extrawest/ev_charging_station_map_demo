@@ -1,6 +1,7 @@
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../stations/models/station.dart';
 
@@ -11,6 +12,7 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
   SearchStationBloc(this.stationsList) : super(SearchStationInitial()) {
     on<SearchStationItemFound>(_onSearchChange, transformer: sequential());
     on<SearchStationClearSearch>(_onClearSearch, transformer: sequential());
+    on<SearchStationItemTapped>(_onItemTapped, transformer: sequential());
   }
 
   final List<Station> stationsList;
@@ -35,6 +37,23 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
       emit(
         SearchStationError(
           'Search  error :$e',
+        ),
+      );
+    }
+  }
+
+  Future<void> _onItemTapped(
+    SearchStationEvent event,
+    Emitter<SearchStationState> emit,
+  ) async {
+    try {
+      final coordinates = (event as SearchStationItemTapped).coordinates;
+
+      emit(SearchStationTapped(coordinates: coordinates));
+    } catch (e) {
+      emit(
+        SearchStationError(
+          'Coordinates  error :$e',
         ),
       );
     }
