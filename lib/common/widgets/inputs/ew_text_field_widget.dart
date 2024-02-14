@@ -4,16 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../features/stations_search/bloc/search_station_bloc.dart';
 
-class EWTextFieldWrapper extends StatefulWidget {
-  const EWTextFieldWrapper({
+
+class EWTextFieldWidget extends StatefulWidget {
+  const EWTextFieldWidget({
     super.key,
   });
 
   @override
-  State<EWTextFieldWrapper> createState() => _EWTextFieldWrapperState();
+  State<EWTextFieldWidget> createState() => _EWTextFieldWidgetState();
 }
 
-class _EWTextFieldWrapperState extends State<EWTextFieldWrapper> {
+class _EWTextFieldWidgetState extends State<EWTextFieldWidget> {
   final TextEditingController _textController = TextEditingController();
 
   @override
