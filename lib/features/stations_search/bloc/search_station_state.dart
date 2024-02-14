@@ -1,28 +1,31 @@
-
-
 part of 'search_station_bloc.dart';
 
 abstract class SearchStationState extends Equatable {
-  const SearchStationState();
+  final List<Station>? stationsList;
+
+  const SearchStationState({this.stationsList});
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [stationsList];
 }
 
-class SearchStationInitial extends SearchStationState {}
+class SearchStationInitial extends SearchStationState {
+  const SearchStationInitial({super.stationsList});
+}
 
-class SearchStationLoaded extends SearchStationState {
+class SearchResults extends SearchStationState {
   final List<Station> searchResultStations;
 
-  const SearchStationLoaded({required this.searchResultStations});
+  const SearchResults({required this.searchResultStations});
 
   @override
   List<Object> get props => [searchResultStations];
 }
-class SearchStationTapped extends SearchStationState {
+
+class SelectedSearchStation extends SearchStationState {
   final LatLng coordinates;
 
-  const SearchStationTapped({required this.coordinates});
+  const SelectedSearchStation({required this.coordinates});
 
   @override
   List<Object> get props => [coordinates];
