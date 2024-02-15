@@ -32,7 +32,6 @@ ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   primaryColor: Colors.black,
   primarySwatch: Colors.deepPurple,
-
   scaffoldBackgroundColor: white,
   colorScheme: ColorScheme.dark(
     primary: Colors.grey.shade200,
@@ -76,8 +75,7 @@ ThemeData darkTheme = ThemeData(
       ),
     ),
   ),
-  floatingActionButtonTheme:
-      const FloatingActionButtonThemeData(foregroundColor: Colors.black),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.black),
   dividerColor: Colors.black12,
   fontFamily: GoogleFonts.roboto().fontFamily,
   inputDecorationTheme: InputDecorationTheme(
@@ -165,7 +163,6 @@ ThemeData lightTheme = ThemeData(
     primary: Colors.black54,
     background: greyShadeLight,
   ),
-  // buttonTheme: ButtonThemeData(),
   filledButtonTheme: FilledButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(greenAccent),
@@ -204,12 +201,10 @@ ThemeData lightTheme = ThemeData(
       ),
     ),
   ),
-  floatingActionButtonTheme:
-      const FloatingActionButtonThemeData(foregroundColor: Colors.white),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(foregroundColor: Colors.white),
   dividerColor: Colors.white54,
   fontFamily: GoogleFonts.roboto().fontFamily,
   inputDecorationTheme: InputDecorationTheme(
-
     prefixIconColor: greyIcon,
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
@@ -217,7 +212,6 @@ ThemeData lightTheme = ThemeData(
         color: greyBorderColor, // Change the border color as needed
       ),
     ),
-
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
       gapPadding: 2,
