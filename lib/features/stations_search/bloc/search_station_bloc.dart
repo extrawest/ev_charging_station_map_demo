@@ -21,7 +21,7 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
     try {
       final searchString = (event as SearchStationItemFound).searchTerm;
 
-      final result = (state.stationsList ?? [])
+      final result = state.stationsList
           .where(
             (element) => element.stationId?.contains(searchString) ?? false,
           )
