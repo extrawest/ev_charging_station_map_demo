@@ -1,7 +1,7 @@
 part of 'search_station_bloc.dart';
 
 abstract class SearchStationState extends Equatable {
-  final List<Station>? stationsList;
+  final List<Station> stationsList;
 
   const SearchStationState(this.stationsList);
 
@@ -21,16 +21,16 @@ class SearchResults extends SearchStationState {
   @override
   List<Object> get props => [searchResultStations];
 }
+
 class SearchStationError extends SearchStationState {
   final String error;
 
-  const SearchStationError(this.error, {List<Station>? stationsList})
-      : super( stationsList);
+  const SearchStationError(this.error, {required List<Station> stationsList}) : super(stationsList);
 
   @override
   List<Object> get props => [error];
 }
 
 class SearchStationLoading extends SearchStationState {
-  const SearchStationLoading({List<Station>? stationsList}) : super( stationsList);
+  const SearchStationLoading({required List<Station> stationsList}) : super(stationsList);
 }

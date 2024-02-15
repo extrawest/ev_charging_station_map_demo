@@ -21,15 +21,15 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
     try {
       final searchString = (event as SearchStationItemFound).searchTerm;
 
-      final result = state.stationsList!
+      final result = (state.stationsList ?? [])
           .where(
-            (element) => element.stationId.toString().contains(searchString),
+            (element) => element.stationId?.contains(searchString) ?? false,
           )
           .toList();
 
-      emit(SearchResults(searchResultStations: result, result));
+      emit(SearchResults(searchResultStations: result, state.stationsList));
     } catch (e) {
-      emit(SearchStationError('Search error :$e'));
+      emit(SearchStationError('Search error :$e', stationsList: const []));
     }
   }
 
@@ -41,7 +41,7 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
       emit(SearchStationInitial(state.stationsList));
     } catch (e) {
       emit(
-        SearchStationError('Search  error :$e'),
+        SearchStationError('Search  error :$e', stationsList: const []),
       );
     }
   }
