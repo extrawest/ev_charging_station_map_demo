@@ -14,17 +14,6 @@ class SearchStationItemFound extends SearchStationEvent {
   @override
   List<Object> get props => [];
 }
-class SearchStationItemTapped extends SearchStationEvent {
-  final LatLng coordinates;
-
-
-  const SearchStationItemTapped({
-    required this.coordinates,
-  });
-
-  @override
-  List<Object> get props => [];
-}
 
 class SearchStationClearSearch extends SearchStationEvent {
   const SearchStationClearSearch();

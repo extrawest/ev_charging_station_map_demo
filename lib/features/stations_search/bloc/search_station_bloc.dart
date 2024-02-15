@@ -1,61 +1,37 @@
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../../common/services/logger.dart';
 import '../../stations/models/station.dart';
 
 part 'search_station_event.dart';
+
 part 'search_station_state.dart';
 
 class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
-  SearchStationBloc(this.stationsList) : super(SearchStationInitial()) {
-    on<SearchStationItemFound>(_onSearchChange, transformer: sequential());
-    on<SearchStationClearSearch>(_onClearSearch, transformer: sequential());
-    on<SearchStationItemTapped>(_onItemTapped, transformer: sequential());
+  SearchStationBloc({required List<Station> stationsList}) : super(SearchStationInitial( stationsList)) {
+    on<SearchStationItemFound>(_onSearchChange, transformer: droppable());
+    on<SearchStationClearSearch>(_onClearSearch);
   }
-
-  final List<Station> stationsList;
 
   Future<void> _onSearchChange(
     SearchStationEvent event,
     Emitter<SearchStationState> emit,
   ) async {
-    List<Station> result = [];
-    emit(SearchStationLoading());
     try {
       final searchString = (event as SearchStationItemFound).searchTerm;
+      final itemsList = List<Station>.from(state.stationsList ?? []);
 
-      result = [
-        ...stationsList.where(
-          (element) => element.stationId.toString().contains(searchString),
-        ),
-      ];
+      final result = state.stationsList!
+          .where(
+            (element) => element.stationId.toString().contains(searchString),
+          )
+          .toList();
 
-      emit(SearchStationLoaded(searchResultStations: result));
+      emit(SearchResults(searchResultStations: result, result));
     } catch (e) {
-      emit(
-        SearchStationError(
-          'Search  error :$e',
-        ),
-      );
-    }
-  }
-
-  Future<void> _onItemTapped(
-    SearchStationEvent event,
-    Emitter<SearchStationState> emit,
-  ) async {
-    try {
-      final coordinates = (event as SearchStationItemTapped).coordinates;
-
-      emit(SearchStationTapped(coordinates: coordinates));
-    } catch (e) {
-      emit(
-        SearchStationError(
-          'Coordinates  error :$e',
-        ),
-      );
+      emit(SearchStationError( 'Search error :$e' ));
     }
   }
 
@@ -64,12 +40,10 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
     Emitter<SearchStationState> emit,
   ) async {
     try {
-      emit(SearchStationInitial());
+      emit(SearchStationInitial(state.stationsList));
     } catch (e) {
       emit(
-        SearchStationError(
-          'Search  error :$e',
-        ),
+        SearchStationError('Search  error :$e'),
       );
     }
   }
