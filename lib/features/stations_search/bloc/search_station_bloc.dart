@@ -15,11 +15,11 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
   }
 
   Future<void> _onSearchChange(
-    SearchStationEvent event,
+    SearchStationItemFound event,
     Emitter<SearchStationState> emit,
   ) async {
     try {
-      final searchString = (event as SearchStationItemFound).searchTerm;
+      final searchString = event.searchTerm;
 
       final result = state.stationsList
           .where(
@@ -29,19 +29,19 @@ class SearchStationBloc extends Bloc<SearchStationEvent, SearchStationState> {
 
       emit(SearchResults(searchResultStations: result, state.stationsList));
     } catch (e) {
-      emit(SearchStationError('Search error :$e', stationsList: const []));
+      emit(SearchStationError('Search error :$e', stationsList: state.stationsList));
     }
   }
 
   Future<void> _onClearSearch(
-    SearchStationEvent event,
+    SearchStationClearSearch event,
     Emitter<SearchStationState> emit,
   ) async {
     try {
       emit(SearchStationInitial(state.stationsList));
     } catch (e) {
       emit(
-        SearchStationError('Search  error :$e', stationsList: const []),
+        SearchStationError('Search  error :$e', stationsList: state.stationsList),
       );
     }
   }

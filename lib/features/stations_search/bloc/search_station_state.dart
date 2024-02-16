@@ -6,7 +6,7 @@ abstract class SearchStationState extends Equatable {
   const SearchStationState(this.stationsList);
 
   @override
-  List<Object?> get props => [stationsList];
+  List<Object> get props => [stationsList];
 }
 
 class SearchStationInitial extends SearchStationState {
