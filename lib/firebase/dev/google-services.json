@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:102034714039:android:e0a7c7af7c1337edc88c32",
         "android_client_info": {
-          "package_name": "com.extrawest.samoilenko_maps_app"
+          "package_name": "com.extrawest.samoilenko_maps_app.dev"
         }
       },
       "oauth_client": [
@@ -21,42 +21,6 @@
             "certificate_hash": "959f751612595e277b0b879a28737c95696aada9"
           }
         },
-        {
-          "client_id": "102034714039-40gklr024vo6fakkufg7ckut5akj1nce.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC6r_2zcKhw3uIjSXAXg21YQ9tQbHcVdDs"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "102034714039-40gklr024vo6fakkufg7ckut5akj1nce.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "102034714039-6c56vpsult358afuik4ngp1fgjr0ttov.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.extrawest.samoilenkoMapsApp"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:102034714039:android:dba846c3701e9342c88c32",
-        "android_client_info": {
-          "package_name": "com.extrawest.samoilenko_maps_app.dev"
-        }
-      },
-      "oauth_client": [
         {
           "client_id": "102034714039-40gklr024vo6fakkufg7ckut5akj1nce.apps.googleusercontent.com",
           "client_type": 3
