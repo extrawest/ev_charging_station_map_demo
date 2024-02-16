@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:1008135739722:ios:655a05b593b1e53a30c9b3",
-  "FIREBASE_PROJECT_ID": "android-mobile-app-313411",
-  "GCM_SENDER_ID": "1008135739722"
+  "GOOGLE_APP_ID": "1:102034714039:ios:7de717f53cfaed4fc88c32",
+  "FIREBASE_PROJECT_ID": "samoilenko-maps-app",
+  "GCM_SENDER_ID": "102034714039"
 }
