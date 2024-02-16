@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:1008135739722:ios:a4fb09bd2c30cdf630c9b3",
-  "FIREBASE_PROJECT_ID": "android-mobile-app-313411",
-  "GCM_SENDER_ID": "1008135739722"
+  "GOOGLE_APP_ID": "1:136869045959:ios:b6e4fc1475df75868880e2",
+  "FIREBASE_PROJECT_ID": "maps-training-samoilenko",
+  "GCM_SENDER_ID": "136869045959"
 }

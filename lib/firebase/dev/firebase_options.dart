@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDd9fkrxaySs97mye1GTs8gYgMH5O_G4KI',
-    appId: '1:1008135739722:android:6e56e97d6362a9a330c9b3',
-    messagingSenderId: '1008135739722',
-    projectId: 'android-mobile-app-313411',
-    storageBucket: 'android-mobile-app-313411.appspot.com',
+    apiKey: 'AIzaSyAH1biAfY3-S_8uhCWNjnfZQvnBRsABw8o',
+    appId: '1:136869045959:android:9be74ee04c05ba288880e2',
+    messagingSenderId: '136869045959',
+    projectId: 'maps-training-samoilenko',
+    storageBucket: 'maps-training-samoilenko.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAZEuiT5r4w9D32ITELenGE9DARe24_isI',
-    appId: '1:1008135739722:ios:a4fb09bd2c30cdf630c9b3',
-    messagingSenderId: '1008135739722',
-    projectId: 'android-mobile-app-313411',
-    storageBucket: 'android-mobile-app-313411.appspot.com',
+    apiKey: 'AIzaSyBtrjY02HYfnJHlZv47ya0-EwL1Br36EWQ',
+    appId: '1:136869045959:ios:7f5715f6eb71e4718880e2',
+    messagingSenderId: '136869045959',
+    projectId: 'maps-training-samoilenko',
+    storageBucket: 'maps-training-samoilenko.appspot.com',
+    iosClientId: '136869045959-44tlpa1tjr3igtcqjv633hh36vmbvmln.apps.googleusercontent.com',
     iosBundleId: 'com.extrawest.samoilenkoMapsApp.dev',
   );
 }
