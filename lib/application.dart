@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'common/router.dart';
+import 'features/profile/auth_bloc/auth_bloc.dart';
 import 'features/stations/bloc/stations_bloc/stations_bloc.dart';
 import 'features/stations/services/location_service.dart';
 import 'features/theme/theme.dart';
@@ -14,11 +15,20 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, state) {
-        return BlocProvider<StationsBloc>(
-          create: (_) => StationsBloc(
-            stationsRepository: RepositoryProvider.of(context),
-            locationsService: RepositoryProvider.of<GeolocationService>(context),
-          ),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<StationsBloc>(
+              create: (_) => StationsBloc(
+                stationsRepository: RepositoryProvider.of(context),
+                locationsService: RepositoryProvider.of<GeolocationService>(context),
+              ),
+            ),
+            BlocProvider<AuthBloc>(
+              create: (context) => AuthBloc(
+                authRepository: RepositoryProvider.of(context),
+              ),
+            ),
+          ],
           child: MaterialApp.router(
             title: 'Samoilenko Maps App',
             routerConfig: goRouter,
