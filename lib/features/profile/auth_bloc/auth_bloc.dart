@@ -1,11 +1,11 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../common/services/logger.dart';
 import '../repositories/auth_repository.dart';
 
 part 'auth_event.dart';
+
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -13,42 +13,59 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc({required AuthRepository authRepository})
       : _authRepository = authRepository,
-        super(Unautorized()) {
-    on<SignInEvent>(_onSignIn);
-    on<SignOutEvent>(_onSignOut);
+        super(const AuthUnautorized()) {
+    on<AuthInitEvent>(_onInit);
+    on<AuthSignInEvent>(_onSignIn);
+    on<AuthSignOutEvent>(_onSignOut);
+  }
+
+  Future<void> _onInit(AuthInitEvent event, Emitter<AuthState> emit) async {
+    emit(const AuthLoading());
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      final user = auth.currentUser;
+
+      if (user != null) {
+        emit(AuthAutorized(user));
+      } else {
+        emit(const AuthUnautorized());
+      }
+    } catch (e) {
+      emit(AuthError('Authorization error :$e'));
+    }
   }
 
   Future<void> _onSignIn(
-    SignInEvent event,
+    AuthSignInEvent event,
     Emitter<AuthState> emit,
   ) async {
+    emit(const AuthLoading());
     try {
       final user = await _authRepository.signIn();
-      log.fine('user>>>>');
+
       if (user != null) {
-        emit(Authorized(user));
+        emit(AuthAutorized(user));
       } else {
-        emit(const Error('Authorization error'));
+        emit(const AuthError('Authorization error'));
       }
     } catch (e) {
-      emit(Error('Authorization error: $e'));
+      emit(AuthError('Authorization error :$e'));
     }
   }
 
   Future<void> _onSignOut(
-    SignOutEvent event,
+    AuthSignOutEvent event,
     Emitter<AuthState> emit,
   ) async {
-    emit(Loading());
+    emit(const AuthLoading());
     try {
-      final isSignedOut = await _authRepository.signOut();
-      if (isSignedOut) {
-        emit(Unautorized());
+      if (await _authRepository.signOut()) {
+        emit(const AuthUnautorized());
       } else {
-        emit(const Error('Unauthorized'));
+        emit(const AuthError('Logout error'));
       }
     } catch (e) {
-      emit(Error('Unauthorized error: $e'));
+      emit(AuthError('Logout error :$e'));
     }
   }
 }
