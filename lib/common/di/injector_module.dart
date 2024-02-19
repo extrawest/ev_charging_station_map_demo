@@ -9,7 +9,6 @@ import '../../common/utils/utils.dart';
 import '../../features/charging/services/charging_api_service.dart';
 import '../../features/posts/services/services.dart';
 import '../../features/profile/services/auth_service.dart';
-import '../../features/profile/utils/auth_util.dart';
 import '../../features/wallet/services/wallet_api_service.dart';
 import '../../network/network.dart';
 import '../../network/refresh_token/dio_token_request_retrier.dart';
@@ -43,13 +42,10 @@ class InjectorModule {
       ),
     );
     locator.registerFactory<AuthService>(
-      () => AuthService(
-
-      ),
+      () => AuthService(),
     );
     locator.registerFactory<ChargingApiService>(
-      () => ChargingApiServiceImpl(
-      ),
+      () => ChargingApiServiceImpl(),
     );
     locator.registerFactory<GeolocationService>(
       () => GeolocationService(),

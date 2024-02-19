@@ -1,67 +1,50 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../common/services/logger.dart';
 
-
-
 class AuthService {
-  // final GoogleSignIn _googleSignIn = GoogleSignIn();
-  late final FirebaseAuth _firebaseAuth;
-
-  AuthService() {
-    initializeFirebase();
-  }
-
-  Future<void> initializeFirebase() async {
-    final FirebaseApp app = await Firebase.initializeApp();
-    _firebaseAuth = FirebaseAuth.instanceFor(app: app);
-  }
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   Future<User?> signInWithGoogle() async {
     User? firebaseUser;
+    GoogleSignInAccount? googleUser;
 
-    final GoogleSignIn _googleSignIn = GoogleSignIn(
-      scopes: [
-        'https://www.googleapis.com/auth/drive',
-      ],
-    );
-
-    await _googleSignIn.signIn();
     try {
-      final isSignedIn = await _googleSignIn.isSignedIn();
-      log.fine('isSignedIn>>>> $isSignedIn');
-      if (isSignedIn) {
-        firebaseUser = _firebaseAuth.currentUser;
-      } else {
-        final googleSignedUser = await _googleSignIn.signIn();
+      googleUser = await _googleSignIn.signIn();
 
-        final GoogleSignInAuthentication? googleAuth =
-        await googleSignedUser?.authentication;
+      if (googleUser != null) {
+        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
         final credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth?.accessToken,
-          idToken: googleAuth?.idToken,
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+
         );
 
-        firebaseUser = (await _firebaseAuth.signInWithCredential(credential)).user;
+        firebaseUser = (await _auth.signInWithCredential(credential)).user;
+        log.fine('User signed in with credential: $firebaseUser');
       }
       return firebaseUser;
     } on FirebaseAuthException catch (e) {
+      log.fine('Failed to sign in with Google: $e');
       throw Exception('Authorization error :$e');
     }
   }
 
-  Future<bool> signOutWithGoogle() async {
+
+
+  Future<bool> signOutGoogle() async {
     try {
-      // await _googleSignIn.signOut();
+      await _auth.signOut();
+
+      await _googleSignIn.signOut();
+      log.fine('User signed out from Google');
       return true;
     } on FirebaseAuthException catch (e) {
-      throw Exception('Sign out  error :$e');
+      log.fine('Failed to sign out from Google: $e');
+      throw Exception('Unauthorization error :$e');
     }
   }
 }
-
-
