@@ -742,7 +742,7 @@ packages:
     source: hosted
     version: "2.4.3"
   google_maps_flutter_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_maps_flutter_web
       sha256: "6245721c160d6f531c1ef568cf9bef8d660cd585a982aa75121269030163785a"
@@ -782,7 +782,7 @@ packages:
     source: hosted
     version: "2.4.5"
   google_sign_in_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_sign_in_web
       sha256: a278ea2d01013faf341cbb093da880d0f2a552bbd1cb6ee90b5bebac9ba69d77

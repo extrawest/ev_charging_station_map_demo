@@ -12,10 +12,10 @@ fi
 
 mkdir -p lib/firebase/$1
 
-flutterfire configure --platforms=ios,android \
+flutterfire configure --platforms=ios,android,web \
 --out=lib/firebase/$1/firebase_options.dart \
 --android-package-name=com.extrawest.samoilenko_maps_app$SUFFIX \
---ios-bundle-id=com.extrawest.samoilenkoMapsApp$SUFFIX
+--ios-bundle-id=com.extrawest.samoilenkoMapsApp$SUFFIX \
 
 cp android/app/google-services.json lib/firebase/$1/google-services.json
 cp ios/firebase_app_id_file.json lib/firebase/$1/firebase_app_id_file.json

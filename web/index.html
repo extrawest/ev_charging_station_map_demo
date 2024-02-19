@@ -24,6 +24,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="flutter_bloc_project_starter">
+
+  <meta name="google-signin-client_id" content="274620206527-4b2cl1gcrrjasv9p3v8dk1og6gs62klt.apps.googleusercontent.com">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -32,21 +34,26 @@
   <title>flutter_bloc_project_starter</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
 
-    // To expone the dart variable to global js code
-    document.addEventListener("dart_loaded", function (){
-      console.log(`WEB_KEY: ${window.WEB_KEY}`);
-    });
-  </script>
+
+  <script>
+  window.onload = function() {
+    console.log('DEFINE_WEB_KEY: ' + window.DEFINE_WEB_KEY);
+
+    var script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + window.DEFINE_WEB_KEY;
+    document.head.appendChild(script);
+  };
+</script>
+
+
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
-  </script>
 </head>
 <body>
-  <script>
+<script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
