@@ -2,10 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'common/di/injector_module.dart';
 import 'common/router.dart';
 import 'features/profile/auth_bloc/auth_bloc.dart';
 import 'features/stations/bloc/stations_bloc/stations_bloc.dart';
-import 'features/stations/services/location_service.dart';
 import 'features/theme/theme.dart';
 
 class Application extends StatelessWidget {
@@ -20,12 +20,12 @@ class Application extends StatelessWidget {
             BlocProvider<StationsBloc>(
               create: (_) => StationsBloc(
                 stationsRepository: RepositoryProvider.of(context),
-                locationsService: RepositoryProvider.of<GeolocationService>(context),
+                locationsService:  InjectorModule.locator(),
               ),
             ),
             BlocProvider<AuthBloc>(
               create: (context) => AuthBloc(
-                authRepository: RepositoryProvider.of(context),
+                authService: InjectorModule.locator(),
               ),
             ),
           ],

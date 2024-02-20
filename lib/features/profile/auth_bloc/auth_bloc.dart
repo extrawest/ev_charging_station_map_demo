@@ -2,17 +2,16 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../repositories/auth_repository.dart';
+import '../services/auth_service.dart';
 
 part 'auth_event.dart';
-
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final AuthRepository _authRepository;
+  final AuthService _authService;
 
-  AuthBloc({required AuthRepository authRepository})
-      : _authRepository = authRepository,
+  AuthBloc({required AuthService authService})
+      : _authService = authService,
         super(const AuthUnautorized()) {
     on<AuthInitEvent>(_onInit);
     on<AuthSignInEvent>(_onSignIn);
@@ -41,7 +40,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     emit(const AuthLoading());
     try {
-      final user = await _authRepository.signIn();
+      final user = await _authService.signInWithGoogle();
 
       if (user != null) {
         emit(AuthAutorized(user));
@@ -59,7 +58,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     emit(const AuthLoading());
     try {
-      if (await _authRepository.signOut()) {
+      if (await _authService.signOutGoogle()) {
         emit(const AuthUnautorized());
       } else {
         emit(const AuthError('Logout error'));
