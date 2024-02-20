@@ -4,13 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:samoilenko_maps_app/firebase_options.dart';
 import 'package:samoilenko_maps_app/utils/platform_selector.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_html/js.dart' as js;
 
 import 'application.dart';
 import 'common/assets.dart';
-import 'common/constants/firebase_constants.dart';
 import 'common/services/services.dart';
 import 'common/widgets/widgets.dart';
 
@@ -18,7 +18,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(
-      options: firebaseOptionsValues,
+      options: DefaultFirebaseOptions.web,
     );
   } else {
     await Firebase.initializeApp();
