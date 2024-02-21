@@ -1,5 +1,7 @@
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:samoilenko_maps_app/common/services/favorites_box.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 // import '../../firebase_options.dart';
@@ -19,7 +21,9 @@ class AppBootstrapper {
     // );
 
     await LocalizationService().initialize();
+    await Hive.initFlutter();
     await ThemeBox().initialize();
+    await FavoritesBox().initialize();
     await LoggerBootstrapper().setupLogger();
 
     await SystemChrome.setPreferredOrientations([
