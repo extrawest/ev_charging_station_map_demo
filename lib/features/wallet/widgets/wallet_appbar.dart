@@ -90,8 +90,7 @@ class WalletAppBar extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return maxHeight != oldDelegate.maxExtent ||
-        minHeight != oldDelegate.minExtent;
+    return maxHeight != oldDelegate.maxExtent || minHeight != oldDelegate.minExtent;
   }
 
   bool isContentScrolled(double shrinkOffset) {

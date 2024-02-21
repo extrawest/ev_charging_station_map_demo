@@ -12,7 +12,7 @@ part of 'connector.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Connector _$ConnectorFromJson(Map<String, dynamic> json) {
   return _Connector.fromJson(json);
@@ -20,12 +20,18 @@ Connector _$ConnectorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Connector {
+  @HiveField(1)
   @JsonKey(name: 'connectorId')
   int? get connectorId => throw _privateConstructorUsedError;
+  @HiveField(2)
   bool get enabled => throw _privateConstructorUsedError;
+  @HiveField(3)
   String? get id => throw _privateConstructorUsedError;
+  @HiveField(4)
   double? get power => throw _privateConstructorUsedError;
+  @HiveField(5)
   double? get tariff => throw _privateConstructorUsedError;
+  @HiveField(6)
   String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,12 +46,12 @@ abstract class $ConnectorCopyWith<$Res> {
       _$ConnectorCopyWithImpl<$Res, Connector>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'connectorId') int? connectorId,
-      bool enabled,
-      String? id,
-      double? power,
-      double? tariff,
-      String? type});
+      {@HiveField(1) @JsonKey(name: 'connectorId') int? connectorId,
+      @HiveField(2) bool enabled,
+      @HiveField(3) String? id,
+      @HiveField(4) double? power,
+      @HiveField(5) double? tariff,
+      @HiveField(6) String? type});
 }
 
 /// @nodoc
@@ -106,12 +112,12 @@ abstract class _$$ConnectorImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'connectorId') int? connectorId,
-      bool enabled,
-      String? id,
-      double? power,
-      double? tariff,
-      String? type});
+      {@HiveField(1) @JsonKey(name: 'connectorId') int? connectorId,
+      @HiveField(2) bool enabled,
+      @HiveField(3) String? id,
+      @HiveField(4) double? power,
+      @HiveField(5) double? tariff,
+      @HiveField(6) String? type});
 }
 
 /// @nodoc
@@ -163,30 +169,37 @@ class __$$ConnectorImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveField(0)
 class _$ConnectorImpl implements _Connector {
   const _$ConnectorImpl(
-      {@JsonKey(name: 'connectorId') this.connectorId,
-      required this.enabled,
-      this.id,
-      this.power,
-      this.tariff,
-      this.type});
+      {@HiveField(1) @JsonKey(name: 'connectorId') this.connectorId,
+      @HiveField(2) required this.enabled,
+      @HiveField(3) this.id,
+      @HiveField(4) this.power,
+      @HiveField(5) this.tariff,
+      @HiveField(6) this.type});
 
   factory _$ConnectorImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConnectorImplFromJson(json);
 
   @override
+  @HiveField(1)
   @JsonKey(name: 'connectorId')
   final int? connectorId;
   @override
+  @HiveField(2)
   final bool enabled;
   @override
+  @HiveField(3)
   final String? id;
   @override
+  @HiveField(4)
   final double? power;
   @override
+  @HiveField(5)
   final double? tariff;
   @override
+  @HiveField(6)
   final String? type;
 
   @override
@@ -229,28 +242,34 @@ class _$ConnectorImpl implements _Connector {
 
 abstract class _Connector implements Connector {
   const factory _Connector(
-      {@JsonKey(name: 'connectorId') final int? connectorId,
-      required final bool enabled,
-      final String? id,
-      final double? power,
-      final double? tariff,
-      final String? type}) = _$ConnectorImpl;
+      {@HiveField(1) @JsonKey(name: 'connectorId') final int? connectorId,
+      @HiveField(2) required final bool enabled,
+      @HiveField(3) final String? id,
+      @HiveField(4) final double? power,
+      @HiveField(5) final double? tariff,
+      @HiveField(6) final String? type}) = _$ConnectorImpl;
 
   factory _Connector.fromJson(Map<String, dynamic> json) =
       _$ConnectorImpl.fromJson;
 
   @override
+  @HiveField(1)
   @JsonKey(name: 'connectorId')
   int? get connectorId;
   @override
+  @HiveField(2)
   bool get enabled;
   @override
+  @HiveField(3)
   String? get id;
   @override
+  @HiveField(4)
   double? get power;
   @override
+  @HiveField(5)
   double? get tariff;
   @override
+  @HiveField(6)
   String? get type;
   @override
   @JsonKey(ignore: true)
