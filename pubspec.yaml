@@ -65,12 +65,12 @@ dependencies:
 
 
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.1
+  hive_generator: ^2.0.1
   freezed: ^2.3.2
   json_serializable: ^6.7.1
   build_runner: ^2.4.8
@@ -79,6 +79,8 @@ dev_dependencies:
   lint: ^2.0.20
   dart_code_metrics: ^5.7.4
 
+
+
 flutter:
   uses-material-design: true
 
@@ -86,8 +88,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/i18n/
-  
+
 flutter_gen:
-  output: lib/generated/ 
+  output: lib/generated/
   integrations:
     flutter_svg: true

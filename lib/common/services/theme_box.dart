@@ -5,7 +5,6 @@ class ThemeBox {
   static const String themeModeKey = 'themeMode';
 
   Future<void> initialize() async {
-    await Hive.initFlutter();
     await Hive.openBox<dynamic>(name);
   }
 }
