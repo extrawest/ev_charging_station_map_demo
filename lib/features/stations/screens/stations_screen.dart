@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../favorite/bloc/favorites_bloc.dart';
 import '../bloc/stations_bloc/stations_bloc.dart';
 import '../bloc/stations_bloc/stations_event.dart';
 import '../bloc/stations_bloc/stations_state.dart';
@@ -18,6 +19,8 @@ class _StationsScreenState extends State<StationsScreen> {
   void initState() {
     super.initState();
     context.read<StationsBloc>().add(FetchStationsEvent());
+    context.read<FavoritesCubit>().loadFavorites();
+
   }
 
   @override

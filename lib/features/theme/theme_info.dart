@@ -19,6 +19,7 @@ const Color greyBorderColor = Color(0xffC8D1DD);
 const Color labelTextColor = Color(0xff383936);
 const Color whiteColor1 = Color(0xffFFFFFD);
 const Color whiteColor2 = Color(0xffFBFFE9);
+const Color shadowColor1 = Color(0xff968274);
 
 class TextStyles {
   static const notifierTextLabel = TextStyle(
