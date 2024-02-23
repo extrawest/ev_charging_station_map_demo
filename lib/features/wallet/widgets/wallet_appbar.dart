@@ -45,7 +45,7 @@ class WalletAppBar extends SliverPersistentHeaderDelegate {
             if (isContentScrolled(shrinkOffset))
               Column(
                 children: [
-                  Text('Wallet', style: Theme.of(context).textTheme.titleSmall),
+                  Text('Wallet', style: Theme.of(context).textTheme.titleSmall?.copyWith(color: labelTextColor)),
                   const SizedBox(
                     height: 30,
                   ),
@@ -53,7 +53,7 @@ class WalletAppBar extends SliverPersistentHeaderDelegate {
               ),
             Text(
               'Your Balance',
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: labelTextColor),
             ),
             Text(
               '\$ $ballance',

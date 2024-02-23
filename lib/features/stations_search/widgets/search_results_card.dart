@@ -14,6 +14,7 @@ class SearchResultsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
+      color: white,
       child: ListTile(
         title: Text(
           searchResultStation.stationId.toString(),

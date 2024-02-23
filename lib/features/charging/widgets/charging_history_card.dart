@@ -18,6 +18,7 @@ class ChargingHistoryCard extends StatelessWidget {
 
     return Card(
       elevation: 0,
+      color: white,
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(

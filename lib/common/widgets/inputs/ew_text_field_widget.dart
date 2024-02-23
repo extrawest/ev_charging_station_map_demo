@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../features/stations_search/bloc/search_station_bloc.dart';
+import '../../../features/theme/theme_info.dart';
 
 
 class EWTextFieldWidget extends StatefulWidget {
@@ -50,6 +51,7 @@ class _EWTextFieldWidgetState extends State<EWTextFieldWidget> {
           controller: _textController,
           autoValidateMode: AutovalidateMode.disabled,
           keyboardType: TextInputType.multiline,
+          textStyle: const TextStyle(color: inputTextColor),
           prefixIcon: const Icon(Icons.search),
           suffixIcon: const Text(''),
         ),

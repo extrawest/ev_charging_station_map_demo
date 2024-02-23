@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,6 +46,15 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAGpRrpBOvbHRCmiSwM2jSNcM6SS4wj6CU',
+    appId: '1:136869045959:web:c60845309de87fb98880e2',
+    messagingSenderId: '136869045959',
+    projectId: 'maps-training-samoilenko',
+    authDomain: 'maps-training-samoilenko.firebaseapp.com',
+    storageBucket: 'maps-training-samoilenko.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAH1biAfY3-S_8uhCWNjnfZQvnBRsABw8o',
     appId: '1:136869045959:android:c67a7228c6f639468880e2',
@@ -63,7 +69,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '136869045959',
     projectId: 'maps-training-samoilenko',
     storageBucket: 'maps-training-samoilenko.appspot.com',
-    androidClientId: '136869045959-du650mnk413isavbu2bkbmroa4i4q065.apps.googleusercontent.com',
+    androidClientId: '136869045959-390dfisvqs9jr5dnrklbdis4aenitth9.apps.googleusercontent.com',
     iosClientId: '136869045959-44tlpa1tjr3igtcqjv633hh36vmbvmln.apps.googleusercontent.com',
     iosBundleId: 'com.extrawest.samoilenkoMapsApp.dev',
   );

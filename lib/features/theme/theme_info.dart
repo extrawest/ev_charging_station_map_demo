@@ -213,6 +213,7 @@ ThemeData lightTheme = ThemeData(
         color: greyBorderColor, // Change the border color as needed
       ),
     ),
+
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
       gapPadding: 2,
@@ -224,6 +225,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 14,
       fontFamily: GoogleFonts.inter().fontFamily,
     ),
+
     labelStyle: const TextStyle(color: inputTextColor),
   ),
   textTheme: TextTheme(

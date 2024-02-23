@@ -196,7 +196,7 @@ class _ChargingStationsPresenterWidgetState
         ),
         Text(
           'Charging session',
-          style: Theme.of(context).textTheme.titleSmall,
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(color: labelTextColor),
         ),
         const SizedBox(
           height: 10,
