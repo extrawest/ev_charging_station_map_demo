@@ -37,13 +37,15 @@
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
 
-
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
   <script>
   window.onload = function() {
     console.log('DEFINE_WEB_KEY: ' + window.DEFINE_WEB_KEY);
 
     var script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + window.DEFINE_WEB_KEY;
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCxRvi4_4hyAw49PObPVtOq9iPqdvCFWKw';
     document.head.appendChild(script);
   };
 </script>
@@ -54,11 +56,12 @@
 </head>
 <body>
 <script>
+
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
+         serviceWorkerVersion: '123',
         }
       }).then(function(engineInitializer) {
         return engineInitializer.initializeEngine();
