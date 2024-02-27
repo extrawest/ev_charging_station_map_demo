@@ -75,5 +75,5 @@ firebase deploy
 
 Created by **Oleksandr Samoilenko**
 
-[Extrawest.com](https://www.extrawest.com), 2023
+[Extrawest.com](https://www.extrawest.com), 2024
 
