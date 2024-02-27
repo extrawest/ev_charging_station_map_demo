@@ -1,182 +1,79 @@
-# Flutter BLoC Project Starter
+# Samoilenko Maps App
 
-<a href="mailto:andriy.gulak@extrawest.com" alt="Contributors">
-  <img src="https://img.shields.io/static/v1?label=Andriy Gulak&message=Maintainer&color=red" />
-</a>
-<a href="mailto:maksym.ostrovyj@extrawest.com" alt="Contributors">
-  <img src="https://img.shields.io/static/v1?label=Maksym%20Ostrovyi&message=Contributor&color=red" />
-</a>
+[![Maintanence](https://img.shields.io/badge/Maintenance-yes-blue.svg)]()
+[![Codemagic build status](https://api.codemagic.io/apps/63905b4f2551810eda63638f/63905b4f2551810eda63638e/status_badge.svg)](https://codemagic.io/app/63fc69846e27169aa2005e16/build/6405abad783b638b2c4582ce)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)]()
+![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
+![GitHub release](https://img.shields.io/badge/release-v1.0.0-blue)
+![Supported Platforms](https://img.shields.io/badge/Platform-Android%20|%20iOS%20|%20Web%20%20-blue.svg?logo=flutter)
+[![View DEMO](https://img.shields.io/badge/VIEW-DEMO-lightgreen.svg)](https://maps-training-samoilenko.web.app/#/)
 
-A new Flutter application starter bundled with BLoC library for state management.
+## Project info
+- This project is an app that shows a map with Electric Charging Stations and their information. The app supports station markers clustering.
+- The app runs on Android, iOS and Web.
+- The app is built using Flutter stable and latest Dart version.
+- The app is built using the MVVM architecture.
+- The app is built using the BLoC pattern.
 
-## Instructions on how to build, run and config
-## Localization
+## Demo
+[Stations Map App](https://maps-training-samoilenko.web.app/#/)
 
-### 1. Update en.json and other json dictionaries under the assets/i18n folder
 
-### 2. Load assets and generate static keys for translations
+https://user-images.githubusercontent.com/
 
+
+## How to run the app
+- **Clone the project.**
 ```shell
-sh ./scripts/generate_l10n.sh
+git clone https://github.com/extrawest/ev_charging_station_map_demo.git
 ```
-
-## Models and other assets
-
-### 1. Generate boilerplate (Freezed, Mockito, images etc.)
-
+- **Open the project.**
 ```shell
-sh ./scripts/generate_runner.sh
+cd your_name_here
 ```
-
-### Generate all 
-
+- **Get packages.**
 ```shell
-sh ./scripts/generate.sh
+flutter pub get
 ```
-
-## CREATE CREDENTIALS FILES FOR DEVELOPMENT AND PRODUCTION MODE
-
-Create `credentials_production.json` and `credentials_development.json` inside the `assets` folder.
-Do not add these files to GIT!
-Files should have the following structure:
-
-```json
-{
-  "appName": "",
-  "apiBaseUrl": ""
-}
-```
-Where:
-- Value for `appName` should be according to your project
-- Value for `apiBaseUrl`, can be obtained on the backend
-
-## BUILD SCRIPTS SETUP
-
-For Visual Studio Code: 
-
-1. Create a tasks.json file (next to vscode's launch.json, usually in the workspace's .vscode directory).
-2. Put this task definition into it: 
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "setupDevFlavor",
-            "command": "scripts/setup_env.sh", 
-            "args": [
-                "dev",
-            ]
-        },
-        {
-            "label": "setupProdFlavor",
-            "command": "scripts/setup_env.sh", 
-            "args": [
-                "prod",
-            ]
-        }
-    ],
-    
-}
-```
- 
- 3. Add `"preLaunchTask": "XXXXXXX"` to launch.json configuration(s) to reference the task.
-
- For Android Studio / Jetbrains IDEs:
-
- 1. Go to `Run > Edit Configurations`
- 2. Add a new shell script / external tool configuration to invoke this script.
- 3. Configure our normal configuration(s) with a `Before Launch` to invoke the new shell script config.
-
-## FIREBASE CONFIGURATION
-
+- **Configure firebase project with flutterfire.**
 ```shell
-sh ./scripts/confugure_firebase.sh {your_flavor_here}
+flutterfire configure
+```
+- **Run the app with your api key for the map as additional run argument.**
+```
+    flutter run --dart-define MAP_API_KEY="{YOUR_API_KEY_HERE}"
 ```
 
-## RUN THE APP IN DEVELOPMENT OR PRODUCTION MODE
+At this point you should be able to run the app on your device or emulator.
 
-App supports 2 flavors: `dev` and `prod`.
+## Firebase hosting
 
-To use flavor value in app, use next function
+1. In order to deploy this app to Firebase hosting, follow these commands
 
-```dart
-Future<String?> getFalvor()
-```
-
-In order to run in production mode provide an additional flavor argument to the run
-command:
-
-- For Android/IOS:  `--flavor=prod`
-
+- **Login to firebase.**
 ```shell
-flutter run --falvor=prod
+firebase login
 ```
-
-- For Web: `--dart-define FLAVOR=prod`
-
+- **Initialize firebase.**
 ```shell
-fvm flutter run --dart-define FLAVOR=prod -d chrome
+firebase init
 ```
-
-To run app on Android device with dynamic GoogleMapKey use and in flavour Prod:
+- **Choose account, then choose Hosting as an option.**
+- **Select Firebase project**
+- **Select public directory for your hosting**
+  build/web (default)
+- **Configure as a single-page app**
+- **Build the project if you haven't yet**
 ```shell
-flutter run --dart-define ANDROID_KEY="YOUR_GOOGLE_MAP_KEY" --flavor=prod
+flutter build web
 ```
-To run app on IOS device with dynamic GoogleMapKey use and in flavour Prod:
+- **Deploy to firebase.**
 ```shell
-flutter run --dart-define IOS_KEY="YOUR_GOOGLE_MAP_KEY" --flavor=prod
-```
-To run app in Web Browser with dynamic GoogleMapKey use and in flavour Prod:
-```shell
-flutter run  -d chrome --dart-define WEB_KEY="YOUR_WEB_MAP_KEY" --dart-define FLAVOR=prod
+firebase deploy
 ```
 
 
+Created by **Oleksandr Samoilenko**
 
-Important! To create the production build of the app you should also provider an
-additional flavor argument:
+[Extrawest.com](https://www.extrawest.com), 2023
 
-- For Android/IOS:  `--flavor=prod`
-
-```shell
-flutter build ipa --flavor=prod
-```
-
-- For Web: `--dart-define FLAVOR=prod`
-
-```shell
-flutter build web --dart-define FLAVOR=prod
-```
-
-## Implemented Features
-
-- MVVM (BLoC Feature Based) state sharing and state managing solution
-- Fully featured localization / internationalization (i18n):
-    - Pluralization support
-    - Supports both languageCode (en) and languageCode_countryCode (en_US) locale formats
-    - Automatically save & restore the selected locale
-    - Full support for right-to-left locales
-    - Fallback locale support in case the system locale is unsupported
-    - Supports both inline or nested JSON
-- NOSQL database integration (HIVE)
-- Light/Dark theme configuration
-- Dynamic Themes changing
-- API client configuration
-- DEV/PROD flavors configuration (native flavors included)
-- Multilevel configurable logger
-- Static analysis tool integration (flutter_lints package + custom rules config)
-- Common widgets sharing and reusing example
-- Resolution-aware images (1x,2x,3x sizes)
-
-### Contributing
-
-1. Fork it!
-1. Create your feature branch: `git checkout -b new-cool-tip`
-1. Commit your changes: `git commit -am 'Added new tip'`
-1. Push to the branch: `git push origin new-cool-tip`
-1. Submit a pull request.
-
----
-Created by Extrawest Mobile Team
-[Extrawest.com](https://www.extrawest.com), 2022
----
