@@ -52,5 +52,5 @@ Future<void> main() async {
     data: DevicePreviewData(
       deviceIdentifier: Devices.ios.iPhone13.toString(),
     ),
-  ));
+  ),);
 }
