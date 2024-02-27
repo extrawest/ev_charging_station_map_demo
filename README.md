@@ -19,7 +19,8 @@
 [Stations Map App](https://maps-training-samoilenko.web.app/#/)
 
 
-https://user-images.githubusercontent.com/
+https://github.com/extrawest/ev_charging_station_map_demo/assets/68539527/859603da-8151-40f7-bcb0-19e59971e5ae
+
 
 
 ## How to run the app
