@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -35,8 +36,9 @@ Future<void> main() async {
 
   await AppBootstrapper().bootstrap();
 
-  runApp(
-    EasyLocalization(
+  runApp(DevicePreview(
+    enabled: kIsWeb,
+    builder: (context) => EasyLocalization(
       supportedLocales: LocalizationService.supportedLocales,
       path: translationsFolderPath,
       fallbackLocale: LocalizationService.englishLocale,
@@ -46,5 +48,9 @@ Future<void> main() async {
         ),
       ),
     ),
-  );
+    isToolbarVisible: false,
+    data: DevicePreviewData(
+      deviceIdentifier: Devices.ios.iPhone13.toString(),
+    ),
+  ));
 }
